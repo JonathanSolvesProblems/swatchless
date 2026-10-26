@@ -1003,5 +1003,270 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T08:55:58.025Z"
+ },
+ {
+  "id": "luxy-14",
+  "arm": "no_youcam",
+  "truth": "Off Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Dark Brown"
+  ],
+  "shade_offerable": true,
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.229,
+  "seconds": 41,
+  "usage": {
+   "input_tokens": 10,
+   "output_tokens": 2384,
+   "cache_read_tokens": 18936,
+   "cache_write_tokens": 35457
+  },
+  "measurements": {
+   "method": "Visual comparison only. The customer's selfie was checked against the store swatches; no YouCam measurement or try-on was run (selfie not uploaded).",
+   "hair_colour_observed": "Very dark brown-black (level 1–2, neutral to slightly warm). Roots and lengths are the same colour, with no regrowth line or highlights. Soft brown shows only where light hits the lengths.",
+   "hair_type": "Straight, roughly shoulder-to-collarbone length (judged by eye)",
+   "density": "Not measured. No head-down photo was given, and it isn't needed for a shade-only question.",
+   "failed_measurements": [
+    "density (no head-down photo)",
+    "all YouCam measurements (selfie not uploaded)"
+   ]
+  },
+  "reasons": [
+   "Best match. Luxy Off Black is a soft, natural black with a faint brown undertone. That matches the customer's roots and lengths, which are near-black and show a little brown in the light. Listed as the 16\" Thinning Hair Fill-Ins (in stock, $140) so the shades can be compared on the same product. The Off Black shade is the same across Luxy's fill-in range.",
+   "Backup only. Luxy Dark Brown is the next shade lighter, a deep cool-neutral brown. It's a little lighter and browner than the customer's roots, so it would blend with the brown that shows in the light but may look lighter at the parting. Use it only if they say their hair looks browner in daylight than in this photo. Same product for comparison: 16\" Thinning Hair Fill-Ins, in stock, $140."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:56:38.890Z"
+ },
+ {
+  "id": "luxy-15",
+  "arm": "full",
+  "truth": "Mocha Brown",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Jet Black",
+   "Dark Brown"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 3,
+  "refusals": [],
+  "youcam_units": 6,
+  "usd_claude": 0.364,
+  "seconds": 68,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 5414,
+   "cache_read_tokens": 127591,
+   "cache_write_tokens": 45972
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: needs front, left and right photos; only a front selfie was provided.",
+   "length": "Measurement failed: YouCam returned error_face_position_too_small (the face is too small in the frame for length detection).",
+   "observed_colour": "From the selfie: soft off-black with a slight brown tone in the light, the same depth from root to end, no visible highlights or regrowth."
+  },
+  "reasons": [
+   "Closest match. The swatch and the customer's hair are both a soft black with a faint brown cast, and the render blends into the customer's own roots with no visible step in depth or tone. The face is unchanged in the render.",
+   "Second choice, one step deeper and cooler than the customer's natural colour. The render reads slightly darker and flatter than their roots. It suits someone who wants a richer black. The face is unchanged in the render.",
+   "Third choice, a warmer and lighter alternative. The render shows clear brown warmth through the lengths, lighter than the customer's roots. It suits the customer only if they want added brightness rather than an exact match. The face is unchanged in the render."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:57:47.739Z"
+ },
+ {
+  "id": "luxy-15",
+  "arm": "no_youcam",
+  "truth": "Mocha Brown",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Dark Brown"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.225,
+  "seconds": 40,
+  "usage": {
+   "input_tokens": 12,
+   "output_tokens": 2939,
+   "cache_read_tokens": 48689,
+   "cache_write_tokens": 31323
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo, and no measurement tool on this desk",
+   "hair_type": "looked at, not measured: straight, smooth texture in the selfie",
+   "length": "looked at, not measured: about shoulder length, ending around the collarbone",
+   "colour_read_by_eye": "very dark brown that is almost black. Roots and mid-lengths look the same depth with no regrowth line. The lengths show a slight soft-brown warmth in the light",
+   "failed_or_unavailable": "Density not measured (no head-down photo). YouCam selfie not uploaded, so no renders were made. The shade was picked by comparing the selfie with store swatches and on-model reference photos by eye"
+  },
+  "reasons": [
+   "Best match: Luxy Off Black. The swatch and the on-model 'Before' reference are a soft, deep near-black with a hint of brown, not a flat blue-black. That matches the customer's roots and lengths closely. Shown as the 12\" Off Black Scalp Hair Fill-Ins (in stock, $120), which suits their shoulder length. If they've picked a different Luxy product, use that product in Off Black.",
+   "Second choice: Luxy Dark Brown. It's one step lighter and warmer than Off Black. Worth it if the stylist sees the customer's hair as more brown than black in daylight, especially at the ends. Shown as the 12\" Dark Brown Thinning Hair Fill-Ins (in stock, $110)."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:58:28.445Z"
+ },
+ {
+  "id": "luxy-16",
+  "arm": "full",
+  "truth": "Off Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Dark Brown",
+   "Jet Black"
+  ],
+  "shade_offerable": true,
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 4,
+  "refusals": [],
+  "youcam_units": 10,
+  "usd_claude": 0.444,
+  "seconds": 99,
+  "usage": {
+   "input_tokens": 18,
+   "output_tokens": 6211,
+   "cache_read_tokens": 245322,
+   "cache_write_tokens": 54200
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: only a front selfie was provided (it needs front, left and right photos).",
+   "hair_length": "above chest or longer (YouCam AI-Hair-Length-Detection, selfie)",
+   "natural_colour_observed": "Very dark, near-black brown with dark roots and soft brown warmth through the lengths.",
+   "failed_or_dropped": "First Off Black render (ref Off-Black_20_After_Front.jpg) dropped because it erased the customer's freckles and smoothed the face. Re-rendered with the second Off Black reference, which kept the face intact."
+  },
+  "reasons": [
+   "Best match. It is a soft near-black with a slight brown base, which matches the customer's roots and lengths. The render shows it blending with no visible tone shift. 20\" suits their measured length (above chest or longer).",
+   "Lighter alternative. It picks up the brown warmth that shows in their ends under light, but the render reads visibly browner than their roots.",
+   "Deeper alternative. It is a cooler, flatter true black. The render shows it reading darker and cooler than their natural colour, so it is only for someone who wants a deeper finish."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T09:00:08.937Z"
+ },
+ {
+  "id": "luxy-16",
+  "arm": "no_youcam",
+  "truth": "Off Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Dark Brown"
+  ],
+  "shade_offerable": true,
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.227,
+  "seconds": 40,
+  "usage": {
+   "input_tokens": 12,
+   "output_tokens": 2932,
+   "cache_read_tokens": 50240,
+   "cache_write_tokens": 31560
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo, and this desk has no measurement tools",
+   "hair_type": "not measured: looks straight to slightly wavy in the selfie (visual only)",
+   "length": "not measured: looks well past the shoulders in the selfie (visual only)",
+   "colour_observed": "Visual only: near-black at the roots and along the part. The lengths are a soft off-black with a slight warm-brown sheen where light hits. There are no highlights and no visible greys.",
+   "failed_measurements": "All of them. YouCam selfie file was 'not-uploaded' and there was no head-down photo, so no density, hair type, length or render. Shade was matched by eye from the selfie against store swatches and on-model photos."
+  },
+  "reasons": [
+   "Off Black: best match. The swatch and the on-model photo are a deep, soft black with a hint of brown, not blue-black. That matches the customer's roots and part and blends with the slightly warmer lengths. 20\" Scalp Hair Fill-Ins (50g), $185, in stock. Used as an example only: the customer hasn't said which product they want, and Off Black is also in stock as 12\" Scalp Fill-Ins and 16\"/20\" Thinning Hair Fill-Ins.",
+   "Dark Brown: second choice. Slightly lighter and browner than the customer's roots. Choose it only if the customer's hair looks browner in daylight than in this indoor photo, where the lengths show some warm-brown sheen. Next to the part it may read a little light. 20\" Scalp Hair Fill-Ins (50g), $185, in stock. Same shade also comes in 12\"/16\"/20\" Thinning Fill-Ins, 16\" Scalp Fill-Ins and bundles."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T09:00:48.783Z"
+ },
+ {
+  "id": "luxy-17",
+  "arm": "full",
+  "truth": "Off Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Off Black"
+  ],
+  "shade_offerable": true,
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 2,
+  "refusals": [],
+  "youcam_units": 4,
+  "usd_claude": 0.297,
+  "seconds": 73,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 5269,
+   "cache_read_tokens": 106448,
+   "cache_write_tokens": 34104
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_length": "Failed: YouCam returned error_face_angle_invalid. The selfie is a strong side profile, outside the supported angle, so that photo can't be used to measure length.",
+   "hair_type": "Skipped: needs front, left and right photos. Only one side-profile selfie was provided.",
+   "colour_read": "From the selfie and swatches: natural soft black, the same from root to ends, with a faint warm brown sheen where the light hits. Off Black is the closest swatch. Jet Black is cooler and flatter. Dark Brown is clearly too light and too brown.",
+   "render_check": "Both renders kept the customer's face, pose and hand. Hair length and wave come from the reference photos and are not the customer's own. The Off Black render (soft warm black) is closest to the customer's colour. The Jet Black render looks cooler and more blue-black, so it is not recommended."
+  },
+  "reasons": [
+   "Off Black is the shade match. It is a soft black with the same faint warm sheen the customer's hair shows in the light, and it carries the same depth through the roots. Shown here as 16\" Thinning Hair Fill-Ins, $140, in stock. The stylist should confirm which product the customer has in mind, because the customer didn't name it.",
+   "Same Off Black shade in the 12\" Scalp Hair Fill-Ins, $120, in stock, in case that is the product the customer wants. The colour reasoning is the same: it matches their soft, warm-leaning black from root to tip."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T09:02:03.016Z"
+ },
+ {
+  "id": "luxy-17",
+  "arm": "no_youcam",
+  "truth": "Off Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Jet Black"
+  ],
+  "shade_offerable": true,
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.183,
+  "seconds": 36,
+  "usage": {
+   "input_tokens": 12,
+   "output_tokens": 2778,
+   "cache_read_tokens": 40319,
+   "cache_write_tokens": 23870
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo, and density isn't needed for a shade-only question",
+   "hair_type": "not measured; the selfie shows straight to slightly wavy hair",
+   "length": "not measured; looks about shoulder length or longer in the selfie",
+   "colour_assessment": "From the selfie only: soft natural black from root to end, with no lighter regrowth or colour band. In the light it gives faint warm brown glints, not a blue sheen.",
+   "failed_or_unavailable": "No YouCam measurement or try-on. The selfie was not uploaded (file id: not-uploaded), so there are no renders. Shades were matched by eye against the store swatches and on-model photos."
+  },
+  "reasons": [
+   "Best match. The customer's hair is a soft natural black, the same at the roots as through the lengths, with faint warm brown glints where the light hits. The Luxy Off Black swatch and on-model photo show the same soft, slightly warm black. This 12\" Scalp Hair Fill-In stands in for the Off Black shade. If the customer names a different product, use the Off Black version of it. Off Black is in stock as 12\"/20\" Scalp Fill-Ins, 16\"/20\" Thinning Fill-Ins and a 20\" bundle.",
+   "Close alternative if the customer sees their hair as a deeper, cooler black, or if their chosen product has no Off Black version. For example, the 14\" Topper bundle appears only in Jet Black. The Jet Black swatch is a slightly cooler, inkier black than the customer's hair shows in this selfie, but it's still within black and won't look lighter at the roots. Shown here as the 12\" Scalp Hair Fill-In."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T09:02:39.515Z"
  }
 ]

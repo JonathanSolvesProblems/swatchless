@@ -1,0 +1,40 @@
+# Lives at ~/experimental-projects/swatchless/docker-compose.yml on the OVH box.
+#
+# Joins the shared `web` network and is routed by the box's existing Traefik (entrypoint websecure,
+# certresolver le), the same way elbow-room is. Nothing here touches Traefik's own config, and the
+# memory and CPU caps keep a busy consult from crowding the other stacks on the box.
+#
+# Deploy: bash deploy/deploy.sh (builds locally, ships the image, restarts this stack).
+services:
+  app:
+    image: swatchless:latest
+    container_name: swatchless
+    env_file: .env
+    restart: unless-stopped
+    mem_limit: 1g
+    cpus: 1.0
+    networks:
+      - web
+    volumes:
+      # Consults (photos, renders, logs) and the spending ledger. Without this a redeploy resets the
+      # daily caps, which is the one bug that costs real money.
+      - consults:/data
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: web
+      traefik.http.routers.swatchless.rule: Host(`swatchless.jonathanandrei.com`)
+      traefik.http.routers.swatchless.entrypoints: websecure
+      traefik.http.routers.swatchless.tls.certresolver: le
+      traefik.http.services.swatchless.loadbalancer.server.port: "8080"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  consults:
+
+networks:
+  web:
+    external: true

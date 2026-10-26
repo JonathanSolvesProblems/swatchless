@@ -7,17 +7,17 @@ created in the submission session (not this file) and confirmed in the schedule 
 
 | Resource | Where | On teardown |
 |---|---|---|
-| Hosting (Fly app, machine, 1 GB volume) | Fly.io account | `fly apps destroy <app>` releases the machine, the volume and the IPs together. Verify from outside: the URL must stop answering. |
+| Container, image and volume | OVH box, `~/experimental-projects/swatchless` | `docker compose down -v`, `docker rmi swatchless:latest`, remove the folder. Or replace with a static archive page, as bloom was. Verify from outside: the URL must stop serving the app. |
+| DNS | Hostinger, A record `swatchless` | Delete it, unless an archive page stays at that address. |
 | Cron for `/api/watch` | `.github/workflows/watch.yml` | Delete the `SWATCHLESS_URL` variable and `CRON_SECRET` secret in the repo; the job then skips. |
 | YouCam API key | yce.makeupar.com console | Revoke; it sat on an internet-facing box. The hackathon grant expires anyway. |
 | Anthropic API key for the app | console.anthropic.com | Revoke `SWATCHLESS_ANTHROPIC_API_KEY`. |
-| `CRON_SECRET` | Fly secrets, GitHub secret | Goes with the app; delete the GitHub secret. |
-| DNS | none planned | If a subdomain was pointed at the deployment, delete the record first. |
-| Consult records (customer photos) | the Fly volume | Destroyed with the app. The composite demo customer is not a real person. |
+| `CRON_SECRET` | `.env` on the box, GitHub secret | Goes with the folder; delete the GitHub secret. |
+| Consult records (customer photos) | the `swatchless_consults` volume | Removed by `down -v`. The composite demo customer is not a real person. |
 
 ## Sweep
 
-`scripts/teardown_sweep.sh` lists everything the account still holds on Fly.io. Run it once right after the first
+`scripts/teardown_sweep.sh` lists everything on the OVH box that belongs to Swatchless. Run it once right after the first
 deployment, so it is known to work while the credentials are live, and again after teardown, where it must print
 nothing for this project.
 

@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
-# Lists everything this account still holds on Fly.io that could belong to Swatchless.
+# Lists everything on the OVH box that belongs to Swatchless.
 # Run once right after the first deployment (proves it works) and again after teardown (must show nothing).
-#   bash scripts/teardown_sweep.sh [app-name]
+#   bash scripts/teardown_sweep.sh
 set -u
-APP="${1:-swatchless}"
-FLY=$(command -v flyctl || command -v fly) || { echo "flyctl not installed"; exit 1; }
-echo "== account"; "$FLY" auth whoami || exit 1
-echo "== apps (look for $APP)"; "$FLY" apps list 2>/dev/null | grep -i -E "$APP|swatchless" || echo "none"
-echo "== machines"; "$FLY" machines list -a "$APP" 2>/dev/null || echo "none"
-echo "== volumes"; "$FLY" volumes list -a "$APP" 2>/dev/null || echo "none"
-echo "== ips"; "$FLY" ips list -a "$APP" 2>/dev/null || echo "none"
-echo "== certs"; "$FLY" certs list -a "$APP" 2>/dev/null || echo "none"
-echo "== done. Anything listed above for $APP must be destroyed on 2026-11-20 (fly apps destroy $APP)."
+HOST="${SWATCHLESS_HOST:-jonathan@51.161.82.166}"
+ssh -o BatchMode=yes "$HOST" '
+echo "== containers"; docker ps -a --filter name=swatchless --format "{{.Names}} {{.Status}}" | grep . || echo none
+echo "== images"; docker images swatchless --format "{{.Repository}}:{{.Tag}} {{.Size}}" | grep . || echo none
+echo "== volumes"; docker volume ls --format "{{.Name}}" | grep swatchless || echo none
+echo "== stack folder"; ls -d ~/experimental-projects/swatchless 2>/dev/null || echo none
+' || exit 1
+echo "== public URL"; curl -s -o /dev/null -w "%{http_code}\n" --max-time 10 https://swatchless.jonathanandrei.com/ || echo "no answer"
+echo "== DNS"; nslookup swatchless.jonathanandrei.com 1.1.1.1 2>/dev/null | awk '/^Address/ && !/#/ {print $2}' | grep . || echo none
+echo "== done. Anything listed above must be gone on 2026-11-20, and the A record deleted at Hostinger."
