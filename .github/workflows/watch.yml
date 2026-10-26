@@ -1,0 +1,13 @@
+name: watch
+# The daily restock pass: re-reads the stores' live stock and re-renders anything that came back.
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    if: ${{ vars.SWATCHLESS_URL != '' }}
+    steps:
+      - run: curl -fsS -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" "${{ vars.SWATCHLESS_URL }}/api/watch"

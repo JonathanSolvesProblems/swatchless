@@ -1,0 +1,28 @@
+app = "swatchless"
+primary_region = "yyz"
+
+[build]
+  [build.args]
+    SITE_URL = "https://swatchless.fly.dev"
+
+[mounts]
+  source = "consults"
+  destination = "/data"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    grace_period = "20s"
+    interval = "30s"
+    method = "GET"
+    path = "/benchmark"
+    timeout = "10s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "1gb"

@@ -1,0 +1,424 @@
+{
+ "id": "2026-10-26-d3856eaf",
+ "created": "2026-10-26T08:40:09.872Z",
+ "note": "Since the baby my part keeps getting wider and you can see my scalp. Which pieces would match my colour and cover it?",
+ "result": {
+  "status": "recommended",
+  "measurements": {
+   "hair_density": "2.28 – 'Medium Density' (level 2, visible scalp), from head-down photo",
+   "hair_length": "above chest or longer, from selfie",
+   "hair_type": "not measured – needs front, left and right photos; only a front selfie was provided",
+   "natural_colour_observed": "soft near-black with darker roots and a slight warm dark-brown cast through the lengths"
+  },
+  "recommendations": [
+   {
+    "variant_id": 42212706156580,
+    "store": "Luxy Hair",
+    "title": "20\" Off Black Scalp Hair Fill-Ins (50g)",
+    "shade": "Off Black",
+    "price": 185,
+    "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410362047/v2/aeMNNB0KmUIP8rnQ996tC5Q/79176149-9d61-45c5-8b94-ebcf7ab986f7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=5e8ff68f416643bbe5e2fd86e0939cdbf2a58ba856463c51dca70a14ce3fc235",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+    "swatch_url": "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Off-Black_Color-Swatch_6a7d2621-3b5f-46fd-a533-7a89c571809e.jpg",
+    "cart_url": "https://luxyhair.com/cart/42212706156580:1",
+    "product_url": "https://luxyhair.com/products/20-off-black-scalp-hair-fill-ins-50g",
+    "why": "Luxy 20\" Off Black Scalp Hair Fill-Ins (50g), $185, in stock. Closest swatch to the customer's soft near-black with brown undertone; scalp fill-ins target the widening part (density level 2); 20\" suits their above-chest-or-longer length. Render keeps the face intact and shows a seamless root-to-end colour match."
+   },
+   {
+    "variant_id": 42212706287652,
+    "store": "Luxy Hair",
+    "title": "20\" Jet Black Scalp Hair Fill-Ins (50g)",
+    "shade": "Jet Black",
+    "price": 185,
+    "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361928/v2/aeMNNB0KmUIP8rnQ996tC5Q/a662d9e5-dd5f-4b0f-bbc9-12812b913694.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=008a232d1875117e46c4c93cfcd9f98706115f96a41b208d706a1fc5f1edfa3d",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Jet-Black_20_After_Front1_0d278faf-c991-439f-9bf7-1b40084d854a.jpg",
+    "swatch_url": "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Jet-Black_Color-Swatch_2ef81939-753a-4e13-81a0-aa5d4def90d9.jpg",
+    "cart_url": "https://luxyhair.com/cart/42212706287652:1",
+    "product_url": "https://luxyhair.com/products/20-jet-black-scalp-hair-fill-ins-50g",
+    "why": "Luxy 20\" Jet Black Scalp Hair Fill-Ins (50g), $185, in stock. Slightly deeper and cooler than their own colour but close to their darkest roots; an option if they prefer a richer black. Render keeps the face intact and shows the shade clearly."
+   },
+   {
+    "variant_id": 53782159196524,
+    "store": "Ellen Wille",
+    "title": "Ultima | Top Power | Heat Friendly Synthetic Topper",
+    "shade": "ESPRESSO MIX",
+    "price": 574.49,
+    "render_url": null,
+    "render_note": "Not rendered: every reference photo the store lists for this variant shows Mocca Rooted, not Espresso Mix, so a 'ref' render would show the wrong colour. Shade chosen from the swatch alone.",
+    "reference_url": null,
+    "swatch_url": "https://cdn.shopify.com/s/files/1/1171/4786/files/ultima-espresso-mix.jpg",
+    "cart_url": "https://www.ellenwille.com/cart/53782159196524:1",
+    "product_url": "https://www.ellenwille.com/products/ultima",
+    "why": "Ellen Wille Ultima Espresso Mix heat-friendly synthetic topper, $574.49, in stock. The swatch's brown-black with fine dark-brown strands closely matches the customer's natural colour; a topper adds coverage across the part and crown for density level 2."
+   }
+  ],
+  "message_to_customer": "Thank you for both photos. Our density check shows your part is a little sparse, so I've chosen pieces made to sit at the part and crown. Your colour is a soft black with a hint of brown, and Luxy's 20-inch Off Black scalp fill-ins are the closest match; in the preview they blend into your roots and lengths. Jet Black is a touch deeper and cooler if you'd like a richer finish. Ellen Wille's Espresso Mix topper also matches your brown-black well, though we couldn't preview it because the store's photos show a different shade. Previews show the finished colour, not how a piece clips in, so let's talk fitting next.",
+  "tryons_used": 3,
+  "refusals": [],
+  "watch": [],
+  "usage": {
+   "input_tokens": 18,
+   "output_tokens": 9011,
+   "cache_read_tokens": 396518,
+   "cache_write_tokens": 98889
+  }
+ },
+ "events": [
+  {
+   "type": "say",
+   "text": "I'll start by measuring density from the head-down photo and length from the selfie. Hair type needs front, left and right photos, so I'm skipping it because only a front selfie was sent."
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_01J6opQVvzXtvhUzJcf1YQjr",
+   "tool": "AI-Hair-Density-Detection",
+   "input": {
+    "request": {
+     "src_file_id": "DtxHn0LmyrCPAtXd18imQZljx3fqpBTnWAxSWJmk6doLbKfeLEmuXUa9yH4wuc2K"
+    }
+   }
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_01Sy6Ut1SAbNfud3a7dY1xMe",
+   "tool": "AI-Hair-Length-Detection",
+   "input": {
+    "request": {
+     "src_file_id": "TGrIKZQtVNZyhf6+DK3rjsZbZnvk0y3Sn+SYlSfYORQLbKfeLEmuXUa9yH4wuc2K"
+    }
+   }
+  },
+  {
+   "type": "tool",
+   "name": "show_palette",
+   "input": {
+    "categories": [
+     "fill-in",
+     "topper",
+     "hairpiece"
+    ]
+   }
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_01J6opQVvzXtvhUzJcf1YQjr",
+   "tool": "youcam",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"timed\":4108,\"hair_density\":{\"mapping\":\"2.28\",\"term\":\"Medium Density\"}},\"task_status\":\"success\",\"request_id\":\"8KPzn7W-2hv71-34373\",\"task_id\":\"DtxHn0LmyrCPAtXd18imQZljx3fqpBTnWAxSWJmk6do95vFk6f6V31uFeXJBg9Ubc8aViIJBDiFRYIwMoW59pQ\"}}",
+   "images": []
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_01Sy6Ut1SAbNfud3a7dY1xMe",
+   "tool": "youcam",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"hair_length\":{\"term\":\"above chest or longer\"},\"timed\":5729},\"task_status\":\"success\",\"request_id\":\"8KPzn7W-2hv71-34372\",\"task_id\":\"TGrIKZQtVNZyhf6-DK3rjsZbZnvk0y3Sn-SYlSfYORQGa7bdNN8RS28jZi4TnZXgi0R0zGmELW8ryRHCmXEjaQ\"}}",
+   "images": []
+  },
+  {
+   "type": "tool",
+   "name": "view_images",
+   "input": {
+    "urls": [
+     "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Off-Black_Color-Swatch_5dca9bd3-a69f-48bd-a969-882bd28cc784.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Jet-Black_Color-Swatch_ef02a2a9-6934-44dd-8b50-1c7c6fe6f452.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Dark-Brown_Color-Swatch_JPG_3751ef6f-6d40-4dcd-8169-739c383cd61e.jpg",
+     "https://cdn.shopify.com/s/files/1/0095/6094/8802/files/1B_d4ea0170-35b0-4ad0-8ae7-3d9734295885.jpg",
+     "https://cdn.shopify.com/s/files/1/0095/6094/8802/files/2_e1ed5bfe-d1c5-43a5-a252-ec55242d4d4e.jpg",
+     "https://cdn.shopify.com/s/files/1/1171/4786/files/ultima-espresso-mix.jpg"
+    ],
+    "purpose": "Compare dark shades to the customer's near-black / very dark brown hair"
+   }
+  },
+  {
+   "type": "tool",
+   "name": "view_images",
+   "input": {
+    "urls": [
+     "https://cdn.shopify.com/s/files/1/1171/4786/files/black_3c7fec23-df3d-4d01-b38d-67dae4607ec5.jpg",
+     "https://cdn.shopify.com/s/files/1/1171/4786/files/ultima-darkchocolate-mix.jpg",
+     "https://cdn.shopify.com/s/files/1/0095/6094/8802/files/1_95e799e6-f032-4b8d-8ccb-f8aa0044334c.jpg",
+     "https://cdn.shopify.com/s/files/1/1171/4786/files/espresso_863926f9-e29b-46ee-a3bd-542a73fc247f.jpg"
+    ],
+    "purpose": "More dark shade candidates"
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "1B",
+    "limit": 10
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "Off Black",
+    "limit": 10
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "Espresso",
+    "limit": 10
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "Black",
+    "limit": 20
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "Halo",
+    "limit": 20
+   }
+  },
+  {
+   "type": "tool",
+   "name": "view_images",
+   "input": {
+    "urls": [
+     "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_Before_Front_2814c2e5-0793-4683-b775-94bcc1d2364c.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/files/Scalp-Fill-ins_On-Fig_Hero_Uma_JetBlack-3.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Jet-Black_20_After_Front1_0d278faf-c991-439f-9bf7-1b40084d854a.jpg"
+    ],
+    "purpose": "Check which reference photos are front-facing and show the product shade on a model"
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "fill-in",
+     "topper"
+    ],
+    "shade_contains": "Dark Brown",
+    "limit": 10
+   }
+  },
+  {
+   "type": "say",
+   "text": "Now I'm rendering the three shortlisted shades with hair_color \"ref\", using front-facing \"After\" reference photos (renders 1 to 3 of 8)."
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_01HMoAjmQXBFSf98o9H7pLc5",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "input": {
+    "request": {
+     "src_file_id": "TGrIKZQtVNZyhf6+DK3rjsZbZnvk0y3Sn+SYlSfYORQLbKfeLEmuXUa9yH4wuc2K",
+     "ref_file_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+     "hair_color": "ref"
+    }
+   }
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_01MrhFutWZYbSXigZCicbDyR",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "input": {
+    "request": {
+     "src_file_id": "TGrIKZQtVNZyhf6+DK3rjsZbZnvk0y3Sn+SYlSfYORQLbKfeLEmuXUa9yH4wuc2K",
+     "ref_file_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Jet-Black_20_After_Front1_0d278faf-c991-439f-9bf7-1b40084d854a.jpg",
+     "hair_color": "ref"
+    }
+   }
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_01YagM685WwmroAJ7XmA6e9k",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "input": {
+    "request": {
+     "src_file_id": "TGrIKZQtVNZyhf6+DK3rjsZbZnvk0y3Sn+SYlSfYORQLbKfeLEmuXUa9yH4wuc2K",
+     "ref_file_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Dark-Brown_20_After_Front2.jpg",
+     "hair_color": "ref"
+    }
+   }
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_01HMoAjmQXBFSf98o9H7pLc5",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"url\":\"https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410362047/v2/aeMNNB0KmUIP8rnQ996tC5Q/79176149-9d61-45c5-8b94-ebcf7ab986f7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=5e8ff68f416643bbe5e2fd86e0939cdbf2a58ba856463c51dca70a14ce3fc235\"},\"task_status\":\"success\",\"request_id\":\"8KPzn7W-2hv71-35097\",\"task_id\":\"TGrIKZQtVNZyhf6-DK3rjsZbZnvk0y3Sn-SYlSfYORSYvJ0s62kMTYp9HL1",
+   "images": [
+    "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410362047/v2/aeMNNB0KmUIP8rnQ996tC5Q/79176149-9d61-45c5-8b94-ebcf7ab986f7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=5e8ff68f416643bbe5e2fd86e0939cdbf2a58ba856463c51dca70a14ce3fc235"
+   ]
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_01MrhFutWZYbSXigZCicbDyR",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"url\":\"https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361928/v2/aeMNNB0KmUIP8rnQ996tC5Q/a662d9e5-dd5f-4b0f-bbc9-12812b913694.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=008a232d1875117e46c4c93cfcd9f98706115f96a41b208d706a1fc5f1edfa3d\"},\"task_status\":\"success\",\"request_id\":\"8KPzn7W-2hv71-35096\",\"task_id\":\"TGrIKZQtVNZyhf6-DK3rjsZbZnvk0y3Sn-SYlSfYORQ5HY7vh26ZW--vVBe",
+   "images": [
+    "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361928/v2/aeMNNB0KmUIP8rnQ996tC5Q/a662d9e5-dd5f-4b0f-bbc9-12812b913694.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=008a232d1875117e46c4c93cfcd9f98706115f96a41b208d706a1fc5f1edfa3d"
+   ]
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_01YagM685WwmroAJ7XmA6e9k",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"url\":\"https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361796/v2/aeMNNB0KmUIP8rnQ996tC5Q/93083e92-5df3-42d0-a2de-07783b6d5e56.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083927Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=2953faa70c984a19098a94f2d812cfaf11667b719e1347a16492b6950041d75c\"},\"task_status\":\"success\",\"request_id\":\"8KPzn7W-2hv71-35095\",\"task_id\":\"TGrIKZQtVNZyhf6-DK3rjsZbZnvk0y3Sn-SYlSfYORT50_HB1IfxVCwGN2A",
+   "images": [
+    "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361796/v2/aeMNNB0KmUIP8rnQ996tC5Q/93083e92-5df3-42d0-a2de-07783b6d5e56.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083927Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=2953faa70c984a19098a94f2d812cfaf11667b719e1347a16492b6950041d75c"
+   ]
+  },
+  {
+   "type": "tool",
+   "name": "view_images",
+   "input": {
+    "urls": [
+     "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410362047/v2/aeMNNB0KmUIP8rnQ996tC5Q/79176149-9d61-45c5-8b94-ebcf7ab986f7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=5e8ff68f416643bbe5e2fd86e0939cdbf2a58ba856463c51dca70a14ce3fc235",
+     "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361928/v2/aeMNNB0KmUIP8rnQ996tC5Q/a662d9e5-dd5f-4b0f-bbc9-12812b913694.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=008a232d1875117e46c4c93cfcd9f98706115f96a41b208d706a1fc5f1edfa3d",
+     "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361796/v2/aeMNNB0KmUIP8rnQ996tC5Q/93083e92-5df3-42d0-a2de-07783b6d5e56.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083927Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=2953faa70c984a19098a94f2d812cfaf11667b719e1347a16492b6950041d75c"
+    ],
+    "purpose": "Check each render: face unchanged, product shade shown, nothing wrong"
+   }
+  },
+  {
+   "type": "tool",
+   "name": "finalize",
+   "input": {
+    "measurements": {
+     "hair_density": "2.28 – 'Medium Density' (level 2, visible scalp), from head-down photo",
+     "hair_length": "above chest or longer, from selfie",
+     "hair_type": "not measured – needs front, left and right photos; only a front selfie was provided",
+     "natural_colour_observed": "soft near-black with darker roots and a slight warm dark-brown cast through the lengths"
+    },
+    "items": [
+     {
+      "variant_id": 42212706156580,
+      "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410362047/v2/aeMNNB0KmUIP8rnQ996tC5Q/79176149-9d61-45c5-8b94-ebcf7ab986f7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=5e8ff68f416643bbe5e2fd86e0939cdbf2a58ba856463c51dca70a14ce3fc235",
+      "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+      "why": "Luxy 20\" Off Black Scalp Hair Fill-Ins (50g), $185, in stock. Closest swatch to the customer's soft near-black with brown undertone; scalp fill-ins target the widening part (density level 2); 20\" suits their above-chest-or-longer length. Render keeps the face intact and shows a seamless root-to-end colour match."
+     },
+     {
+      "variant_id": 42212706287652,
+      "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361928/v2/aeMNNB0KmUIP8rnQ996tC5Q/a662d9e5-dd5f-4b0f-bbc9-12812b913694.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=008a232d1875117e46c4c93cfcd9f98706115f96a41b208d706a1fc5f1edfa3d",
+      "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Jet-Black_20_After_Front1_0d278faf-c991-439f-9bf7-1b40084d854a.jpg",
+      "why": "Luxy 20\" Jet Black Scalp Hair Fill-Ins (50g), $185, in stock. Slightly deeper and cooler than their own colour but close to their darkest roots; an option if they prefer a richer black. Render keeps the face intact and shows the shade clearly."
+     },
+     {
+      "variant_id": 53782159196524,
+      "render_url": null,
+      "reference_url": null,
+      "render_note": "Not rendered: every reference photo the store lists for this variant shows Mocca Rooted, not Espresso Mix, so a 'ref' render would show the wrong colour. Shade chosen from the swatch alone.",
+      "why": "Ellen Wille Ultima Espresso Mix heat-friendly synthetic topper, $574.49, in stock. The swatch's brown-black with fine dark-brown strands closely matches the customer's natural colour; a topper adds coverage across the part and crown for density level 2."
+     }
+    ],
+    "message_to_customer": "Thank you for both photos. Our density check shows your part is a little sparse, so I've chosen pieces made to sit at the part and crown. Your colour is a soft black with a hint of brown, and Luxy's 20-inch Off Black scalp fill-ins are the closest match; in the preview they blend into your roots and lengths. Jet Black is a touch deeper and cooler if you'd like a richer finish. Ellen Wille's Espresso Mix topper also matches your brown-black well, though we couldn't preview it because the store's photos show a different shade. Previews show the finished colour, not how a piece clips in, so let's talk fitting next."
+   }
+  },
+  {
+   "type": "done",
+   "result": {
+    "status": "recommended",
+    "measurements": {
+     "hair_density": "2.28 – 'Medium Density' (level 2, visible scalp), from head-down photo",
+     "hair_length": "above chest or longer, from selfie",
+     "hair_type": "not measured – needs front, left and right photos; only a front selfie was provided",
+     "natural_colour_observed": "soft near-black with darker roots and a slight warm dark-brown cast through the lengths"
+    },
+    "recommendations": [
+     {
+      "variant_id": 42212706156580,
+      "store": "Luxy Hair",
+      "title": "20\" Off Black Scalp Hair Fill-Ins (50g)",
+      "shade": "Off Black",
+      "price": 185,
+      "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410362047/v2/aeMNNB0KmUIP8rnQ996tC5Q/79176149-9d61-45c5-8b94-ebcf7ab986f7.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=5e8ff68f416643bbe5e2fd86e0939cdbf2a58ba856463c51dca70a14ce3fc235",
+      "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+      "swatch_url": "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Off-Black_Color-Swatch_6a7d2621-3b5f-46fd-a533-7a89c571809e.jpg",
+      "cart_url": "https://luxyhair.com/cart/42212706156580:1",
+      "product_url": "https://luxyhair.com/products/20-off-black-scalp-hair-fill-ins-50g",
+      "why": "Luxy 20\" Off Black Scalp Hair Fill-Ins (50g), $185, in stock. Closest swatch to the customer's soft near-black with brown undertone; scalp fill-ins target the widening part (density level 2); 20\" suits their above-chest-or-longer length. Render keeps the face intact and shows a seamless root-to-end colour match."
+     },
+     {
+      "variant_id": 42212706287652,
+      "store": "Luxy Hair",
+      "title": "20\" Jet Black Scalp Hair Fill-Ins (50g)",
+      "shade": "Jet Black",
+      "price": 185,
+      "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123410361928/v2/aeMNNB0KmUIP8rnQ996tC5Q/a662d9e5-dd5f-4b0f-bbc9-12812b913694.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261026T083928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261026%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=008a232d1875117e46c4c93cfcd9f98706115f96a41b208d706a1fc5f1edfa3d",
+      "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Jet-Black_20_After_Front1_0d278faf-c991-439f-9bf7-1b40084d854a.jpg",
+      "swatch_url": "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Jet-Black_Color-Swatch_2ef81939-753a-4e13-81a0-aa5d4def90d9.jpg",
+      "cart_url": "https://luxyhair.com/cart/42212706287652:1",
+      "product_url": "https://luxyhair.com/products/20-jet-black-scalp-hair-fill-ins-50g",
+      "why": "Luxy 20\" Jet Black Scalp Hair Fill-Ins (50g), $185, in stock. Slightly deeper and cooler than their own colour but close to their darkest roots; an option if they prefer a richer black. Render keeps the face intact and shows the shade clearly."
+     },
+     {
+      "variant_id": 53782159196524,
+      "store": "Ellen Wille",
+      "title": "Ultima | Top Power | Heat Friendly Synthetic Topper",
+      "shade": "ESPRESSO MIX",
+      "price": 574.49,
+      "render_url": null,
+      "render_note": "Not rendered: every reference photo the store lists for this variant shows Mocca Rooted, not Espresso Mix, so a 'ref' render would show the wrong colour. Shade chosen from the swatch alone.",
+      "reference_url": null,
+      "swatch_url": "https://cdn.shopify.com/s/files/1/1171/4786/files/ultima-espresso-mix.jpg",
+      "cart_url": "https://www.ellenwille.com/cart/53782159196524:1",
+      "product_url": "https://www.ellenwille.com/products/ultima",
+      "why": "Ellen Wille Ultima Espresso Mix heat-friendly synthetic topper, $574.49, in stock. The swatch's brown-black with fine dark-brown strands closely matches the customer's natural colour; a topper adds coverage across the part and crown for density level 2."
+     }
+    ],
+    "message_to_customer": "Thank you for both photos. Our density check shows your part is a little sparse, so I've chosen pieces made to sit at the part and crown. Your colour is a soft black with a hint of brown, and Luxy's 20-inch Off Black scalp fill-ins are the closest match; in the preview they blend into your roots and lengths. Jet Black is a touch deeper and cooler if you'd like a richer finish. Ellen Wille's Espresso Mix topper also matches your brown-black well, though we couldn't preview it because the store's photos show a different shade. Previews show the finished colour, not how a piece clips in, so let's talk fitting next.",
+    "tryons_used": 3,
+    "refusals": [],
+    "watch": [],
+    "usage": {
+     "input_tokens": 18,
+     "output_tokens": 9011,
+     "cache_read_tokens": 396518,
+     "cache_write_tokens": 98889
+    }
+   }
+  }
+ ],
+ "render_files": [
+  "render-1.jpg",
+  "render-2.jpg",
+  null
+ ],
+ "has_head_down": true,
+ "disclosure": "Composite customer for the demo: both photos are AI-generated, not a real person. Everything after them is a live run: YouCam's measurements and try-ons, the three stores' real catalogues."
+}

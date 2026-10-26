@@ -7,17 +7,17 @@ created in the submission session (not this file) and confirmed in the schedule 
 
 | Resource | Where | On teardown |
 |---|---|---|
-| Hosting (Vercel project, plus Blob store if used) | Vercel account | Delete the project and the Blob store. Verify from outside: the URL must 404. |
-| Cron for `/api/watch` | `vercel.json` | Goes with the project. |
+| Hosting (Fly app, machine, 1 GB volume) | Fly.io account | `fly apps destroy <app>` releases the machine, the volume and the IPs together. Verify from outside: the URL must stop answering. |
+| Cron for `/api/watch` | `.github/workflows/watch.yml` | Delete the `SWATCHLESS_URL` variable and `CRON_SECRET` secret in the repo; the job then skips. |
 | YouCam API key | yce.makeupar.com console | Revoke; it sat on an internet-facing box. The hackathon grant expires anyway. |
 | Anthropic API key for the app | console.anthropic.com | Revoke `SWATCHLESS_ANTHROPIC_API_KEY`. |
-| `CRON_SECRET` | Vercel env | Goes with the project. |
+| `CRON_SECRET` | Fly secrets, GitHub secret | Goes with the app; delete the GitHub secret. |
 | DNS | none planned | If a subdomain was pointed at the deployment, delete the record first. |
-| Consult records (customer photos) | Blob store or `.consults/` on the host | Delete with the project. The composite demo customer is not a real person; the Luxy test consult used a published product photo. |
+| Consult records (customer photos) | the Fly volume | Destroyed with the app. The composite demo customer is not a real person. |
 
 ## Sweep
 
-`scripts/teardown_sweep.sh` lists everything the account still holds on Vercel. Run it once right after the first
+`scripts/teardown_sweep.sh` lists everything the account still holds on Fly.io. Run it once right after the first
 deployment, so it is known to work while the credentials are live, and again after teardown, where it must print
 nothing for this project.
 

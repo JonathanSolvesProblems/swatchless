@@ -53,6 +53,8 @@ export async function POST(request: Request) {
       const send = (e: ConsultEvent | { type: "photos"; selfie: string; head_down?: string; disclosure?: string }) =>
         controller.enqueue(encoder.encode(`data: ${JSON.stringify(e)}\n\n`));
       let usd = 0;
+      // The agent can think for 40 s without an event; a comment frame keeps proxies from closing the stream.
+      const heartbeat = setInterval(() => controller.enqueue(encoder.encode(": keep-alive\n\n")), 15_000);
       try {
         let selfieJpeg: Buffer;
         let headJpeg: Buffer | undefined;
@@ -87,6 +89,7 @@ export async function POST(request: Request) {
         const message = err instanceof YouCamError ? `YouCam: ${err.message}` : err instanceof Error ? err.message : String(err);
         send({ type: "error", message });
       } finally {
+        clearInterval(heartbeat);
         if (ledgerId) await finish(ledgerId, usd).catch(() => undefined);
         controller.close();
       }

@@ -853,5 +853,155 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T08:51:06.780Z"
+ },
+ {
+  "id": "luxy-10",
+  "arm": "no_youcam",
+  "truth": "Chocolate Brown",
+  "status": "recommended",
+  "picks": [
+   "Dark Brown",
+   "Chocolate Brown",
+   "Mocha Brown"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.359,
+  "seconds": 47,
+  "usage": {
+   "input_tokens": 12,
+   "output_tokens": 3752,
+   "cache_read_tokens": 72801,
+   "cache_write_tokens": 53870
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo, and no measurement tool was used in this consult",
+   "hair_type": "not measured. By eye it looks straight to slightly wavy",
+   "length": "not measured. By eye it is long, past the collarbone to mid-chest (about 18–20 in)",
+   "colour_by_eye": "Dark brown with a neutral-to-warm tone. The roots and part are slightly deeper. The mid-lengths and ends pick up warm red-brown glints in the warm room light",
+   "failed_or_unavailable": "There is no YouCam data: the selfie was never uploaded (file id 'not-uploaded'), so no measurement or try-on render exists. The shade was chosen by eye from the photo and the store swatches only. The photo also has warm indoor lighting and a side profile, which makes the colour read a little warmer than it may be in daylight"
+  },
+  "reasons": [
+   "Best match: Luxy Dark Brown. Its depth and neutral-to-warm tone are closest to the customer's hair from root to end. It's one solid shade with no highlights, which suits their roots and part, since there are no lighter streaks to show at the scalp. The listed variant (20\" Scalp Hair Fill-Ins, 50g, $185, in stock) stands in for the shade only. Switch it to the product the customer has already chosen, in Dark Brown.",
+   "Second choice: Luxy Chocolate Brown. It's warmer and a touch lighter than Dark Brown, and it matches the red-brown glints in the customer's mid-lengths and ends. Choose this if their hair looks warmer than Dark Brown in daylight. It may read slightly light against the deeper part. The variant (20\" Scalp Hair Fill-Ins, 50g, $185, in stock) stands in for the shade only.",
+   "Third choice: Luxy Mocha Brown. It's deeper and cooler than Dark Brown and closest to the darkest hair at the customer's roots. Choose this only if the roots look nearly black-brown in daylight. It would read darker than their lengths. The variant (20\" Scalp Hair Fill-Ins, 50g, $185, in stock) stands in for the shade only."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:51:54.371Z"
+ },
+ {
+  "id": "luxy-11",
+  "arm": "full",
+  "truth": "Platinum Blonde",
+  "status": "recommended",
+  "picks": [
+   "Dimensional Rooted Platinum Pearl Blonde",
+   "Platinum Blonde"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 5,
+  "refusals": [],
+  "youcam_units": 10,
+  "usd_claude": 0.384,
+  "seconds": 116,
+  "usage": {
+   "input_tokens": 22,
+   "output_tokens": 6620,
+   "cache_read_tokens": 257297,
+   "cache_write_tokens": 39949
+  },
+  "measurements": {
+   "density": "Not measured. No head-down photo was provided.",
+   "hair_type": "Skipped. Hair type detection needs front, left and right photos, and only a front selfie was provided.",
+   "hair_length": "Failed. YouCam returned error_insufficient_lighting on the selfie.",
+   "visual_colour_read": "From the selfie: very pale, cool icy-platinum lengths with a darker ash-blonde/light ash-brown root showing at the part."
+  },
+  "reasons": [
+   "Best colour match. The swatch has a soft ash-brown root melting into icy pearl-platinum lengths, which mirrors both the customer's darker root and their cool pale ends.",
+   "Second choice. It closely matches the customer's pale, cool lengths but has no root shading, so it suits pieces that sit below the darker root. The render keeps their face intact and shows the pale platinum tone clearly."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:53:51.428Z"
+ },
+ {
+  "id": "luxy-11",
+  "arm": "no_youcam",
+  "truth": "Platinum Blonde",
+  "status": "recommended",
+  "picks": [
+   "Dimensional Rooted Platinum Pearl Blonde",
+   "Platinum Blonde",
+   "Dimensional Buttery Champagne Blonde Root Melt"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.178,
+  "seconds": 38,
+  "usage": {
+   "input_tokens": 12,
+   "output_tokens": 3047,
+   "cache_read_tokens": 40571,
+   "cache_write_tokens": 21807
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo provided",
+   "hair_type": "straight, judged by eye from the selfie only",
+   "length": "about shoulder length, judged by eye",
+   "colour_read": "Root: about 2 cm of cool ash dark-blonde / light ash-brown regrowth at the part. Lengths and ends: cool, icy platinum blonde with very little yellow.",
+   "failed_or_unavailable": "No YouCam measurement or try-on. The selfie was not uploaded and no head-down photo was provided, so density was not measured and there are no renders. Shades were matched by eye against store swatches and on-model photos."
+  },
+  "reasons": [
+   "Best match. This shade goes from an ash, mushroom-blonde root into cool pearl-platinum lengths, the same pattern as the customer's darker ash regrowth into icy platinum. It's the only shade in the catalogues that matches both their roots and their lengths. In the live catalogue it only comes as the 20\" Thinning Hair Fill-Ins ($210, in stock).",
+   "Second choice, for a product that doesn't come in Rooted Platinum Pearl. Platinum Blonde matches the brightness of the customer's lengths, but it has no root and is a touch warmer and creamier than their icy ends. It works if the product sits below the root area or the customer keeps the root lightened. It comes in many formats (this is the 16\" Thinning Hair Fill-Ins, $150, in stock), so it's most likely to exist in the product they have in mind.",
+   "Third choice. It has the same rooted-to-light pattern, but the root and blonde are both warmer and more golden than the customer's cool, ashy colouring, so the ends would look buttery next to their icy blonde. Only consider it if Rooted Platinum Pearl is unavailable. 20\" Thinning Hair Fill-Ins, $210, in stock."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:54:29.488Z"
+ },
+ {
+  "id": "luxy-14",
+  "arm": "full",
+  "truth": "Off Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Jet Black"
+  ],
+  "shade_offerable": true,
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 3,
+  "refusals": [],
+  "youcam_units": 8,
+  "usd_claude": 0.388,
+  "seconds": 87,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 5194,
+   "cache_read_tokens": 138426,
+   "cache_write_tokens": 51289
+  },
+  "measurements": {
+   "density": "Not measured. No head-down photo was provided.",
+   "hair_type": "Skipped. Only a front selfie was provided, and the check needs front, left and right photos.",
+   "hair_length": "Above chest (YouCam AI-Hair-Length-Detection on the selfie)",
+   "colour_read": "Soft, even near-black with a faint warm brown sheen in the light. The roots and lengths are the same colour, with no highlights."
+  },
+  "reasons": [
+   "Best shade match. Off Black is a soft black with a slight brown undertone, the same as the customer's natural colour from root to end. The render keeps the face intact and the colour blends with their own parting. The customer didn't say which product they want, so this 16\" Thinning Fill-Ins variant only stands in for the shade. Off Black is also in stock as 12\" and 20\" Scalp Fill-Ins, 20\" Thinning Fill-Ins and the 20\" bundle. The stylist should confirm the product.",
+   "Second choice. Jet Black is a little deeper and cooler than the customer's hair, and the render shows it as a glossier, blue-leaning black. It only suits them if their hair looks darker in person than in this photo. The render is clean and the face is unchanged. Dark Brown was also rendered but left out: on the customer it came out clearly lighter and browner than their natural colour."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:55:58.025Z"
  }
 ]
