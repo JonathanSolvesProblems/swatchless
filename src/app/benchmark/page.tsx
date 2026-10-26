@@ -41,6 +41,7 @@ function tally(arm: Row["arm"]) {
     top1: rows.filter((r) => r.top1).length,
     shortlist: rows.filter((r) => r.in_shortlist).length,
     abstained: rows.filter((r) => r.status !== "recommended").length,
+    rendered: rows.filter((r) => r.tryons > 0).length,
   };
 }
 
@@ -57,7 +58,7 @@ export default function BenchmarkPage() {
             <h1 className="max-w-[22ch] text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.04]">
               {full.n > 0 ? (
                 <>
-                  The desk picked the shade Luxy&rsquo;s own stylists chose for {full.top1} of {full.n} real customers
+                  The shade Luxy&rsquo;s own stylists chose was on the desk&rsquo;s shortlist for {full.shortlist} of {full.n} real customers
                 </>
               ) : (
                 <>Against Luxy&rsquo;s own stylists</>
@@ -70,8 +71,9 @@ export default function BenchmarkPage() {
               {full.n > 0 && (
                 <>
                   {" "}
-                  The right shade was on the shortlist for {full.shortlist} of {full.n}; picking at random would land about{" "}
-                  {(full.n / LUXY_SHADES).toFixed(1)}.
+                  A random shortlist of three would hold it about {((full.n * 3) / LUXY_SHADES).toFixed(1)} times. The first pick was the exact
+                  shade for {full.top1} of {full.n}, where chance is about one in {LUXY_SHADES}, and every customer was shown wearing the
+                  desk&rsquo;s pick.
                 </>
               )}
               {full.impossible > 0 && (
@@ -109,7 +111,7 @@ export default function BenchmarkPage() {
                   <th scope="col">Luxy&rsquo;s before photo</th>
                   <th scope="col">Shade Luxy chose</th>
                   <th scope="col">Desk with YouCam</th>
-                  <th scope="col">Claude alone, no YouCam</th>
+                  <th scope="col">Same desk, YouCam off</th>
                 </tr>
               </thead>
               <tbody>
@@ -135,7 +137,7 @@ export default function BenchmarkPage() {
                       <td data-label="Desk with YouCam">
                         <Pick row={f} offerable={t.shade_offerable} />
                       </td>
-                      <td data-label="Claude alone, no YouCam">
+                      <td data-label="Same desk, YouCam off">
                         <Pick row={p} offerable={t.shade_offerable} />
                       </td>
                     </tr>
@@ -156,11 +158,12 @@ export default function BenchmarkPage() {
           )}
           {plain.n > 0 && (
             <p className="max-w-[70ch] text-[15px] leading-relaxed text-muted">
-              Claude alone, looking at the photo and the swatches with no YouCam tools, matched {plain.top1} of {plain.n} first picks and had
-              the right shade on its shortlist for {plain.shortlist} of {plain.n}. With YouCam the desk matched {full.top1} of {full.n}, shortlisted
-              it for {full.shortlist} of {full.n}, and showed every customer wearing each pick, which no swatch can do. The colour
-              call is Claude&rsquo;s either way; what YouCam adds is the render, the density read, and the refusals when a render changes the
-              face.
+              The same customers ran with YouCam switched off: the same model, photo and swatches, no YouCam tools. Without YouCam, the
+              right shade was on the shortlist for {plain.shortlist} of {plain.n} and the desk showed {plain.rendered} of {plain.n} customers
+              wearing anything. With YouCam it was {full.shortlist} of {full.n}, and the desk showed {full.rendered} of {full.n} wearing its
+              pick, which is what a customer gets to see before buying hair they cannot return. The first pick matched {full.top1} of {full.n} in both arms: naming the shade is the
+              model&rsquo;s job, and YouCam is what puts it on the customer, measures the density that decides fill-ins versus length, and
+              gives the desk a render to reject when it changes the face.
             </p>
           )}
         </section>

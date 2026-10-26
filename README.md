@@ -23,9 +23,11 @@ reply in her voice. Dana reads it, sends it from her own mail, and moves on to t
 ## What the desk did for the demo customer
 
 The customer on the home page is a composite: both photos are AI-generated, which the page says. Everything after
-them is a live run. YouCam measured density at 2.30 (medium, with the part showing) and length at chest or longer.
-Claude chose scalp fill-ins over length pieces because of the density read, shortlisted Luxy Hair's Off Black and Dark
-Brown, rendered both on the customer, kept both, and drafted the reply. The two try-ons cost 4 YouCam units.
+them is a live run. YouCam measured density at 2.28 (level 2, the part showing) and length at chest or longer.
+Claude chose scalp fill-ins because of the density read, had YouCam render three Luxy Hair shades on the customer,
+kept Off Black and Jet Black, and dropped Dark Brown. It added Ellen Wille's Espresso Mix topper without a preview,
+and the page says why: every product photo the store lists for it shows a lighter shade, so a render would have shown
+the wrong colour. Then it drafted the reply.
 
 ## Against Luxy's own stylists
 
@@ -33,15 +35,18 @@ Luxy Hair photographs real customers before they wear its hair and publishes the
 shade is the answer. The desk gets only Luxy's "before" photo, never sees that customer as a reference, and picks from
 the 30 Luxy shades that have a trusted on-model photo.
 
-So far, 8 customers have run. For one of them every trusted photo of her shade was a photo of her, so once those were
-excluded the desk could not be offered it at all; that row is reported as not offerable and counted on neither side.
-Of the other 7, the desk's first pick was the shade Luxy's stylists chose for 5 of 7, and the right shade was on its
-shortlist for 7 of 7. Picking at random would match about one customer in thirty. Ten of the eighteen customers in the
-truth set have not been run yet; the page updates as they are.
+All 18 customers ran. For 2 of them every trusted photo of their shade was a photo of them, so once those were
+excluded the desk could not be offered it at all; those rows are reported as not offerable and counted on neither
+side. Of the other 16, the right shade was on the desk's shortlist for 13 of 16, every one of the 16 customers was
+shown wearing the desk's pick, and the first pick was the exact shade Luxy's stylists chose for 8 of 16. Picking at
+random would land the first pick about one time in thirty. Most first-pick misses were the neighbouring shade:
+Chestnut Brown for Neutral Brown, Dark Brown for Chocolate Brown.
 
-The ablation ran alongside it. Claude alone, with the photo and the swatches and no YouCam tools, matched 5 of 7 first
-picks too, with the right shade on its shortlist for 6 of 7. The colour call is Claude's either way. What YouCam adds is the part no swatch can do: the customer wearing
-the shade, the density read that decides fill-in versus length, and the refusals when a render changes the face.
+The ablation ran the same 18 customers with YouCam switched off: the same model, photo and swatches, no YouCam tools.
+Without YouCam, the right shade was on the shortlist for 12 of 16 and the desk showed 0 of 16 customers wearing
+anything. The first pick matched 8 of 16 in both arms. Naming the shade is the model's job; YouCam is what puts that
+shade on the customer before they buy hair they cannot return, measures the density that decides fill-ins versus
+length, and gives the desk a render to reject when it changes the face.
 
 The truth set, the exclusion rule and every run are committed in `data/benchmark/`. `scripts/check_claims.py` fails
 the build if any number in this README or on the site disagrees with that data.
@@ -95,7 +100,8 @@ counts for a shade only when it appears under exactly one. Swatchless is not aff
 - Density needs a head-down photo and hair type needs three photos; without them the desk says what it could not
   measure rather than guessing.
 - YouCam's render URLs expire after two hours, so each consult keeps its own copies.
-- Eighteen customers is a small benchmark, and the answer is one stylist team's choice, not the only right shade.
+- Eighteen customers is a small benchmark, and the answer is one stylist team's choice, not the only right shade. A
+  one-customer difference between the two arms is within what a sample this size can move by chance.
 
 ## Running it
 

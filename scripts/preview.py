@@ -37,7 +37,7 @@ CAPTIONS = {
     "3-measured": "YouCam reads density at 2.3 of 4 and length at chest or longer. Claude chooses fill-ins and shows two shades on the customer.",
     "4-reply": "The reply goes out from the stylist's own mail, with the customer wearing each pick and a cart link into Luxy Hair under it.",
     "5-decided": "Every decision is on the record: what YouCam measured, what it could not, and what was dropped and why.",
-    "6-benchmark": "Against Luxy's own stylists on their published customers: the desk picked their shade for 5 of 7, shortlisted it for 7 of 7.",
+    "6-benchmark": "Checked against Luxy's own stylists: their shade made the desk's shortlist for 13 of 16 real customers, each shown wearing the pick.",
     "7-table": "Customer by customer, beside Claude alone with no YouCam. A customer whose shade could not be offered is counted on neither side.",
     "8-watch": "After the reply the desk keeps working: an out-of-stock match is refused, watched daily, and re-rendered when the store has it.",
 }

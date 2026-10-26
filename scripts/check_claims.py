@@ -10,13 +10,20 @@ Run: python -I scripts/check_claims.py            (exit 1 on any mismatch)
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS = ["README.md", "docs/SUBMISSION.md", "docs/gallery/captions.md", "src/app/hero.tsx", "src/app/benchmark/page.tsx", "scripts/preview.py"]
+DOCS = ["README.md", "docs/SUBMISSION.md", "docs/gallery/captions.md", "src/app/hero.tsx", "src/app/benchmark/page.tsx",
+        "scripts/preview.py", "DEMO_SCRIPT.md"]
 RETIRED = [
     r"perfect match",
     r"guarantee",
     r"YouCam picks? the shade",          # the shade call is Claude's; YouCam measures and renders
     r"beats? (?:Claude|the stylists)",
+    r"either way",                       # framed YouCam as making no difference; state the measured deltas instead
+    r"alone matched",
+    r"matched as often",
+    r"\bso far\b[^.]*customers",         # the benchmark finished
 ]
+# A sentence about the benchmark: an "N of M" in it must use the current totals.
+BENCH_WORDS = re.compile(r"pick|shortlist|match|customer|stylist|render", re.I)
 
 
 def load(rel):
@@ -68,10 +75,15 @@ def main():
         # "N of 18" style claims next to the arm they describe
         for m in re.finditer(r"(\d+) of (\d+)", text):
             n, total = int(m.group(1)), int(m.group(2))
-            if "full_n" not in f or total not in (f.get("full_n"), f.get("full_ran")):
+            if "full_n" not in f:
                 continue
             # The arm is named somewhere in the same sentence, before or after the figure.
             sentence = text[text.rfind(".", 0, m.start()) + 1 : text.find(".", m.end()) + 1].lower()
+            if total not in (f["full_n"], f["full_ran"]):
+                # A benchmark figure over an old total is a stale number, not an unrelated one.
+                if BENCH_WORDS.search(sentence):
+                    problems.append(f"{rel}: '{m.group(0).strip()}' uses a total the results no longer have ({f['full_n']} scored, {f['full_ran']} ran)")
+                continue
             arm = "no_youcam" if ("alone" in sentence or "without youcam" in sentence or "no youcam" in sentence) else "full"
             allowed = {f[f"{arm}_top1"], f[f"{arm}_shortlist"], f[f"{arm}_rendered"], f[f"{arm}_abstained"], f[f"{arm}_n"], f[f"{arm}_impossible"]}
             if n not in allowed:

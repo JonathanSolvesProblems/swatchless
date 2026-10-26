@@ -1268,5 +1268,82 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T09:02:39.515Z"
+ },
+ {
+  "id": "luxy-18",
+  "arm": "full",
+  "truth": "Dimensional Beige Blonde",
+  "status": "recommended",
+  "picks": [
+   "Dimensional Cream Blonde",
+   "Beige Blonde Balayage",
+   "Dimensional Buttery Champagne Blonde Root Melt"
+  ],
+  "shade_offerable": false,
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 3,
+  "refusals": [],
+  "youcam_units": 6,
+  "usd_claude": 0.34,
+  "seconds": 106,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 6928,
+   "cache_read_tokens": 109296,
+   "cache_write_tokens": 35957
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Not measured: needs front, left and right photos, and only one selfie was provided.",
+   "length": "Failed: error_face_angle_invalid. The head is turned too far in the selfie for the length measurement.",
+   "visual_colour_read": "Soft beige or champagne blonde with a gently deeper, light ash-brown root and some lighter face-framing pieces (read from the photo, not measured)."
+  },
+  "reasons": [
+   "Closest match. The muted, creamy beige blonde with soft darker lowlights matches the customer's mid-lengths and blends into their deeper root. The render keeps the tone natural and close to their own.",
+   "Close second. It has a similar beige base and deeper root, with brighter pale pieces that echo the customer's lighter face-framing strands. It is a little more contrasty than their natural colour.",
+   "A lighter, warmer option with a root melt to paler ends. It is brighter and more golden than the customer's natural colour, as the render shows. It is only listed as the 20-inch Thinning Hair Fill-Ins."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T09:04:26.936Z"
+ },
+ {
+  "id": "luxy-18",
+  "arm": "no_youcam",
+  "truth": "Dimensional Beige Blonde",
+  "status": "recommended",
+  "picks": [
+   "Beige Blonde Balayage",
+   "Dimensional Buttery Champagne Blonde Root Melt",
+   "Dimensional Rooted Platinum Pearl Blonde"
+  ],
+  "shade_offerable": false,
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.196,
+  "seconds": 44,
+  "usage": {
+   "input_tokens": 12,
+   "output_tokens": 3677,
+   "cache_read_tokens": 41355,
+   "cache_write_tokens": 22732
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided",
+   "hair_type": "not measured (no measuring tools). From the photo it looks straight to slightly wavy and fine to medium",
+   "length": "not measured. From the photo it looks shoulder length to just past the shoulder",
+   "colour_read_by_eye": "Light beige / champagne blonde lengths with a soft, slightly darker dark-blonde root at the parting and hairline. Tone is neutral to slightly warm, not brassy and not icy",
+   "failed_measurements": "All YouCam measurements and renders: the selfie was never uploaded (file id 'not-uploaded') and there was no head-down photo. The shade match was done by eye from one side-profile photo taken in warm indoor light"
+  },
+  "reasons": [
+   "Best match. Beige Blonde Balayage has a soft, slightly deeper root that blends into creamy beige blonde lengths, which is the same pattern and tone the customer has. The store's on-model photo, with a lightly rooted parting and neutral beige lengths, looks very close to the customer. Shown here as the 20\" Thinning Hair Fill-Ins (95g), in stock at $210. This shade also comes in 12\" and 16\" fill-ins, scalp fill-ins and bundles.",
+   "Close second. Buttery Champagne Blonde Root Melt has a clearly built-in dark-blonde root melting into pale champagne ends, so it copies the customer's visible root well. Its ends are a little lighter and more buttery than the customer's lengths. 20\" Thinning Hair Fill-Ins (95g), in stock at $210. Only 2 variants are listed in this shade, so it may not come in the customer's product.",
+   "Third choice, in case the customer's hair looks cooler or ashier in daylight than in this warm indoor photo. Rooted Platinum Pearl Blonde has an ash-beige root and pale pearl ends. In this photo it looks slightly cooler and higher-contrast than the customer's hair. 20\" Thinning Hair Fill-Ins (95g), in stock at $210."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T09:05:11.537Z"
  }
 ]

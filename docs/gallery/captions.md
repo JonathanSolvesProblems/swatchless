@@ -35,7 +35,7 @@ Every decision is on the record: what YouCam measured, what it could not, and wh
 ## 6-benchmark.png
 
 ```
-Against Luxy's own stylists on their published customers: the desk picked their shade for 5 of 7, shortlisted it for 7 of 7.
+Checked against Luxy's own stylists: their shade made the desk's shortlist for 13 of 16 real customers, each shown wearing the pick.
 ```
 
 ## 7-table.png
