@@ -71,7 +71,7 @@ export default function BenchmarkPage() {
               {full.n > 0 && (
                 <>
                   {" "}
-                  A random shortlist of three would hold it about {((full.n * 3) / LUXY_SHADES).toFixed(1)} times. The first pick was the exact
+                  A random shortlist of three would hold the right shade about {((full.n * 3) / LUXY_SHADES).toFixed(1)} times. The first pick was the exact
                   shade for {full.top1} of {full.n}, where chance is about one in {LUXY_SHADES}, and every customer was shown wearing the
                   desk&rsquo;s pick.
                 </>
