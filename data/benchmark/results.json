@@ -1,0 +1,857 @@
+[
+ {
+  "id": "luxy-01",
+  "arm": "full",
+  "truth": "Jet Black",
+  "status": "recommended",
+  "picks": [
+   "Jet Black",
+   "Off Black"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 4,
+  "refusals": [],
+  "youcam_units": 8,
+  "usd_claude": 2.626,
+  "seconds": 125,
+  "usage": {
+   "input_tokens": 618768,
+   "output_tokens": 7534,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: only a front selfie was provided, and the check needs front, left and right photos.",
+   "length": "Failed: the selfie's face angle is outside the supported range (error_face_angle_invalid), so this photo can't be used to measure length.",
+   "colour_assessment": "Done by eye from the selfie: a deep, cool, glossy true black, with roots the same depth as the lengths and no brown or red undertone. Jet Black is the closest swatch. Off Black is a touch softer. Dark Brown is too warm and too light."
+  },
+  "reasons": [
+   "Best colour match. The customer's hair is a deep, cool, glossy black from root to end, and the Jet Black swatch matches that depth and cool tone with no brown showing through.",
+   "Close second. It's a very dark black with a slightly softer tone than Jet Black. The render keeps the customer's face unchanged and shows the shade sitting next to their own roots at the part."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T01:54:27.849Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-01",
+  "arm": "no_youcam",
+  "truth": "Jet Black",
+  "status": "recommended",
+  "picks": [
+   "Jet Black",
+   "Jet Black",
+   "Off Black"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.423,
+  "seconds": 37,
+  "usage": {
+   "input_tokens": 90743,
+   "output_tokens": 3017,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo, and no measurement tools at this desk",
+   "hair_type": "judged by eye only: straight, fine to medium texture",
+   "length": "judged by eye only: long, past the shoulders (about 18–20\")",
+   "colour_read": "judged by eye: deep, cool, inky natural black from root to end. The roots look the same depth as the lengths, with no visible grey or regrowth. The part looks wider and you can see more scalp near the front.",
+   "failed_or_unavailable": "No YouCam measurement or try-on (selfie not uploaded and no tools at this desk). Shade chosen by comparing the selfie against store swatches and on-model reference photos."
+  },
+  "reasons": [
+   "Best match: Jet Black. The customer's hair is a deep, cool black with a slightly blue sheen, the same depth at the roots as at the ends. The Jet Black swatch and on-model photo have the same inky, cool depth. Off Black looks a touch softer and browner next to it. The 20\" Scalp Hair Fill-In is shown because it suits their length and the thinning at the part. If they're buying a different product, they should choose the Jet Black version of it.",
+   "Same Jet Black shade in a shorter 16\" Scalp Hair Fill-In (40g, in stock). Shown in case the product they have in mind comes in a different length. The shade advice doesn't change.",
+   "Second choice: Off Black. It's a softer natural black with a faint warm-brown cast. Choose it only if their hair looks slightly brown-black in daylight rather than deep blue-black. In this photo it looks a little lighter and warmer than their roots."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T01:55:04.851Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-12",
+  "arm": "full",
+  "truth": "Natural Red",
+  "status": "recommended",
+  "picks": [
+   "Natural Red"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 1,
+  "refusals": [],
+  "youcam_units": 2,
+  "usd_claude": 1.159,
+  "seconds": 72,
+  "usage": {
+   "input_tokens": 266925,
+   "output_tokens": 4581,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density": "Not measured. No head-down photo was provided.",
+   "hair_type": "Not measured. Only a front selfie was provided, and the check needs front, left and right photos.",
+   "length": "Failed. YouCam returned error_face_position_too_small (the face is too small in the frame), so length could not be measured from this selfie.",
+   "colour_read": "Measured by eye from the selfie against the store swatches: warm copper/ginger red, slightly deeper copper at the root and part, brighter golden-copper through the lengths."
+  },
+  "reasons": [
+   "Natural Red is the only shade in the catalogue that matches the customer's copper red. Its swatch has the same golden-copper tone with slightly deeper copper underneath, matching their root-to-lengths colour. The nearest alternatives were too far off: Chestnut Brown is a neutral brown with almost no copper, and the balayage and blonde shades are much lighter and ashier. The render kept the face unchanged and shows the colour blending from the part down. This variant (20\" Scalp Hair Fill-Ins, in stock) is the one cited for the render. The same Natural Red shade is also in stock as 12\" and 16\" Thinning Hair Fill-Ins (40085588475940, 40603753119780) and the 20\" Fill-Ins & Clip-Ins Bundle (42213473320996), so the customer can buy it in whichever of these products they had in mind."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T01:56:18.099Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-12",
+  "arm": "no_youcam",
+  "truth": "Natural Red",
+  "status": "recommended",
+  "picks": [
+   "Natural Red",
+   "Natural Red",
+   "Natural Red"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.392,
+  "seconds": 34,
+  "usage": {
+   "input_tokens": 83975,
+   "output_tokens": 2782,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density_level": "not measured: there's no head-down photo, so density couldn't be assessed",
+   "hair_type": "straight to soft wave, judged by eye from the selfie (not measured by YouCam)",
+   "length": "about chest length, roughly 14-16 in., judged by eye (not measured)",
+   "colour": "warm copper-auburn red. The roots at the parting match the lengths, with no visible regrowth or grey",
+   "failed_measurements": "YouCam wasn't run. The selfie wasn't uploaded and this desk has no measurement or try-on tools, so there are no renders. The shade was matched by eye against the store swatches and on-model reference photos."
+  },
+  "reasons": [
+   "Natural Red (Luxy Hair) is the only red or copper shade in stock across Luxy Hair, Halo Couture and Ellen Wille. Searches for 'copper' and 'auburn' found nothing else. Compared with the swatch and on-model photos, it has the same warm copper tone as the customer's hair from root to end. The customer's hair looks slightly deeper and more auburn in the photo, so Natural Red may look a little brighter or more golden in strong light. This is the 16\" length, closest to their current length.",
+   "Same Natural Red shade, 12\" Thinning Hair Fill-Ins. Listed in case the customer's chosen product comes in this length.",
+   "Same Natural Red shade, 20\" Scalp Hair Fill-Ins. Listed in case the customer's chosen product comes in this length."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T01:56:52.470Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-13",
+  "arm": "full",
+  "truth": "Jet Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Jet Black"
+  ],
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 3,
+  "refusals": [],
+  "youcam_units": 8,
+  "usd_claude": 1.974,
+  "seconds": 117,
+  "usage": {
+   "input_tokens": 458999,
+   "output_tokens": 6890,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided. The question was only about shade, so density was not needed to answer it.",
+   "hair_type": "Skipped: needs front, left and right photos; only a front selfie was provided.",
+   "hair_length": "Short hair (YouCam AI-Hair-Length-Detection, from the selfie).",
+   "natural_colour_observed": "Soft natural black from roots to ends, with a very slight warmth toward the ends. No visible highlights or regrowth contrast."
+  },
+  "reasons": [
+   "Best match on the swatch. The customer's hair is a soft natural black at the roots and through the lengths, with slight warmth at the ends. Off Black has that same softened black and is not blue-black or flat. The shade applies to whichever Luxy product the customer has chosen; the 12\" Scalp Fill-Ins variant is listed here as the placeholder.",
+   "Close second. Jet Black is a touch deeper and cooler than the customer's natural black. It suits them if their hair reads darker in person than in this photo, or if they prefer a deeper black. The render kept their face unchanged and shows the shade faithfully. Same shade note: swap to the Jet Black variant of whichever product they picked."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T01:58:50.320Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-13",
+  "arm": "no_youcam",
+  "truth": "Jet Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Jet Black"
+  ],
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.264,
+  "seconds": 31,
+  "usage": {
+   "input_tokens": 54512,
+   "output_tokens": 2277,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided",
+   "hair_type": "judged by eye from the selfie, not measured: straight or straightened, fine to medium strands",
+   "length": "judged by eye, not measured: about shoulder length, roughly 10–12 inches",
+   "natural_colour_observed": "Natural black (about level 1B). The roots at the parting and hairline are the same solid black as the lengths, with no regrowth line and no grey. The ends look a little softer and very slightly warm where the light hits them.",
+   "failed_measurements": "Nothing could be measured. No YouCam or measuring tools were available, and the selfie was not uploaded to YouCam (file id: not-uploaded). Density cannot be judged without a head-down photo. Shade was matched by eye against the store swatches."
+  },
+  "reasons": [
+   "Best match: Luxy Off Black (1B). The customer's roots and lengths are a soft natural black, not a blue-black. The Off Black swatch has the same deep, soft black with no brown cast, so it should blend at the parting and through the lengths. This is the 12-inch Scalp Fill-In version, picked to match their shoulder length. The shade is the same across all of Luxy's Off Black products, so pick the Off Black version of whichever product they have chosen.",
+   "Close second: Luxy Jet Black (1). This is the darkest shade the stores have. It's a flat, very dark black that also suits the customer's roots. It may look a little harsher and more uniform than their hair, especially against the softer ends, which is why Off Black comes first. Choose this if the customer sees their hair as the deepest possible black, or if it looks darker in daylight than in this photo."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T01:59:21.209Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-02",
+  "arm": "full",
+  "truth": "Dark Gray",
+  "status": "recommended",
+  "picks": [
+   "Light Gray",
+   "Dark Gray"
+  ],
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 1,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.494,
+  "seconds": 53,
+  "usage": {
+   "input_tokens": 106088,
+   "output_tokens": 3460,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: hair type detection needs front, left and right photos, and only one photo was provided.",
+   "length": "Failed: YouCam returned error_face_angle_invalid. The photo is taken from behind and to the side, so it can't be used for length measurement.",
+   "try_on": "Failed: YouCam returned error_no_face. No face is visible in the photo, so no renders could be made. The problem is the customer's photo, so trying another product reference would not help.",
+   "colour_read_from_photo": "Salt-and-pepper grey: dark charcoal underneath and at the nape, with a lot of silver through the crown, the top and the length of the ponytail. Cool and ashy, with no warm or brown tones."
+  },
+  "reasons": [
+   "Best colour match. Luxy's Light Gray mixes charcoal strands with a lot of silver, like the customer's own salt-and-pepper hair from root to ends. It's cool-toned with no brown, like their hair. The customer said they already know which product they want, but didn't name it, so this 16\" fill-in is just an example. The shade Light Gray applies to any Luxy product they choose.",
+   "Darker alternative only. Dark Gray is mostly near-black with a few silver strands. It matches the darker hair at the customer's nape and underneath, but it's noticeably darker than the silver on top and through the ponytail. Only worth it if the piece will sit mainly in those darker sections."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:00:33.645Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-02",
+  "arm": "no_youcam",
+  "truth": "Dark Gray",
+  "status": "recommended",
+  "picks": [
+   "Dark Gray",
+   "Dark Gray",
+   "Dark Gray"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.374,
+  "seconds": 39,
+  "usage": {
+   "input_tokens": 77110,
+   "output_tokens": 3269,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided, and no measurement tools were available for this consult",
+   "hair_type": "judged by eye only: straight, fine to medium texture",
+   "length": "judged by eye only: past the shoulders, with the ponytail reaching about the shoulder blades",
+   "colour_read_by_eye": "Cool salt-and-pepper. The root base is dark charcoal/near-black, darkest at the nape. Silver-white strands are concentrated at the crown and front, and the lengths are a blended medium charcoal grey. No warm or brassy cast.",
+   "failed_or_unavailable": "No YouCam measurement or try-on was run (selfie not uploaded; no tools). Density was not measured. The photo is a back/profile view, so the front hairline and parting were not seen."
+  },
+  "reasons": [
+   "Luxy Dark Gray is the closest shade match. The swatch has a dark charcoal base with fine silver strands mixed through. That matches the customer's dark root base and nape, and the silver around the crown and lengths. It is cool-toned, without the brown warmth of the other dark shades. The store's own Dark Gray model photos show the same salt-and-pepper look. This listing is the 16\" Thinning Hair Fill-Ins (80g), $165, in stock.",
+   "Same Dark Gray shade in the 20\" Thinning Hair Fill-Ins (95g), $210, in stock. This is in case the product the customer has in mind is the longer length. The shade recommendation does not change.",
+   "Same Dark Gray shade in the 20\" Scalp Hair Fill-Ins (50g), $150.50, in stock. This is in case the product the customer means is the scalp fill-in. Light Gray was ruled out: its swatch and model photos are mostly silver with a slight green-grey tint, much lighter than the customer's dark charcoal roots and nape, so it would stand out at the root."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:01:13.175Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-03",
+  "arm": "full",
+  "truth": "Light Gray",
+  "status": "recommended",
+  "picks": [
+   "Light Gray",
+   "Light Gray",
+   "Light Gray"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 2,
+  "refusals": [],
+  "youcam_units": 4,
+  "usd_claude": 1.1,
+  "seconds": 98,
+  "usage": {
+   "input_tokens": 245461,
+   "output_tokens": 5898,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Not measured: hair type detection needs front, left and right photos, and only one side-profile photo was provided.",
+   "length": "Failed: YouCam AI-Hair-Length-Detection returned error_face_position_too_small. The photo is a side profile with the face small in the frame, so it can't be used for length.",
+   "colour_read_from_photo": "Mostly cool, light silver grey on the top and through the ponytail, a little darker grey at the nape, with no warm or yellow tones."
+  },
+  "reasons": [
+   "Light Gray is the closest shade match. It's a cool salt-and-pepper silver with light silver strands over darker grey ones, which matches the customer's silver top and lengths and their slightly darker grey at the nape. The render shows a cool silver that sits close to their own colour, and the face is unchanged. Dark Gray is much darker than most of their hair, and Platinum Blonde and Rooted Platinum Pearl are too warm and yellow.",
+   "Same Light Gray shade in the 12\" (50g) length, in case this is the product the customer has in mind. The render shows the shade, not this particular length.",
+   "Same Light Gray shade in the 20\" Scalp Hair Fill-Ins (50g), in case this is the product the customer has in mind. The render shows the shade, not this particular length or product."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:02:52.732Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-03",
+  "arm": "no_youcam",
+  "truth": "Light Gray",
+  "status": "recommended",
+  "picks": [
+   "Light Gray",
+   "Light Gray",
+   "Light Gray"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.39,
+  "seconds": 34,
+  "usage": {
+   "input_tokens": 82681,
+   "output_tokens": 2967,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo, and no measurement tool was used in this consult",
+   "hair_type": "Straight, judged by eye from the side-profile photo",
+   "length": "Long. The ponytail reaches about mid-back, judged by eye.",
+   "colour_observed": "Cool, ash-toned natural grey with no warmth or yellow. Mostly light silver; the roots and nape show a slightly darker salt-and-pepper mix, and the ends are the palest.",
+   "failed_or_unavailable": "Density not measured (no head-down photo). The selfie was never uploaded to YouCam ('not-uploaded'), so no try-on renders exist. The shade was chosen only by comparing the photo with store swatches and on-model reference photos."
+  },
+  "reasons": [
+   "Light Gray is the closest shade in the stores' catalogues. The swatch is a cool silver blend with darker grey strands mixed through, which matches the salt-and-pepper at the customer's roots and nape. On a model it reads as soft silver with no yellow, like the customer's lengths. In stock, $165, 16\" / 80g.",
+   "Same Light Gray shade in the shorter 12\" / 50g fill-in. Use this if the product the customer has in mind is the 12\" version. In stock, $130.",
+   "Same Light Gray shade in the 20\" Scalp Hair Fill-Ins (50g). Use this if the product the customer has in mind is the scalp fill-in. The 20\" Scalp Fill-Ins & Seamless Clip-Ins bundle (variant 42213474828324, $459) also comes in Light Gray. In stock, $215."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:03:27.136Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-04",
+  "arm": "full",
+  "truth": "Dimensional Beige Blonde",
+  "status": "recommended",
+  "picks": [
+   "Beige Blonde Balayage",
+   "Dimensional Cream Blonde",
+   "Blonde Balayage"
+  ],
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 6,
+  "refusals": [],
+  "youcam_units": 12,
+  "usd_claude": 2.366,
+  "seconds": 163,
+  "usage": {
+   "input_tokens": 542200,
+   "output_tokens": 9855,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density": "Not measured. No head-down photo was provided.",
+   "hair_type": "Skipped. Hair type detection needs front, left and right photos, and only a front selfie was provided.",
+   "length": "Failed (error_face_angle_invalid). The head is tilted beyond the 10° limit for front-facing photos, so this selfie can't be used to measure length.",
+   "visual_colour_read": "From the selfie: a soft beige-golden blonde, not icy, with a slightly deeper dark-blonde root at the part and lighter, warmer lengths."
+  },
+  "reasons": [
+   "Closest match. The beige base matches the customer's slightly deeper root, and the lighter ribbons match their warm beige-blonde lengths. Two earlier renders of this shade (references _24_Front and 20-inch-3) were dropped because the eyes came out lighter and greyer than in the customer's photo. This third reference kept the face. Variant shown is 16\" Thinning Hair Fill-Ins (80g) as a stand-in; the customer's chosen product needs confirming.",
+   "Close alternative. Beige blonde with deeper lowlights, a little cooler and more dimensional than Beige Blonde Balayage. A good pick if their root looks deeper in person than in this photo. Variant shown is 16\" Thinning Hair Fill-Ins (80g) as a stand-in.",
+   "Warmer option. More golden than the customer's hair is now, so it would blend if they prefer their blonde on the honey side. Variant shown is 16\" Thinning Hair Fill-Ins (80g) as a stand-in."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:06:11.166Z",
+  "shade_offerable": false
+ },
+ {
+  "id": "luxy-04",
+  "arm": "no_youcam",
+  "truth": "Dimensional Beige Blonde",
+  "status": "recommended",
+  "picks": [
+   "Dimensional Cream Blonde",
+   "Blonde Balayage",
+   "Beige Blonde Balayage"
+  ],
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.602,
+  "seconds": 44,
+  "usage": {
+   "input_tokens": 131094,
+   "output_tokens": 3862,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided, and there are no measurement tools at this desk",
+   "hair_type": "straight (judged by eye from the selfie, not measured)",
+   "length": "long, roughly chest to mid-chest, about 18–20\" (judged by eye, not measured)",
+   "colour_read_by_eye": "Light golden-beige blonde, neutral to slightly warm. The root area at the parting is a little deeper (dark-blonde/bronde), with a soft blend into lighter beige-blonde mid-lengths and ends. Not ashy-icy and not brassy.",
+   "failed_or_unavailable": "No YouCam render or measurement was made. The selfie was not uploaded to YouCam and no head-down photo was sent, so density and parting/root width could not be measured. The shade was chosen by comparing the customer's photo with the store swatches and on-model reference photos only."
+  },
+  "reasons": [
+   "Best match. Dimensional Cream Blonde has a softly deeper beige-bronde root and creamy beige-blonde pieces running through the lengths. That is the same pattern as the customer's hair, which is slightly deeper at the parting and blends into neutral golden-beige blonde. On the on-model reference it reads almost the same as the customer's photo: not icy, not yellow. Shown here as the 20\" Scalp Hair Fill-Ins (in stock, $215), because the customer's hair is long. The shade is what matters, so use the same shade in whichever product the customer has chosen.",
+   "Close alternative if the customer's hair looks a touch warmer in daylight. Blonde Balayage is a golden blonde with a gently deeper root. It is a little warmer and yellower than the customer's colour looks in this photo, so it's second choice. Shown as the 20\" Scalp Hair Fill-Ins (in stock, $161.25).",
+   "Third option for a cooler, lighter look. Beige Blonde Balayage has a light beige root and pale ends. It's lighter and cooler than the customer's mid-lengths, so it only makes sense if they've recently toned or lightened. Shown as the 20\" Thinning Hair Fill-Ins (in stock, $210)."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:06:55.310Z",
+  "shade_offerable": false
+ },
+ {
+  "id": "luxy-05",
+  "arm": "full",
+  "truth": "Platinum Blonde",
+  "status": "recommended",
+  "picks": [
+   "Platinum Blonde",
+   "Dimensional Buttery Champagne Blonde Root Melt"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 3,
+  "refusals": [],
+  "youcam_units": 6,
+  "usd_claude": 0.908,
+  "seconds": 96,
+  "usage": {
+   "input_tokens": 196006,
+   "output_tokens": 6188,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: hair type detection needs front, left and right photos, and only a front selfie was provided.",
+   "length": "Failed: YouCam returned error_face_position_too_small (the face is too small in the frame), so this selfie can't be used for length. From the photo alone the hair falls roughly past the shoulders, but this was not measured.",
+   "visible_colour": "Read from the selfie, not measured: very light, slightly warm platinum blonde all over, with only a faintly deeper beige tone at the part and no strong dark root."
+  },
+  "reasons": [
+   "Closest shade match. Luxy Platinum Blonde is an even, pale, slightly warm blonde with no dark root, which is what the customer's hair looks like from root to end. The render keeps their face as it was and shows the shade sitting in the same tonal range as their own hair. This variant is the 20\" Thinning Hair Fill-Ins (95g), in stock. Platinum Blonde also comes in the other Luxy fill-in lengths and bundles (12\", 16\", 20\" and scalp/clip-in bundles), so the stylist can switch to whichever product the customer already has in mind.",
+   "Second choice, picked from the swatch. Dimensional Buttery Champagne Blonde Root Melt is a pale platinum with a soft beige root melt. That root is much lighter than the ash-brown root in Rooted Platinum Pearl, so it is the best option if the customer wants a little depth at the part to match their slightly deeper beige roots. This shade is only listed as the 20\" Thinning Hair Fill-Ins (95g), in stock."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:08:32.922Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-05",
+  "arm": "no_youcam",
+  "truth": "Platinum Blonde",
+  "status": "recommended",
+  "picks": [
+   "Dimensional Buttery Champagne Blonde Root Melt",
+   "Dimensional Rooted Platinum Pearl Blonde"
+  ],
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.762,
+  "seconds": 47,
+  "usage": {
+   "input_tokens": 175264,
+   "output_tokens": 3052,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided",
+   "hair_type": "not measured by any tool. From the selfie: straight to loosely wavy",
+   "length": "not measured by any tool. From the selfie: long, roughly mid-chest, with a full fringe",
+   "colour_by_eye": "Light buttery/beige blonde through the lengths, with a soft, slightly deeper beige root at the part. No dark regrowth is visible.",
+   "failed_or_unavailable": "No YouCam measurement or try-on was run. The selfie was not uploaded (file id: not-uploaded), and this desk has no measurement tools. The shade was matched only by looking at the selfie next to the store swatches and on-model photos."
+  },
+  "reasons": [
+   "Closest match roots included. The swatch and the on-model photo show buttery, pale blonde lengths with a soft beige root melt. That is the same light-to-slightly-deeper-at-the-part effect in the customer's selfie, and neither the root nor the ends are too golden or too ashy. In stock. Note: in the live catalogue this shade only comes as the 20\" Thinning Hair Fill-Ins (95g), $210.",
+   "Placeholder removed"
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:09:19.772Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-06",
+  "arm": "full",
+  "truth": "Off Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Jet Black",
+   "Dark Brown"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 3,
+  "refusals": [],
+  "youcam_units": 6,
+  "usd_claude": 1.023,
+  "seconds": 93,
+  "usage": {
+   "input_tokens": 226596,
+   "output_tokens": 5842,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: hair type detection needs front, left and right photos, and only a front selfie was provided.",
+   "length": "Failed: error_face_angle_invalid. The head is tilted beyond the supported front-facing range (within 10°), so this selfie can't be used for length.",
+   "colour_assessment_by_eye": "Natural colour is a soft, deep black-brown, the same from roots to ends, with faint warm-brown reflections where the light hits the lengths. Compared against the Luxy Off Black, Jet Black, Dark Brown and Chocolate Brown swatches.",
+   "note_on_product": "The customer says they already know which product they want but didn't name it. The shade match applies to any product line. The variants below are the 20\" Scalp Hair Fill-Ins (50g), which come in all three shades. The stylist should switch to the same shade in the customer's chosen product."
+  },
+  "reasons": [
+   "Best match. Off Black is a soft, deep black with a slight brown undertone, the same depth as the customer's roots and lengths. In the render the colour blends with their parting and doesn't look flat or blue. Face unchanged.",
+   "Close alternative. It matches the customer's depth, but the render shows it is a little cooler and inkier than their natural colour. Worth considering if their hair looks blacker in daylight than in this photo. Face unchanged.",
+   "Shown for comparison, not as a match. The render shows Dark Brown is clearly lighter and browner than the customer's natural colour, so it would show against their roots. Only an option if they want to go warmer on purpose. Face unchanged."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:10:55.220Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-06",
+  "arm": "no_youcam",
+  "truth": "Off Black",
+  "status": "recommended",
+  "picks": [
+   "Off Black",
+   "Dark Brown",
+   "Jet Black"
+  ],
+  "top1": true,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.584,
+  "seconds": 44,
+  "usage": {
+   "input_tokens": 132002,
+   "output_tokens": 2775,
+   "cache_read_tokens": 0
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided",
+   "hair_type": "judged by eye from the selfie only: straight, smooth, with a soft bend at the ends (no tool measurement)",
+   "length": "judged by eye: long, roughly chest-length, about 18-20 inches (no tool measurement)",
+   "natural_colour_observed": "Very dark brown that is almost black (off-black). The roots and parting are the same depth as the lengths, so there is no visible regrowth or colour change. The lengths pick up a slight soft-brown warmth where the light hits them.",
+   "failed_or_unavailable": "No measurement or try-on tools in this consult. YouCam selfie file was not uploaded, so no renders or density reading. The shade was matched by eye against store swatches and on-model reference photos."
+  },
+  "reasons": [
+   "Best match. The Luxy Off Black swatch and on-model photo have the same depth as the customer's hair: an almost-black base that shows a hint of soft brown in the light rather than an inky blue-black. Their roots are the same colour as their lengths, so a single solid shade blends from the parting down. In stock, $185. I listed the 20-inch Scalp Fill-In because it suits their roughly chest-length hair. If they meant a different product, use the same Off Black shade in that product.",
+   "Second choice if Off Black looks too deep next to their hair in daylight. Luxy Dark Brown is the next shade lighter, with a softer brown cast that matches the warmer parts of their lengths. It is noticeably lighter at the parting, though, so it is the safer pick only if their hair reads browner in person than in the photo. In stock, $185.",
+   "Third choice, only if their hair turns out to be a true black. Luxy Jet Black is a bit deeper and cooler than what shows in the selfie, which has a slight brown warmth, so it may look harsher at the parting. In stock, $185."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T02:11:39.841Z",
+  "shade_offerable": true
+ },
+ {
+  "id": "luxy-07",
+  "arm": "full",
+  "truth": "Neutral Brown",
+  "status": "recommended",
+  "picks": [
+   "Chestnut Brown Balayage",
+   "Chocolate Brown Balayage",
+   "Chestnut Brown"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 6,
+  "refusals": [],
+  "youcam_units": 12,
+  "usd_claude": 0.545,
+  "seconds": 131,
+  "usage": {
+   "input_tokens": 20,
+   "output_tokens": 8396,
+   "cache_read_tokens": 294172,
+   "cache_write_tokens": 63592
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: needs front, left and right photos, and only a front selfie was provided.",
+   "length": "Failed: YouCam returned error_face_position_too_small (the face is too small in the selfie). Length was not measured.",
+   "visual_colour_read": "From the selfie: warm medium-brown roots that move into golden-caramel mid-lengths and lighter ends. The hair is wavy, roughly shoulder length, with a fringe.",
+   "renders": "Six renders were made (2 references each for 3 shades). All six were dropped because they changed the customer's face: brown eyes turned grey-green, the face shape and brows changed, and the nose ring was removed. Two renders were left unused, since the face change happened with every reference.",
+   "note_for_stylist": "The customer did not name the product they want. The shade names below run across the Luxy range, and the variants listed are examples in stock. Once the customer names the product, swap to that product in the same shade. The store palette returned only Luxy Hair shades."
+  },
+  "reasons": [
+   "Best colour match. Like the customer's hair, the swatch has a warm medium-brown base with golden-caramel balayage, and it matches both the roots and the lighter lengths. Shown as the 16\" Scalp Hair Fill-Ins (40g), in stock. Use the same shade in whichever product the customer names.",
+   "Second choice. Slightly deeper and richer warm brown with caramel highlights, close to the customer's roots but with less golden brightness at the ends. 12\" Scalp Hair Fill-Ins (30g), in stock.",
+   "Solid warm medium brown matching the customer's root colour. Suits a piece that sits mainly at the root or part rather than through the lighter ends. 16\" Scalp Hair Fill-Ins (40g), in stock."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:43:02.019Z"
+ },
+ {
+  "id": "luxy-07",
+  "arm": "no_youcam",
+  "truth": "Neutral Brown",
+  "status": "recommended",
+  "picks": [
+   "Chestnut Brown Balayage",
+   "Chocolate Brown Balayage",
+   "Chestnut Brown"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.263,
+  "seconds": 45,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 3994,
+   "cache_read_tokens": 74253,
+   "cache_write_tokens": 33722
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided, and there are no measurement tools at this desk",
+   "hair_type": "not measured. From the selfie only: wavy to loosely curly, with a curtain/wispy fringe",
+   "length": "not measured. From the selfie it looks roughly collarbone-length (about 10–12 in)",
+   "colour_read_from_selfie": "Roots and crown are a warm medium brown. The mid-lengths and ends shade into lighter golden-caramel and honey tones, and the fringe is the same warm medium brown as the roots",
+   "failed_or_unavailable": "No YouCam measurements or renders: the selfie was not uploaded (file id 'not-uploaded') and there are no try-on tools in this consult. The shade match is based only on looking at the selfie next to the store swatches."
+  },
+  "reasons": [
+   "Best match: Luxy Hair Chestnut Brown Balayage, shown as the 16\" Thinning Hair Fill-Ins (80g), $165, in stock. The swatch has a warm medium-brown base that matches the customer's roots, with golden-caramel balayage pieces close to the lighter ends in their photo. It's the only swatch in the palette that covers both their root colour and their lighter lengths. The same shade also comes as 16\"/20\" Scalp Fill-Ins and in bundles, so the shade carries over to whichever Luxy fill-in they've picked. No render was made because no try-on tools were available in this consult.",
+   "Second choice: Luxy Hair Chocolate Brown Balayage, 16\" Thinning Hair Fill-Ins (80g), $165, in stock. The base is a slightly deeper, richer warm brown with softer caramel highlights. Pick this if the customer's roots look darker in daylight than in this warm, softly lit photo, or if they want the lighter ends played down. No render was made because no try-on tools were available in this consult.",
+   "Third choice: Luxy Hair Chestnut Brown, 16\" Thinning Hair Fill-Ins (80g), $140, in stock. It's a single warm medium brown with no highlights. It matches the customer's natural roots and fringe closely but won't pick up their lighter golden ends, so it suits pieces placed near the roots or crown, or the customer letting their natural colour grow out. No render was made because no try-on tools were available in this consult."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:43:46.920Z"
+ },
+ {
+  "id": "luxy-08",
+  "arm": "full",
+  "truth": "Ash Brown Highlights",
+  "status": "recommended",
+  "picks": [
+   "Ash Brown Balayage",
+   "Ash Brown Highlights"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 2,
+  "refusals": [],
+  "youcam_units": 4,
+  "usd_claude": 0.318,
+  "seconds": 71,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 4954,
+   "cache_read_tokens": 118295,
+   "cache_write_tokens": 39104
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: needs front, left and right photos, and only a front photo was provided.",
+   "length": "Failed: error_face_position_too_small. The customer's face is too small and turned in this photo for length detection.",
+   "colour_read_from_photo": "Medium ash/neutral brown at the root and part, blending into lighter cool bronde (dark-blonde) through the mid-lengths and ends. Straight texture, long.",
+   "renders": "2 of 8 used. Both dropped: YouCam put the product hair on the child in the photo, not on the customer, and left the customer's hair unchanged. Changing the reference would not fix this because the source photo is the problem, so no more renders were spent.",
+   "product": "The customer said they already know which product they want but did not name it. Shades are tied to the 20-inch Luxy Thinning Hair Fill-Ins listing to match their long hair. The stylist should switch to the same shade in whichever product the customer names."
+  },
+  "reasons": [
+   "This is the closest shade match. The medium ash-brown root blends into cool, lighter bronde lengths, the same gradient as the customer's natural hair from part to ends, with no warm or golden cast.",
+   "This is the second choice. It has the same ash-brown base with finer, slightly lighter cool ribbons throughout. It suits the customer if they want a bit more brightness than their own lengths, but it matches less evenly than Ash Brown Balayage."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:44:59.018Z"
+ },
+ {
+  "id": "luxy-08",
+  "arm": "no_youcam",
+  "truth": "Ash Brown Highlights",
+  "status": "recommended",
+  "picks": [
+   "Ash Brown Balayage",
+   "Ash Brown Highlights",
+   "Bronde Balayage"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.312,
+  "seconds": 45,
+  "usage": {
+   "input_tokens": 12,
+   "output_tokens": 3899,
+   "cache_read_tokens": 62704,
+   "cache_write_tokens": 44343
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided, and no measurement tools were available in this consult",
+   "hair_type": "looks straight, fine to medium texture (judged by eye from the photo, not measured)",
+   "length": "looks long, past the chest, roughly 18-20 in (judged by eye)",
+   "colour_read": "Darker cool/neutral ash-brown at the roots and part, blending into a lighter ash-brown to dark-blonde through the mid-lengths and ends. Soft natural graduation with no strong highlights.",
+   "failed_or_unavailable": "No YouCam measurement or try-on was run because the selfie was not uploaded (file id 'not-uploaded') and no try-on tools were available. Shade judged by eye against store swatches and on-model photos. The photo is in warm, golden studio light, which may make the ends look warmer than they are in daylight."
+  },
+  "reasons": [
+   "Best match. Ash Brown Balayage has a deeper ash-brown root that melts into soft beige/ash-blonde lengths. That is the same root-to-end pattern and cool-neutral tone as the customer's hair. On the model photo the root depth and the gradual lightening look very close to the customer's. Shown here in the 20\" Thinning Hair Fill-Ins, which suits their length. In stock, $210.",
+   "Second choice. Same cool ash-brown base, but the lightness comes from fine light-ash highlights all through the hair, not a root melt. Good if the customer's lengths look more evenly 'mixed' than graduated in daylight. It has a bit more contrast than their hair shows in this photo. 20\" Thinning Hair Fill-Ins, in stock, $210.",
+   "Third choice, only if the customer's lengths turn out warmer or more golden in daylight than they look here. Bronde Balayage is lighter and warmer (honey-bronde) than the customer's roots, so it may look too light and too golden near the part. 20\" Thinning Hair Fill-Ins, in stock, $210."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:45:44.626Z"
+ },
+ {
+  "id": "luxy-09",
+  "arm": "full",
+  "truth": "Bronde Balayage",
+  "status": "recommended",
+  "picks": [
+   "Blonde Balayage",
+   "Dimensional Caramel Honey Blonde Root Melt",
+   "Dimensional Light Golden Blonde Root Melt"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 3,
+  "refusals": [],
+  "youcam_units": 6,
+  "usd_claude": 0.356,
+  "seconds": 78,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 6172,
+   "cache_read_tokens": 120846,
+   "cache_write_tokens": 41625
+  },
+  "measurements": {
+   "density": "Not measured. No head-down photo was provided.",
+   "hair_type": "Skipped. Only a front selfie was provided, and detection needs front, left and right photos.",
+   "length": "Failed. YouCam returned error_face_angle_invalid because the head is tilted beyond the supported range, so this selfie can't be used for length.",
+   "visual_colour_read": "Warm golden blonde with honey tones and a slightly deeper golden root (judged by eye from the selfie, not measured)"
+  },
+  "reasons": [
+   "Closest match. The swatch has the same warm golden-honey tone as the customer's hair, with soft lighter pieces like their sun-lightened lengths. The render keeps the face unchanged and shows the shade sitting naturally against their colouring. Representative variant: switch to Blonde Balayage in whichever product the customer has chosen.",
+   "Best match for the root. The deeper caramel root melts into honey-blonde lengths, which mirrors the customer's slightly darker golden root. Face unchanged. The render took its shoulder-length cut from the reference photo, so it shows colour only and says nothing about length.",
+   "The brighter option. Same golden warmth with a soft root, but lighter through the lengths than the customer's natural colour. Face unchanged and the shade is clearly visible in the render."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:47:03.942Z"
+ },
+ {
+  "id": "luxy-09",
+  "arm": "no_youcam",
+  "truth": "Bronde Balayage",
+  "status": "recommended",
+  "picks": [
+   "Dimensional Caramel Honey Blonde Root Melt",
+   "Dimensional Light Golden Blonde Root Melt",
+   "Blonde Balayage"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": false,
+  "tryons": 0,
+  "refusals": [],
+  "youcam_units": 0,
+  "usd_claude": 0.35,
+  "seconds": 45,
+  "usage": {
+   "input_tokens": 12,
+   "output_tokens": 3282,
+   "cache_read_tokens": 72778,
+   "cache_write_tokens": 53861
+  },
+  "measurements": {
+   "density_level": "not measured: no head-down photo was provided, and none is needed for a shade match",
+   "hair_type": "not measured. By eye: loose waves",
+   "length": "not measured. By eye: long, past the chest",
+   "colour_read_by_eye": "warm golden/honey blonde. Slightly deeper dark-golden blonde at the roots and parting, with lighter buttery-golden pieces through the lengths and around the face",
+   "failed_or_unavailable": "No YouCam measurements or try-on renders. The selfie was never uploaded (file id: not-uploaded), and this desk has no measurement or try-on tools. The shade was matched by eye against store swatches and on-model reference photos. The photo has warm lighting, which can make hair look slightly more golden than it is."
+  },
+  "reasons": [
+   "Best match. Dimensional Caramel Honey Blonde Root Melt has a soft, deeper golden root that blends into warm honey-blonde lengths with lighter ribbons. That is the same structure as the customer's hair: deeper at the roots and parting, golden through the mid-lengths, lighter at the face and ends. In the on-model photo the root depth and warmth look closest of anything in the catalogue. In stock, $210 (20\" Thinning Hair Fill-Ins, 95g).",
+   "Close second. Dimensional Light Golden Blonde Root Melt has the same warm, rooted blend, but its ends are about a level lighter and creamier than the customer's lengths. Good choice if their hair is lighter in daylight than in this warm-lit photo. In stock, $210 (20\" Thinning Hair Fill-Ins, 95g).",
+   "Third option. Blonde Balayage is the right warm golden-honey tone for the customer's lengths, but it has no built-in deeper root, so it may look a touch light right at the parting. It's the pick if the product they want doesn't come in a Root Melt shade, since Blonde Balayage comes in many more formats. In stock, $210 (20\" Thinning Hair Fill-Ins, 95g)."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:47:49.329Z"
+ },
+ {
+  "id": "luxy-10",
+  "arm": "full",
+  "truth": "Chocolate Brown",
+  "status": "recommended",
+  "picks": [
+   "Dark Brown",
+   "Chocolate Brown"
+  ],
+  "shade_offerable": true,
+  "top1": false,
+  "in_shortlist": true,
+  "tryons": 6,
+  "refusals": [],
+  "youcam_units": 12,
+  "usd_claude": 0.528,
+  "seconds": 196,
+  "usage": {
+   "input_tokens": 34,
+   "output_tokens": 7975,
+   "cache_read_tokens": 572812,
+   "cache_write_tokens": 50831
+  },
+  "measurements": {
+   "density": "Not measured: no head-down photo was provided.",
+   "hair_type": "Skipped: only one front/three-quarter selfie was provided; hair type detection needs front, left and right photos.",
+   "length": "Failed: error_face_angle_invalid. The selfie's three-quarter face angle is outside the supported range, so this photo can't be used for length measurement.",
+   "observed_colour": "From the selfie: a deep natural brown with a soft warm cast, even from root to end, with no highlights or regrowth line."
+  },
+  "reasons": [
+   "Closest shade match. Luxy Dark Brown is the same depth and soft warmth as the customer's natural colour, even from root to end, like theirs. The render keeps the face intact and shows the colour sitting naturally. Shade is the deciding factor: the customer already knows their product, so this variant stands for the Dark Brown shade. Swap to the same shade in their chosen product. Two other Dark Brown renders were dropped: one changed the face, and one used a 'Before' reference that doesn't show the product.",
+   "Second choice. Chocolate Brown is a little lighter and warmer than the customer's hair. It is closest to the warmer brown in their lengths where the light hits, and would suit them if they want a touch more warmth than Dark Brown."
+  ],
+  "leaked_reference": false,
+  "ran_at": "2026-10-26T08:51:06.780Z"
+ }
+]
