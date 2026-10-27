@@ -4,6 +4,8 @@ import { luxyShadeSwatches, swatchFor } from "@/lib/catalog";
 import { Footer, Masthead } from "../chrome";
 import { Shade, Swatch } from "../ring";
 
+export const metadata = { title: "Against Luxy's stylists" };
+
 // Read once at module scope: the committed benchmark files are the source of every number on this page.
 const DIR = path.join(process.cwd(), "data", "benchmark");
 const truth = JSON.parse(fs.readFileSync(path.join(DIR, "luxy-truth.json"), "utf8")) as {

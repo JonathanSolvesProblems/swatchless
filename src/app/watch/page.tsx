@@ -6,6 +6,8 @@ import { watchList } from "@/lib/watch";
 import { Footer, Masthead } from "../chrome";
 import { Ring, Shade, Tag } from "../ring";
 
+export const metadata = { title: "Watch list" };
+
 async function Rows() {
   const rows = await watchList(true);
   if (!rows.length) {

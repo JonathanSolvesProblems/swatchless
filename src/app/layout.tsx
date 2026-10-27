@@ -9,7 +9,7 @@ const tag = Azeret_Mono({ variable: "--font-tag", subsets: ["latin"], weight: ["
 export const metadata: Metadata = {
   // Absolute base for the Open Graph image, so a pasted link previews from the deployed site.
   metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3210"),
-  title: "Swatchless",
+  title: { default: "Swatchless", template: "%s · Swatchless" },
   description:
     "A colour-match desk for hair retailers: one customer photo, the matching fill-ins and toppers from the store's live catalogue, and the customer wearing each one before they buy.",
 };

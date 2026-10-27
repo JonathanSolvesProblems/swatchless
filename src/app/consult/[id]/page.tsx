@@ -15,14 +15,16 @@ async function Consult({ params }: { params: Promise<{ id: string }> }) {
 
   return (
     <>
+      <h1 className="pt-2 text-[34px]">Consult of {when}</h1>
       <p className="pb-6 pt-2 text-[14px] text-muted">
-        Saved consult {consult.id}, {when}
-        {consult.note ? `. The customer wrote: "${consult.note}"` : ""}
+        {consult.note ? `The customer wrote: "${consult.note}"` : "Saved on the desk, with every render and the agent's log."}
       </p>
       <SavedConsult events={events} />
     </>
   );
 }
+
+export const metadata = { title: "A saved consult" };
 
 export default function ConsultPage(props: PageProps<"/consult/[id]">) {
   return (
