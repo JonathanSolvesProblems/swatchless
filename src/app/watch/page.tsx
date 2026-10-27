@@ -34,7 +34,10 @@ async function Rows() {
             ))}
           </ul>
         </div>
-        <RingMark size={260} className="watch-ring" />
+        <figure className="watch-ring-figure m-0">
+          <RingMark size={180} className="watch-ring" />
+          <figcaption className="text-[13px] text-muted">Nothing hanging on the ring</figcaption>
+        </figure>
       </div>
     );
   }
