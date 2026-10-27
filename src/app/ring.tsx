@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import type { Recommendation } from "@/lib/agent";
+import { shadeName } from "@/lib/shade-name";
 
 /** The mark: a closed steel ring with one shade tag hanging from it. */
 export function RingMark({ size = 28, className = "" }: { size?: number; className?: string }) {
@@ -69,11 +70,6 @@ function Why({ text }: { text: string }) {
       )}
     </div>
   );
-}
-
-/** Stores write some shades in capitals ("ESPRESSO MIX"); a tag reads them the way a stylist says them. Codes like 1B stay. */
-export function shadeName(shade: string): string {
-  return /[A-Z]{3}/.test(shade) && shade === shade.toUpperCase() ? shade.toLowerCase().replace(/\b\p{L}/gu, (c) => c.toUpperCase()) : shade;
 }
 
 /** A product line for the tag: no weight suffix, no repeated shade, and "Ultima | Top Power | ... Topper" cut to its name and kind. */

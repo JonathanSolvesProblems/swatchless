@@ -4,7 +4,8 @@ import { swatchFor } from "@/lib/catalog";
 import { listConsults } from "@/lib/store";
 import { watchList } from "@/lib/watch";
 import { Footer, Masthead } from "../chrome";
-import { Ring, RingMark, Shade, Tag, shadeName } from "../ring";
+import { shadeName } from "@/lib/shade-name";
+import { Ring, RingMark, Shade, Tag } from "../ring";
 
 export const metadata = { title: "Watch list" };
 
