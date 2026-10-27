@@ -101,8 +101,11 @@ export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?:
           </>
         ) : before ? (
           <>
-            <span className="weft-title">As sent</span>
-            <span className="weft-meta">The customer&rsquo;s own photo, before</span>
+            <span className="weft-shade">
+              <Swatch src={before.image} size="md" />
+              <span className="weft-title">As sent</span>
+            </span>
+            <span className="weft-meta">The customer&rsquo;s own photo, nothing added yet</span>
           </>
         ) : (
           <span className="weft-title">Try-on {pending!.index}</span>

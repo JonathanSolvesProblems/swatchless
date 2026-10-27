@@ -11,7 +11,8 @@ async function Consult({ params }: { params: Promise<{ id: string }> }) {
   if (!consult) notFound();
 
   const events = consultEvents(consult);
-  const when = new Date(consult.created).toLocaleString("en-CA", { dateStyle: "medium", timeStyle: "short" }).replace(/\.$/, "");
+  // The desk's own clock, 24-hour, so the heading carries no "a.m." full stop (charter 7) and no server time zone.
+  const when = new Date(consult.created).toLocaleString("en-CA", { dateStyle: "medium", timeStyle: "short", hourCycle: "h23", timeZone: "America/Toronto" });
 
   return (
     <>
