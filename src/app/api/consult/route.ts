@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { runConsult, type ConsultEvent } from "@/lib/agent";
+import { consultUsd, runConsult, type ConsultEvent } from "@/lib/agent";
 import { admit, finish, visitorId } from "@/lib/guard";
 import { DEMO_DISCLOSURE, isDemoCustomer, saveConsult } from "@/lib/store";
 import { uploadImage, YouCamError } from "@/lib/youcam";
@@ -8,7 +8,6 @@ export const maxDuration = 300;
 
 const MAX_UPLOAD = 10 * 1024 * 1024; // per photo, YouCam's own limit
 const MAX_NOTE = 1000;
-const PRICE = { input: 4 / 1e6, output: 20 / 1e6, cache_read: 0.2 / 1e6, cache_write: 5 / 1e6 }; // Claude Opus 5.5
 
 async function prepare(file: File): Promise<Buffer> {
   // YouCam's hair tools want the long side at or under 1024 px. sharp also rejects anything that is not an image.
@@ -77,12 +76,11 @@ export async function POST(request: Request) {
           ...((await isDemoCustomer(selfieJpeg)) && { disclosure: DEMO_DISCLOSURE }),
         });
         const events: ConsultEvent[] = [];
-        const result = await runConsult({ selfieFileId, selfieDataUrl, headDownFileId, customerNote: note }, (e) => {
+        // Spend is recorded turn by turn, so a consult that throws half way still counts against the daily cap.
+        const result = await runConsult({ selfieFileId, selfieDataUrl, headDownFileId, customerNote: note, onUsage: (u) => (usd = consultUsd(u)) }, (e) => {
           events.push(e);
           send(e);
         });
-        const u = result.usage;
-        if (u) usd = u.input_tokens * PRICE.input + u.output_tokens * PRICE.output + u.cache_read_tokens * PRICE.cache_read + (u.cache_write_tokens ?? 0) * PRICE.cache_write;
         const id = await saveConsult({ result, events, selfie: selfieJpeg, headDown: headJpeg, note: note ?? "" });
         controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: "saved", id })}\n\n`));
       } catch (err) {

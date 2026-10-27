@@ -51,6 +51,23 @@ export function findVariant(variantId: number): Product | undefined {
   return catalog.products.find((p) => p.variant_id === variantId);
 }
 
+// Store photo -> the shades it is catalogued under, counting only photos that show their own product's shade.
+let byReference: Map<string, Set<string>> | null = null;
+const bare = (url: string) => url.split("?")[0];
+export function referenceShades(url: string): string[] {
+  if (!byReference) {
+    byReference = new Map();
+    for (const p of catalog.products) {
+      if (!p.reference_in_this_shade) continue;
+      for (const r of p.references) {
+        const k = bare(r);
+        byReference.set(k, (byReference.get(k) ?? new Set()).add(p.shade));
+      }
+    }
+  }
+  return [...(byReference.get(bare(url)) ?? [])];
+}
+
 export interface SearchQuery {
   categories?: Category[];
   stores?: string[];

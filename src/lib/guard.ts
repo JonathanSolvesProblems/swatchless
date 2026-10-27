@@ -47,6 +47,8 @@ export function visitorId(ip: string, salt: string): string {
   return crypto.createHash("sha256").update(`${salt}:${ip}`).digest("hex").slice(0, 16);
 }
 
+const deskDay = (d: Date) => d.toLocaleDateString("en-CA", { timeZone: "America/Toronto" });
+
 /** The decision, pure: given the config, the ledger, who is asking and when. */
 export function decide(cfg: GuardConfig, ledger: LedgerEntry[], visitor: string, code: string | undefined, now: Date): Verdict {
   if (cfg.production && !cfg.accessCode) {
@@ -58,14 +60,16 @@ export function decide(cfg: GuardConfig, ledger: LedgerEntry[], visitor: string,
   const t = now.getTime();
   const running = ledger.filter((e) => !e.ended && t - Date.parse(e.at) < 10 * 60_000).length;
   if (running >= cfg.maxConcurrent) {
-    return { ok: false, status: 429, reason: "Two consults are already running. Try again in a couple of minutes." };
+    const n = cfg.maxConcurrent === 1 ? "A consult is" : `${cfg.maxConcurrent} consults are`;
+    return { ok: false, status: 429, reason: `${n} already running. Try again in a couple of minutes.` };
   }
   const lastHour = ledger.filter((e) => e.visitor === visitor && t - Date.parse(e.at) < 3_600_000).length;
   if (lastHour >= cfg.perVisitorPerHour) {
     return { ok: false, status: 429, reason: `That's ${cfg.perVisitorPerHour} live consults from you this hour. Saved consults are still open.` };
   }
-  const today = now.toISOString().slice(0, 10);
-  const todays = ledger.filter((e) => e.at.startsWith(today));
+  // "Today" is the desk's day in Toronto, so the cap resets at local midnight, as "try again tomorrow" promises.
+  const today = deskDay(now);
+  const todays = ledger.filter((e) => deskDay(new Date(e.at)) === today);
   if (todays.length >= cfg.dailyConsults) {
     return { ok: false, status: 429, reason: `Today's ${cfg.dailyConsults} live consults have been used. Saved consults are still open; try again tomorrow.` };
   }

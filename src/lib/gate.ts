@@ -4,7 +4,10 @@
  * The model chooses the shades; this decides whether each chosen item may be shown:
  *   - the variant must exist in a store's feed
  *   - a render_url must be one YouCam returned in this consult (never a URL the model made up or reused)
+ *   - a render made from a store photo must have been made from a photo of this shade, so a render of one product
+ *     is never shown under another
  *   - an item with no render must say why it is not shown
+ *   - no product twice in one shortlist
  *   - the variant must be in stock on the store's site right now (or in the last catalogue when the store does not answer)
  * Out-of-stock items are refused and handed back as watch-list entries, so the desk can follow up when they return.
  */
@@ -48,7 +51,11 @@ export interface GateContext {
   ablation: boolean;
   lookup: (variantId: number) => Product | undefined;
   stock: (p: Product) => Promise<{ available: boolean; source: "store" | "snapshot" }>;
+  /** The shades a store photo is catalogued under; empty when the photo is not a catalogued reference. */
+  referenceShades?: (url: string) => string[];
 }
+
+const sameShade = (a: string, b: string) => a.trim().toLowerCase() === b.trim().toLowerCase();
 
 export interface GateResult {
   accepted: Recommendation[];
@@ -67,9 +74,18 @@ export async function checkShortlist(items: ShortlistItem[], ctx: GateContext): 
       problems.push(`variant ${item.variant_id} is not in any store's feed`);
       continue;
     }
+    if (accepted.some((a) => a.variant_id === product.variant_id)) {
+      problems.push(`${product.title}: listed twice; each product goes on the shortlist once`);
+      continue;
+    }
     const render = item.render_url ? ctx.renders.get(item.render_url) : undefined;
     if (item.render_url && !render && !ctx.ablation) {
       problems.push(`${product.title}: that render_url was not returned by YouCam in this consult`);
+      continue;
+    }
+    const madeFrom = render?.reference ? (ctx.referenceShades?.(render.reference) ?? []) : [];
+    if (madeFrom.length && !madeFrom.some((s) => sameShade(s, product.shade))) {
+      problems.push(`${product.title}: that render was made from a photo of ${madeFrom[0]}, not ${product.shade}; render this shade or use its own render`);
       continue;
     }
     if (!item.render_url && !ctx.ablation && !item.render_note?.trim()) {

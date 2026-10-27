@@ -13,14 +13,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
-import { runConsult, type ConsultEvent } from "../src/lib/agent";
+import { consultUsd, runConsult, type ConsultEvent } from "../src/lib/agent";
 import { unitBalance, uploadImage } from "../src/lib/youcam";
 
 const ROOT = path.resolve(__dirname, "..");
 const TRUTH = path.join(ROOT, "data", "benchmark", "luxy-truth.json");
 const OUT = path.join(ROOT, "data", "benchmark", "results.json");
 const NOTE = "I already know which product I want. I just need to know which shade matches my natural hair colour.";
-const PRICE = { input: 4 / 1e6, output: 20 / 1e6, cache_read: 0.2 / 1e6, cache_write: 5 / 1e6 }; // Claude Opus 5.5, USD per token
 
 interface Item {
   id: string;
@@ -95,7 +94,7 @@ async function main() {
         tryons: result.tryons_used,
         refusals: result.refusals,
         youcam_units: units0 - (await unitBalance()),
-        usd_claude: +(u.input_tokens * PRICE.input + u.output_tokens * PRICE.output + u.cache_read_tokens * PRICE.cache_read + (u.cache_write_tokens ?? 0) * PRICE.cache_write).toFixed(3),
+        usd_claude: +consultUsd(u).toFixed(3),
         seconds: Math.round((Date.now() - t0) / 1000),
         usage: u,
         measurements: result.measurements,

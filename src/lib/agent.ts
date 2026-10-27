@@ -24,7 +24,7 @@ import type {
 import sharp from "sharp";
 import { allowedImageUrl } from "./guard";
 import { z } from "zod";
-import { findVariant, liveStock, searchCatalog, shadePalette, type Category } from "./catalog";
+import { findVariant, liveStock, referenceShades, searchCatalog, shadePalette, type Category } from "./catalog";
 import { checkShortlist, type Recommendation } from "./gate";
 
 const MODEL = "claude-opus-5-5";
@@ -39,9 +39,33 @@ const ALLOWED_YOUCAM_TOOLS = [
   "AI-Hair-Volume-Virtual-Try-On",
   "AI-Hair-Volume-Virtual-Try-On-Templates",
 ];
+/** Every YouCam tool that renders (and bills) an image; all of them count against the render budget. */
+const RENDER_TOOLS = [TRYON_TOOL, "AI-Hair-Color-Virtual-Try-On", "AI-Hair-Volume-Virtual-Try-On"];
 const MAX_TRYONS = 8;
 const MAX_TURNS = 24;
 const MAX_CONSULT_USD = Number(process.env.CONSULT_MAX_USD ?? 3);
+
+/** Claude Opus 5.5, USD per token. The one price table: the in-run cap, the ledger and the benchmark all use it. */
+export const PRICE = { input: 4 / 1e6, output: 20 / 1e6, cache_read: 0.2 / 1e6, cache_write: 5 / 1e6 };
+export type Usage = { input_tokens: number; output_tokens: number; cache_read_tokens: number; cache_write_tokens?: number };
+export function consultUsd(u: Usage): number {
+  return u.input_tokens * PRICE.input + u.output_tokens * PRICE.output + u.cache_read_tokens * PRICE.cache_read + (u.cache_write_tokens ?? 0) * PRICE.cache_write;
+}
+
+/** A YouCam result succeeded unless the call errored or its body reports an error (a null error field is success). */
+function youcamOk(text: string, isError: boolean): boolean {
+  if (isError) return false;
+  try {
+    const body = JSON.parse(text) as { data?: { error?: unknown; task_status?: string }; error?: unknown; task_status?: string };
+    const d = body.data ?? body;
+    return !d.error && d.task_status !== "error";
+  } catch {
+    return !/"task_status"\s*:\s*"error"/.test(text) && !/"error"\s*:\s*("[^"]|\{)/.test(text);
+  }
+}
+
+/** Render URLs come from YouCam's result storage; anything else in a result (an echoed store photo) is not a render. */
+const isYouCamResult = (u: string) => /^https:\/\/yce-[a-z0-9-]+\.s3[a-z0-9.-]*\.amazonaws\.com\//.test(u);
 
 export type ConsultEvent =
   | { type: "say"; text: string }
@@ -64,7 +88,7 @@ export interface ConsultResult {
   refusals: string[];
   /** Variants the desk wanted but refused because the store's feed showed them out of stock: the watch list. */
   watch: { variant_id: number; title: string; store: string; render_url: string | null }[];
-  usage?: { input_tokens: number; output_tokens: number; cache_read_tokens: number; cache_write_tokens?: number };
+  usage?: Usage;
 }
 
 export interface ConsultInput {
@@ -77,6 +101,8 @@ export interface ConsultInput {
   excludeReferences?: string[];
   /** Benchmark ablation: "no_youcam" removes every YouCam tool, so the shade is chosen from the photo and swatches alone. */
   mode?: "full" | "no_youcam";
+  /** Called after every model turn with the running token totals, so a caller can record spend even if a later turn throws. */
+  onUsage?: (u: Usage) => void;
 }
 
 const SYSTEM = `You are the colour-match desk for three online hair retailers (Luxy Hair, Halo Couture, Ellen Wille).
@@ -264,7 +290,7 @@ function urlsIn(text: string): string[] {
 export async function runConsult(input: ConsultInput, emit: (e: ConsultEvent) => void): Promise<ConsultResult> {
   const client = new Anthropic({ apiKey: appApiKey() });
   const renders = new Map<string, { reference: string | null }>(); // render url -> reference used
-  const pendingTryons = new Map<string, string | null>(); // mcp tool_use id -> reference url
+  const pendingTryons = new Map<string, { tool: string; ref: string | null }>(); // mcp tool_use id -> render tool and reference url
   const refusals: string[] = [];
   const watch: ConsultResult["watch"] = [];
   let tryons = 0;
@@ -295,7 +321,7 @@ export async function runConsult(input: ConsultInput, emit: (e: ConsultEvent) =>
       .filter((t) => !(ablation && "type" in t && t.type === "mcp_toolset"))
       .map((t) =>
         "type" in t && t.type === "mcp_toolset" && tryons >= MAX_TRYONS
-          ? { ...t, configs: { ...t.configs, [TRYON_TOOL]: { enabled: false } } }
+          ? { ...t, configs: { ...t.configs, ...Object.fromEntries(RENDER_TOOLS.map((n) => [n, { enabled: false }])) } }
           : t,
       );
     const stream = client.beta.messages.stream({
@@ -317,8 +343,8 @@ export async function runConsult(input: ConsultInput, emit: (e: ConsultEvent) =>
     usage.output_tokens += message.usage.output_tokens;
     usage.cache_read_tokens += message.usage.cache_read_input_tokens ?? 0;
     usage.cache_write_tokens += message.usage.cache_creation_input_tokens ?? 0;
-    const spent = (usage.input_tokens * 4 + usage.output_tokens * 20 + usage.cache_read_tokens * 0.2 + usage.cache_write_tokens * 5) / 1e6;
-    if (spent > MAX_CONSULT_USD) {
+    input.onUsage?.({ ...usage });
+    if (consultUsd(usage) > MAX_CONSULT_USD) {
       // A hard stop, so one consult can never run away with the budget.
       emit({ type: "error", message: `This consult reached its $${MAX_CONSULT_USD} spending cap and stopped before finishing.` });
       return withUsage({ status: "stopped", measurements: {}, recommendations: [], message_to_customer: "", tryons_used: tryons, refusals });
@@ -329,20 +355,20 @@ export async function runConsult(input: ConsultInput, emit: (e: ConsultEvent) =>
       if (block.type === "text" && block.text.trim()) emit({ type: "say", text: block.text });
       if (block.type === "mcp_tool_use") {
         emit({ type: "youcam_call", id: block.id, tool: block.name, input: block.input });
-        if (block.name === TRYON_TOOL) {
+        if (RENDER_TOOLS.includes(block.name)) {
           tryons++;
           const ref = (block.input as { request?: { ref_file_url?: string } })?.request?.ref_file_url ?? null;
-          pendingTryons.set(block.id, ref);
+          pendingTryons.set(block.id, { tool: block.name, ref });
         }
       }
       if (block.type === "mcp_tool_result") {
         const text = textOf(block.content);
-        const images = block.is_error ? [] : urlsIn(text);
-        const tool = pendingTryons.has(block.tool_use_id) ? TRYON_TOOL : "youcam";
-        if (tool === TRYON_TOOL && images.length && !/"task_status"\s*:\s*"error"/.test(text)) {
-          for (const u of images) renders.set(u, { reference: pendingTryons.get(block.tool_use_id) ?? null });
-        }
-        emit({ type: "youcam_result", id: block.tool_use_id, tool, ok: !block.is_error && !/error_/.test(text), summary: text.slice(0, 600), images });
+        const ok = youcamOk(text, Boolean(block.is_error));
+        const pending = pendingTryons.get(block.tool_use_id);
+        // Only images in YouCam's result storage count as renders; an echoed store photo never does.
+        const images = ok ? urlsIn(text).filter((u) => !pending || (isYouCamResult(u) && u !== pending.ref)) : [];
+        if (pending) for (const u of images) renders.set(u, { reference: pending.ref });
+        emit({ type: "youcam_result", id: block.tool_use_id, tool: pending?.tool ?? "youcam", ok, summary: text.slice(0, 600), images });
       }
     }
 
@@ -413,6 +439,7 @@ export async function runConsult(input: ConsultInput, emit: (e: ConsultEvent) =>
           ablation,
           lookup: findVariant,
           stock: liveStock,
+          referenceShades,
         });
         for (const w of outOfStock) if (!watch.some((x) => x.variant_id === w.variant_id)) watch.push(w);
         if (problems.length) {

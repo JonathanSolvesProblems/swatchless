@@ -35,6 +35,25 @@ function ctx(over: Partial<GateContext> = {}): GateContext {
 
 const item = (over = {}) => ({ variant_id: 101, render_url: RENDER, reference_url: "https://cdn.example/uma-1.jpg", why: "closest to the roots", ...over });
 
+describe("the desk's gate, cross-checks", () => {
+  it("refuses a render made from another shade's photo", async () => {
+    const r = await checkShortlist([item()], ctx({ referenceShades: () => ["Dirty Blonde"] }));
+    expect(r.accepted).toEqual([]);
+    expect(r.problems[0]).toMatch(/made from a photo of Dirty Blonde, not Jet Black/);
+  });
+
+  it("accepts a render made from another product's photo of the same shade", async () => {
+    const r = await checkShortlist([item()], ctx({ referenceShades: () => ["jet black"] }));
+    expect(r.problems).toEqual([]);
+  });
+
+  it("lists a product once", async () => {
+    const r = await checkShortlist([item(), item()], ctx());
+    expect(r.accepted).toHaveLength(1);
+    expect(r.problems[0]).toMatch(/listed twice/);
+  });
+});
+
 describe("the desk's gate", () => {
   it("accepts a rendered, in-stock pick and carries the store's swatch and cart link", async () => {
     const r = await checkShortlist([item()], ctx());

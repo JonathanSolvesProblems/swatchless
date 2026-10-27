@@ -63,6 +63,17 @@ describe("the live-consult guard", () => {
     expect(decide(cfg(), yesterday, "v1", "rings", now)).toEqual({ ok: true });
   });
 
+  it("counts the day in Toronto, so an evening visit still sees that afternoon's consults", () => {
+    const evening = new Date("2026-10-28T01:00:00Z"); // 21:00 on Oct 27 in Toronto, already Oct 28 in UTC
+    const afternoon = Array.from({ length: 15 }, (_, i) => entry({ visitor: `x${i}`, at: "2026-10-27T18:00:00Z", usd: 0.5 }));
+    expect(decide(cfg(), afternoon, "v1", "rings", evening)).toMatchObject({ ok: false, status: 429 });
+  });
+
+  it("names the real concurrency cap", () => {
+    const running = [entry({ visitor: "a", at: at(1), ended: false })];
+    expect(decide(cfg({ maxConcurrent: 1 }), running, "v1", "rings", now)).toMatchObject({ reason: expect.stringMatching(/^A consult is already running/) });
+  });
+
   it("hashes visitors without keeping the IP", () => {
     const id = visitorId("203.0.113.7", "salt");
     expect(id).toHaveLength(16);
