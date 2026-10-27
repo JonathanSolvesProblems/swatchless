@@ -106,7 +106,8 @@ p { text-wrap: pretty; }
 
 /* ---------- hero: the try-on is the one object; the selfie they sent is an inset ---------- */
 .hero-grid { display: grid; gap: 40px; align-items: center; padding-top: 12px; }
-@media (min-width: 1024px) { .hero-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
+/* the headline column takes the larger share so "Answer “which shade?”" holds one line and the wall ends above the fold */
+@media (min-width: 1024px) { .hero-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); } }
 .wall { display: flex; flex-direction: column; gap: 12px; }
 .wall-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 7px; }
 .wall-cell { position: relative; display: block; }
@@ -125,20 +126,21 @@ p { text-wrap: pretty; }
 .swatch-md { width: 34px; height: 44px; }
 .swatch-lg { width: 48px; height: 60px; border-radius: 3px; }
 .shade { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 5px; background: var(--card); color: var(--card-ink); font-weight: 600; font-size: 14px; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%); }
-.shade-miss { font-weight: 400; background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--rule); }
+.shade-miss { font-weight: 400; background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--ink) 55%, transparent); }
 .shade-miss .swatch { opacity: .85; }
 
 /* ---------- intake ---------- */
 .intake { display: flex; flex-direction: column; gap: 14px; padding: 26px 0 0; border-top: 1px solid var(--rule); }
 .intake-row { display: grid; gap: 12px; align-items: stretch; }
 @media (min-width: 1024px) { .intake-row { grid-template-columns: 1fr 1fr 1.4fr auto; } }
-.drop { display: flex; align-items: center; gap: 12px; min-height: 72px; padding: 10px 14px; background: var(--sunk); border-radius: 4px; cursor: pointer; transition: background-color 140ms ease, box-shadow 140ms ease; }
+/* every field carries a rule at rest, because on the light canvas the sunk fill alone does not read as a field */
+.drop { display: flex; align-items: center; gap: 12px; min-height: 72px; padding: 10px 14px; background: var(--sunk); border-radius: 4px; box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--rule) 60%, transparent); cursor: pointer; transition: background-color 140ms ease, box-shadow 140ms ease; }
 .drop:hover, .drop-over { box-shadow: inset 0 0 0 1.5px var(--steel); }
 .drop:focus-within { outline: 2px solid var(--steel); outline-offset: 2px; }
 .drop-icon { flex: none; width: 44px; height: 52px; color: var(--steel); }
 .drop-thumb { flex: none; width: 44px; height: 52px; object-fit: cover; border-radius: 2px; }
-.intake-note textarea { width: 100%; height: 100%; min-height: 72px; padding: 12px 14px; background: var(--sunk); color: var(--ink); border-radius: 4px; font-size: 14.5px; line-height: 1.45; resize: vertical; }
-.intake-note textarea::placeholder { color: var(--muted); }
+.intake-note textarea { width: 100%; height: 100%; min-height: 72px; padding: 12px 14px; background: var(--sunk); color: var(--ink); border-radius: 4px; box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--rule) 60%, transparent); font-size: 14.5px; line-height: 1.45; resize: vertical; }
+.intake-note textarea::placeholder { color: var(--muted); opacity: .75; }
 .primary { min-height: 56px; padding: 0 30px; background: #ffffff; color: #0f1b21; font-weight: 700; font-size: 16.5px; border-radius: 2px; box-shadow: 0 14px 30px -12px rgba(0,0,0,.8), 0 2px 0 var(--steel); transition: transform 140ms ease, box-shadow 140ms ease; }
 .primary:hover { transform: translateY(-1px); box-shadow: 0 18px 34px -12px rgba(0,0,0,.8), 0 3px 0 var(--steel); }
 .primary[aria-disabled="true"] { box-shadow: 0 2px 0 var(--steel); }
@@ -180,7 +182,7 @@ p { text-wrap: pretty; }
 .weft-meta { font-size: 13px; line-height: 1.35; color: color-mix(in oklab, var(--card-ink) 70%, transparent); }
 .weft-tail { position: relative; margin: 0; border-radius: 3px; overflow: hidden; background: var(--sunk); aspect-ratio: 4 / 5; }
 .weft-tail > img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.weft-ref { position: absolute; left: 8px; bottom: 8px; display: flex; align-items: center; gap: 6px; padding: 4px 8px 4px 4px; background: color-mix(in oklab, var(--sunk) 82%, transparent); backdrop-filter: blur(6px); border-radius: 2px; font-size: 11.5px; color: var(--ink); }
+.weft-ref { position: absolute; left: 8px; bottom: 8px; display: flex; align-items: center; gap: 6px; padding: 4px 8px 4px 4px; background: color-mix(in oklab, var(--sunk) 92%, transparent); backdrop-filter: blur(6px); border-radius: 2px; font-size: 11.5px; color: var(--ink); }
 .weft-ref img { width: 34px; height: 42px; object-fit: cover; border-radius: 1px; }
 .weft-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
 .weft-why { font-size: 14px; line-height: 1.55; color: var(--muted); }
@@ -203,7 +205,8 @@ p { text-wrap: pretty; }
 .text-link { font-size: 14px; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; }
 .text-link:hover { text-decoration-color: var(--ink); }
 
-.reply { background: var(--card); color: var(--card-ink); padding: 24px 26px; border-radius: 2px; clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%); }
+/* a square card: the clipped corner is the shade tag's alone (charter 6) */
+.reply { background: var(--card); color: var(--card-ink); padding: 24px 26px; border-radius: 2px; }
 .reply h3 { color: var(--card-ink); }
 .reply .text-link { color: var(--card-ink); text-decoration-color: color-mix(in oklab, var(--card-ink) 35%, transparent); }
 
@@ -219,8 +222,13 @@ p { text-wrap: pretty; }
 .bench { width: 100%; border-collapse: collapse; font-size: 15px; }
 .bench th { text-align: left; font-weight: 500; color: var(--muted); font-size: 14px; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule); }
 .bench td { padding: 12px 14px 12px 0; border-bottom: 1px solid color-mix(in oklab, var(--rule) 55%, transparent); vertical-align: middle; }
-.bench-photo { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+.bench-photo { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); white-space: nowrap; }
 .bench-photo img { width: 96px; height: 120px; object-fit: cover; border-radius: 2px; }
+/* the photo column keeps its width, so "Customer 4" is never squeezed under the shade tag beside it */
+@media (min-width: 640px) {
+  .bench th:first-child, .bench td:first-child { width: 190px; }
+  .bench td:nth-child(2) { min-width: 230px; }
+}
 @media (max-width: 639px) {
   .bench thead { display: none; }
   .bench, .bench tbody, .bench tr, .bench td { display: block; width: 100%; }
@@ -251,8 +259,8 @@ p { text-wrap: pretty; }
 
 .intake-extra { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
 .intake-code { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
-.intake-code input { width: 230px; min-height: 40px; padding: 0 12px; background: var(--sunk); color: var(--ink); border-radius: 2px; box-shadow: inset 0 0 0 1.5px var(--rule); font-family: var(--font-tag), ui-monospace, monospace; font-size: 14px; letter-spacing: .02em; }
-.intake-code input::placeholder { color: var(--muted); font-family: var(--font-body), system-ui, sans-serif; letter-spacing: 0; }
+.intake-code input { width: 230px; min-height: 40px; padding: 0 12px; background: var(--sunk); color: var(--ink); border-radius: 2px; box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--rule) 60%, transparent); font-family: var(--font-tag), ui-monospace, monospace; font-size: 14px; letter-spacing: .02em; }
+.intake-code input::placeholder { color: var(--muted); opacity: .75; font-family: var(--font-body), system-ui, sans-serif; letter-spacing: 0; }
 .intake-code input:focus-visible { outline: 2px solid var(--steel); outline-offset: 2px; box-shadow: none; }
 
 .intake-refused { padding: 10px 14px; border-left: 3px solid var(--refuse); background: color-mix(in oklab, var(--refuse) 12%, transparent); color: var(--ink); font-size: 14.5px; }

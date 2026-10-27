@@ -50,22 +50,23 @@ export function Shade({ name, swatch, miss = false }: { name: string; swatch?: s
   return (
     <span className={`shade ${miss ? "shade-miss" : ""}`}>
       <Swatch src={swatch} />
-      <span>{name}</span>
+      <span>{shadeName(name)}</span>
     </span>
   );
 }
 
 function Why({ text }: { text: string }) {
   const [open, setOpen] = useState(false);
+  // The control sits outside the clamped paragraph, or the clamp would hide it with the text it unfolds.
   return (
-    <p className={`weft-why ${open ? "" : "weft-why-clamped"}`}>
-      {text}{" "}
+    <div className="weft-why">
+      <p className={open ? "" : "weft-why-clamped"}>{text}</p>
       {!open && text.length > 160 && (
         <button type="button" className="text-link" onClick={() => setOpen(true)}>
-          More
+          Read the rest
         </button>
       )}
-    </p>
+    </div>
   );
 }
 
@@ -81,9 +82,10 @@ function productLine(rec: Recommendation): string {
   return title.replace(/\s*\(\d+g\)\s*$/, "").replace(rec.shade, "").replace(/\s+/g, " ").trim();
 }
 
-export function Weft({ rec, pending }: { rec?: Recommendation; pending?: { image: string; index: number } }) {
-  const image = rec ? rec.render_url ?? rec.swatch_url : pending!.image;
+export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?: { image: string; index: number }; before?: { image: string } }) {
+  const image = rec ? rec.render_url ?? rec.swatch_url : before ? before.image : pending!.image;
   const rendered = !rec || Boolean(rec.render_url);
+  const alt = before ? "The customer's selfie, as sent" : rendered ? (rec ? `The customer wearing ${rec.title}` : "A try-on render") : `${rec?.store} swatch for ${rec?.shade}`;
   return (
     <li className="weft">
       <div className="weft-tag">
@@ -97,6 +99,11 @@ export function Weft({ rec, pending }: { rec?: Recommendation; pending?: { image
               {productLine(rec)} · {rec.store} · ${rec.price.toFixed(0)}
             </span>
           </>
+        ) : before ? (
+          <>
+            <span className="weft-title">As sent</span>
+            <span className="weft-meta">The customer&rsquo;s own photo, before</span>
+          </>
         ) : (
           <span className="weft-title">Try-on {pending!.index}</span>
         )}
@@ -104,7 +111,7 @@ export function Weft({ rec, pending }: { rec?: Recommendation; pending?: { image
       <figure className={`weft-tail ${rendered ? "" : "weft-tail-swatch"}`}>
         {image && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={image} alt={rendered ? (rec ? `The customer wearing ${rec.title}` : "A try-on render") : `${rec?.store} swatch for ${rec?.shade}`} loading="lazy" />
+          <img src={image} alt={alt} loading="lazy" />
         )}
         {rec && !rendered && (
           <figcaption className="weft-note">

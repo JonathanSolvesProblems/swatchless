@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <div className="hero-grid">
       <div className="flex flex-col gap-5">
-        <h1 className="max-w-[15ch] text-[clamp(2.6rem,5.2vw,4.4rem)] leading-[1.02]">
+        <h1 className="max-w-[15ch] text-[clamp(2.4rem,4.4vw,3.6rem)] leading-[1.04]">
           Answer <span className="whitespace-nowrap">&ldquo;which shade?&rdquo;</span> with the customer wearing it
         </h1>
         <p className="max-w-[46ch] text-[18px] leading-relaxed text-muted">

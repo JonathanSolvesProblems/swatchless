@@ -20,7 +20,8 @@ async function Rows() {
     return (
       <div className="flex flex-col gap-5">
         <p className="max-w-[56ch] text-[17px] leading-relaxed text-muted">
-          Nobody is waiting on a shade right now. Every shade the desk has recommended so far was in stock when it checked the store:
+          Nobody is waiting on a shade right now. For the record, these are the shades the desk has recommended so far, every one in stock
+          when it checked the store:
         </p>
         <ul className="recommended" aria-label="Shades recommended so far">
           {[...recommended.values()].map((r) => (

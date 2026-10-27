@@ -240,6 +240,8 @@ export function ConsultView({ state }: { state: ConsultState }) {
           )}
         </div>
         <Ring>
+          {/* The selfie hangs first as "As sent" when it completes the row, so the eye reads each render against it. */}
+          {recs.length > 0 && recs.length < 3 && photos?.selfie && <Weft key="as-sent" before={{ image: photos.selfie }} />}
           {recs.length
             ? recs.map((r) => <Weft key={r.variant_id} rec={r} />)
             : renders.map((s, i) => <Weft key={s.id} pending={{ image: s.images![0], index: i + 1 }} />)}
