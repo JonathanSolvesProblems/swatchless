@@ -13,7 +13,8 @@ docker-compose.yml   copied from deploy/docker-compose.yml
 .env                 secrets, chmod 600
 ```
 
-Public at `https://swatchless.jonathanandrei.com` (an A record to the box; Traefik issues the certificate).
+Public at `https://swatchless.jonathansolvesproblems.com` (an A record to the box in that domain's DNS zone, which is
+served by Cloudflare's nameservers; Traefik issues the certificate over HTTP-01 once the name resolves).
 
 ## Deploy or update
 

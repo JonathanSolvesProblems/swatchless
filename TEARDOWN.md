@@ -8,7 +8,7 @@ created in the submission session (not this file) and confirmed in the schedule 
 | Resource | Where | On teardown |
 |---|---|---|
 | Container, image and volume | OVH box, `~/experimental-projects/swatchless` | `docker compose down -v`, `docker rmi swatchless:latest`, remove the folder. Or replace with a static archive page, as bloom was. Verify from outside: the URL must stop serving the app. |
-| DNS | Hostinger, A record `swatchless` | Delete it, unless an archive page stays at that address. |
+| DNS | A record `swatchless` in the jonathansolvesproblems.com zone (Cloudflare nameservers, managed from Hostinger) | Delete it, unless an archive page stays at that address. |
 | Cron for `/api/watch` | `.github/workflows/watch.yml` | Delete the `SWATCHLESS_URL` variable and `CRON_SECRET` secret in the repo; the job then skips. |
 | YouCam API key | yce.makeupar.com console | Revoke; it sat on an internet-facing box. The hackathon grant expires anyway. |
 | Anthropic API key for the app | console.anthropic.com | Revoke `SWATCHLESS_ANTHROPIC_API_KEY`. |

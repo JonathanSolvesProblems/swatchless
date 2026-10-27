@@ -10,6 +10,8 @@ echo "== images"; docker images swatchless --format "{{.Repository}}:{{.Tag}} {{
 echo "== volumes"; docker volume ls --format "{{.Name}}" | grep swatchless || echo none
 echo "== stack folder"; ls -d ~/experimental-projects/swatchless 2>/dev/null || echo none
 ' || exit 1
-echo "== public URL"; curl -s -o /dev/null -w "%{http_code}\n" --max-time 10 https://swatchless.jonathanandrei.com/ || echo "no answer"
-echo "== DNS"; nslookup swatchless.jonathanandrei.com 1.1.1.1 2>/dev/null | awk '/^Address/ && !/#/ {print $2}' | grep . || echo none
-echo "== done. Anything listed above must be gone on 2026-11-20, and the A record deleted at Hostinger."
+for h in swatchless.jonathansolvesproblems.com swatchless.jonathanandrei.com; do
+  echo "== $h"; echo "  https: $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 https://$h/ || echo 'no answer')"
+  echo "  dns:   $(nslookup $h 1.1.1.1 2>/dev/null | awk '/^Address/ && !/#/ {print $2}' | tail -n +2 | grep . || echo none)"
+done
+echo "== done. Anything listed above must be gone on 2026-11-20, and the A record deleted from the domain's DNS."
