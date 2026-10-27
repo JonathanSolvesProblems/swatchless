@@ -345,7 +345,9 @@ function Intake(props: {
         <button type="button" className="text-link" onClick={props.onDemo} disabled={props.running}>
           No photos to hand? Run it live on the demo customer
         </button>
-        <span className="text-[13px] text-muted">Photos go to YouCam for this consult only.</span>
+        <span className="text-[13px] text-muted">
+          Photos go to YouCam for this consult only. The finished consult is saved at its own link; only the demo customer appears on this page.
+        </span>
       </div>
       {props.refused && (
         <p role="alert" className="intake-refused">
