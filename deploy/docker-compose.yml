@@ -22,14 +22,9 @@ services:
     labels:
       traefik.enable: "true"
       traefik.docker.network: web
-      # One router per hostname, so each gets its own certificate and a name that has not propagated
-      # yet cannot block the other's HTTP-01 challenge.
       traefik.http.routers.swatchless.rule: Host(`swatchless.jonathansolvesproblems.com`)
       traefik.http.routers.swatchless.entrypoints: websecure
       traefik.http.routers.swatchless.tls.certresolver: le
-      traefik.http.routers.swatchless-ja.rule: Host(`swatchless.jonathanandrei.com`)
-      traefik.http.routers.swatchless-ja.entrypoints: websecure
-      traefik.http.routers.swatchless-ja.tls.certresolver: le
       traefik.http.services.swatchless.loadbalancer.server.port: "8080"
     logging:
       driver: json-file
