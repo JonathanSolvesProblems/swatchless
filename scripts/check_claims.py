@@ -20,10 +20,13 @@ RETIRED = [
     r"either way",                       # framed YouCam as making no difference; state the measured deltas instead
     r"alone matched",
     r"matched as often",
-    r"\bso far\b[^.]*customers",         # the benchmark finished
+    r"\bso far\b[^.\n]*customers",       # the benchmark finished
+    r"real customers",                   # Luxy's before photos are people it styled; nothing says they are customers
+    r"rendered on every one",            # one of 16 had no face to render on
+    r"\bseamless",                       # banned by the voice
 ]
 # A sentence about the benchmark: an "N of M" in it must use the current totals.
-BENCH_WORDS = re.compile(r"pick|shortlist|match|customer|stylist|render", re.I)
+BENCH_WORDS = re.compile(r"pick|shortlist|match|customer|stylist|render|people|styled", re.I)
 
 
 def load(rel):
@@ -50,7 +53,8 @@ def facts():
             out[f"{arm}_top1"] = sum(1 for x in r if x["top1"])
             out[f"{arm}_shortlist"] = sum(1 for x in r if x["in_shortlist"])
             out[f"{arm}_abstained"] = sum(1 for x in r if x["status"] != "recommended")
-            out[f"{arm}_rendered"] = sum(1 for x in r if x.get("tryons", 0) > 0)
+            # A render that came back, not a render that was attempted (a photo with no face is attempted and fails).
+            out[f"{arm}_rendered"] = sum(1 for x in r if x.get("renders_returned", 0) > 0)
     return out
 
 
@@ -84,7 +88,7 @@ def main():
                 if BENCH_WORDS.search(sentence):
                     problems.append(f"{rel}: '{m.group(0).strip()}' uses a total the results no longer have ({f['full_n']} scored, {f['full_ran']} ran)")
                 continue
-            arm = "no_youcam" if ("alone" in sentence or "without youcam" in sentence or "no youcam" in sentence) else "full"
+            arm = "no_youcam" if any(w in sentence for w in ("alone", "without youcam", "no youcam", "youcam off")) else "full"
             allowed = {f[f"{arm}_top1"], f[f"{arm}_shortlist"], f[f"{arm}_rendered"], f[f"{arm}_abstained"], f[f"{arm}_n"], f[f"{arm}_impossible"]}
             if n not in allowed:
                 problems.append(f"{rel}: '{m.group(0).strip()}' does not match results ({arm}: {sorted(allowed)})")

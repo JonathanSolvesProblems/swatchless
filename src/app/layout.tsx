@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3210"),
   title: { default: "Swatchless", template: "%s · Swatchless" },
   description:
-    "A colour-match desk for hair retailers: one customer photo, the matching fill-ins and toppers from the store's live catalogue, and the customer wearing each one before they buy.",
+    "A colour-match desk for hair retailers: one customer photo, the matching fill-ins and toppers from the store's live catalogue, and the customer wearing the ones YouCam can render, before they buy.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

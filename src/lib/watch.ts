@@ -13,6 +13,8 @@ export interface WatchRow {
   created: string;
   variant_id: number;
   title: string;
+  shade: string;
+  swatch: string | null;
   store: string;
   in_stock: boolean | null;
   source: "store" | "snapshot" | "not checked";
@@ -30,6 +32,8 @@ export async function watchList(check = false): Promise<WatchRow[]> {
         created: c.created,
         variant_id: w.variant_id,
         title: w.title,
+        shade: product?.shade ?? w.title,
+        swatch: product?.swatch ?? null,
         store: storeName(w.store),
         in_stock: stock ? stock.available : null,
         source: stock ? stock.source : "not checked",

@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useReducer, useState } from "react";
+import { useCallback, useReducer, useRef, useState } from "react";
 import type { ConsultEvent, ConsultResult, Recommendation } from "@/lib/agent";
+import { addToCartUrl, usd } from "@/lib/cart";
 import { PhotoIcon, Ring, Tag, Weft, WireTick } from "./ring";
 
 export type StreamEvent =
@@ -35,9 +36,10 @@ const TOOL_LABELS: Record<string, string> = {
   "AI-Hair-Density-Detection": "Hair density",
   "AI-Hair-Length-Detection": "Hair length",
   "AI-Hair-Type-Detection": "Hair type",
-  "AI-Hair-Style-Virtual-Try-On": "Try-on",
-  "AI-Hair-Color-Virtual-Try-On": "Colour try-on",
-  "AI-Hair-Volume-Virtual-Try-On": "Volume try-on",
+  "AI-Hair-Style-Virtual-Try-On": "Render on the customer",
+  "AI-Hair-Color-Virtual-Try-On": "Colour render",
+  "AI-Hair-Volume-Virtual-Try-On": "Volume render",
+  "AI-Hair-Volume-Virtual-Try-On-Templates": "Volume templates",
   show_palette: "Read the shade palette",
   search_catalog: "Searched the catalogues",
   view_images: "Looked at photos",
@@ -50,6 +52,7 @@ const ERRORS: Record<string, string> = {
   error_no_face: "no face in the reference photo, so it cannot be used",
   error_large_face_angle: "the face is turned too far",
   error_face_pose: "the head pose is not supported",
+  error_face_position_too_small: "the face is too small in the frame",
 };
 
 function summarise(tool: string, text: string): string {
@@ -106,6 +109,7 @@ export function Desk({ hero, latest }: { hero: React.ReactNode; latest?: { id: s
   const [started, setStarted] = useState(false);
   const [refused, setRefused] = useState<string | null>(null);
   const [state, dispatch] = useReducer(consultReducer, EMPTY);
+  const liveRef = useRef<HTMLElement>(null);
   const shown = started ? state : latest ? replay(latest.events) : null;
 
   const run = useCallback(
@@ -145,6 +149,10 @@ export function Desk({ hero, latest }: { hero: React.ReactNode; latest?: { id: s
         }
         setStarted(true);
         dispatch({ type: "reset" });
+        // The run plays below the form; bring it into view so the YouCam calls are watched as they land.
+        requestAnimationFrame(() =>
+          liveRef.current?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }),
+        );
         const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let buffer = "";
@@ -166,11 +174,11 @@ export function Desk({ hero, latest }: { hero: React.ReactNode; latest?: { id: s
   );
 
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-12">
       {hero}
       <Intake selfie={selfie} headDown={headDown} onSelfie={setSelfie} onHeadDown={setHeadDown} note={note} onNote={setNote} code={code} onCode={setCode} onRun={() => run(false)} onDemo={() => run(true)} running={running} refused={refused} />
       {shown && (
-        <section aria-label={started ? "This consult" : "The latest consult"} className="flex flex-col gap-6">
+        <section ref={liveRef} aria-label={started ? "This consult" : "The latest consult"} className="flex scroll-mt-6 flex-col gap-6">
           {!started && latest && (
             <p className="text-[14px] text-muted">
               The desk&rsquo;s latest consult.{" "}
@@ -195,7 +203,7 @@ export function ConsultView({ state }: { state: ConsultState }) {
   return (
     <div className="consult">
       <section aria-labelledby="customer-h" className="consult-side">
-        <h2 id="customer-h" className="text-[28px]">What YouCam measured</h2>
+        <h2 id="customer-h" className="text-[26px]">What YouCam measured</h2>
         {photos ? (
           <div className="customer">
             <div className="customer-photos">
@@ -216,7 +224,7 @@ export function ConsultView({ state }: { state: ConsultState }) {
                 ))}
               </dl>
             ) : (
-              <p className="text-[14px] text-muted">Measuring</p>
+              <p className="text-[14px] text-muted">Waiting on YouCam&rsquo;s density and length reads</p>
             )}
           </div>
         ) : (
@@ -227,12 +235,12 @@ export function ConsultView({ state }: { state: ConsultState }) {
 
       <section aria-labelledby="ring-h" className="consult-ring flex flex-col gap-6">
         <div className="flex items-baseline justify-between gap-4">
-          <h2 id="ring-h" className="text-[28px]">
-            {recs.length ? "Shortlisted" : renders.length ? "Try-ons so far" : "Try-ons"}
+          <h2 id="ring-h" className="text-[26px]">
+            {recs.length ? "Shortlisted" : renders.length ? "Renders so far" : "Renders"}
           </h2>
           {result && (
             <p className="text-[14px] text-muted">
-              {result.tryons_used} try-on{result.tryons_used === 1 ? "" : "s"} used
+              {result.tryons_used} render{result.tryons_used === 1 ? "" : "s"} used
             </p>
           )}
         </div>
@@ -245,6 +253,13 @@ export function ConsultView({ state }: { state: ConsultState }) {
         </Ring>
         {(recs.length > 0 || renders.length > 0) && <p className="text-sm text-muted">A render shows the finished look, not how a piece clips in.</p>}
         {refusals.length > 0 && (
+          <p className="text-[14px] text-muted">
+            {result?.status === "recommended"
+              ? "The desk's check refused these at first; the agent corrected them before the shortlist above was accepted:"
+              : "The desk's check refused these:"}
+          </p>
+        )}
+        {refusals.length > 0 && (
           <ul className="flex flex-col gap-2" aria-label="Refused by the desk">
             {refusals.map((r, i) => (
               <li key={i}>
@@ -255,13 +270,17 @@ export function ConsultView({ state }: { state: ConsultState }) {
             ))}
           </ul>
         )}
-        <Steps steps={steps} thoughts={thoughts} decided={result?.measurements} />
+        {error && (
+          <p role="alert" className="intake-refused">
+            The run stopped: {error}. Whatever finished is above; run it again to finish the shortlist.
+          </p>
+        )}
+        <Steps steps={steps} thoughts={thoughts} decided={result?.measurements} live={!result && !error} />
       </section>
 
       <div className="consult-reply">
         {result?.message_to_customer && <Reply result={result} savedId={savedId} />}
         {result?.status === "needs_photo" && result.photo_request && <Tag code="Needs a photo">{result.photo_request.reason}</Tag>}
-        {error && <p className="text-refuse-text">{error}</p>}
       </div>
     </div>
   );
@@ -272,7 +291,7 @@ function Drop(props: { label: string; hint: string; file: File | null; onFile: (
   const preview = props.file ? URL.createObjectURL(props.file) : null;
   return (
     <label
-      className={`drop ${over ? "drop-over" : ""} ${props.file ? "drop-full" : ""}`}
+      className={`drop ${over ? "drop-over" : ""}`}
       onDragOver={(e) => {
         e.preventDefault();
         setOver(true);
@@ -284,7 +303,7 @@ function Drop(props: { label: string; hint: string; file: File | null; onFile: (
         props.onFile(e.dataTransfer.files?.[0] ?? null);
       }}
     >
-      <input type="file" accept="image/*" required={props.required} className="sr-only" onChange={(e) => props.onFile(e.target.files?.[0] ?? null)} />
+      <input type="file" accept="image/*" aria-required={props.required} className="sr-only" onChange={(e) => props.onFile(e.target.files?.[0] ?? null)} />
       {preview ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={preview} alt="" className="drop-thumb" />
@@ -318,6 +337,7 @@ function Intake(props: {
     <form
       className="intake"
       aria-labelledby="intake-h"
+      noValidate // the desk explains a missing selfie itself, with the demo customer as the way out
       onSubmit={(e) => {
         e.preventDefault();
         props.onRun();
@@ -326,50 +346,57 @@ function Intake(props: {
       <h2 id="intake-h" className="text-[26px]">Start a consult</h2>
       <div className="intake-row">
         <Drop kind="selfie" label="Selfie" hint="Facing the camera, hair down" file={props.selfie} onFile={props.onSelfie} required />
-        <Drop kind="head_down" label="Head-down photo" hint="Optional: lets YouCam measure density" file={props.headDown} onFile={props.onHeadDown} />
+        <Drop kind="head_down" label="Head-down photo" hint="Optional, for the density reading" file={props.headDown} onFile={props.onHeadDown} />
         <label className="intake-note">
-          <span className="sr-only">What the customer wrote</span>
+          <span className="intake-note-label">What the customer wrote</span>
           <textarea
             value={props.note}
             onChange={(e) => props.onNote(e.target.value)}
             rows={2}
-            placeholder="What the customer wrote, e.g. My part has been getting wider. Which fill-ins would match me?"
+            placeholder="e.g. My part has been getting wider. Which fill-ins would match me?"
           />
         </label>
-        <button type="submit" className="primary" disabled={props.running} aria-disabled={!props.selfie}>
-          {props.running ? "Working on it" : "Find the match"}
+        <button type="submit" className="primary" disabled={props.running}>
+          {props.running ? "Consult running" : "Find the match"}
         </button>
       </div>
       <div className="intake-extra">
         {process.env.NEXT_PUBLIC_CONSULT_CODE_REQUIRED === "1" && (
           <label className="intake-code">
             <span>Access code</span>
-            <input value={props.code} onChange={(e) => props.onCode(e.target.value)} autoComplete="off" spellCheck={false} placeholder="from the testing instructions" />
+            <input value={props.code} onChange={(e) => props.onCode(e.target.value)} autoComplete="off" spellCheck={false} placeholder="already in the testing-instructions link" />
           </label>
         )}
         <button type="button" className="tag-button tag-button-ink" onClick={props.onDemo} disabled={props.running}>
           Run it live on the demo customer
         </button>
-        <span className="text-[13px] text-muted">
+        <span className="intake-help text-[13px] text-muted">
           No photos to hand? The demo customer is a labelled composite. Photos go to YouCam for this consult only; the finished consult is saved
           at its own link, and only the demo customer appears on this page.
         </span>
       </div>
-      {props.refused && (
-        <p role="alert" className="intake-refused">
-          {props.refused}
-        </p>
-      )}
+      {/* Always mounted, so screen readers announce the text when it changes. */}
+      <p role="alert" className={props.refused ? "intake-refused" : "sr-only"}>
+        {props.refused ?? ""}
+      </p>
     </form>
   );
 }
 
-function Steps({ steps, thoughts, decided }: { steps: Step[]; thoughts: string[]; decided?: Record<string, unknown> }) {
+function Steps({ steps, thoughts, decided, live = false }: { steps: Step[]; thoughts: string[]; decided?: Record<string, unknown>; live?: boolean }) {
   if (!steps.length) return null;
   const entries = Object.entries(decided ?? {}).filter(([, v]) => v !== null && v !== undefined && v !== "");
   const label = (k: string) => k.replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase());
+  // Repeated catalogue searches and photo checks read as one line with a count, not as padding.
+  const lines: (Step & { times: number })[] = [];
+  for (const s of steps) {
+    const last = lines[lines.length - 1];
+    if (last && !s.detail && !last.detail && last.label === s.label && last.state === s.state) last.times++;
+    else lines.push({ ...s, times: 1 });
+  }
   return (
-    <details className="steps">
+    // Open while the run is live, so every YouCam call shows as it lands (charter 5); a finished record starts closed.
+    <details className="steps" open={live} key={live ? "live" : "done"}>
       <summary>How the desk got there: {steps.length} steps</summary>
       {entries.length > 0 && (
         <dl className="decided" aria-label="What the desk decided">
@@ -399,12 +426,16 @@ function Steps({ steps, thoughts, decided }: { steps: Step[]; thoughts: string[]
         </ol>
       )}
       <ol className="mt-4 flex flex-col gap-1.5 text-[13.5px]">
-        {steps.map((s) => (
+        {lines.map((s) => (
           <li key={s.id} className="flex gap-3">
             <span aria-hidden className={s.state === "failed" ? "text-refuse-text" : s.state === "running" ? "text-muted" : "text-steel"}>
               {s.state === "failed" ? "×" : s.state === "running" ? "·" : <WireTick className="inline align-[-1px]" />}
             </span>
-            <span className="text-ink">{s.label}</span>
+            <span className="sr-only">{s.state === "failed" ? "Failed:" : s.state === "running" ? "Running:" : "Done:"}</span>
+            <span className="text-ink">
+              {s.label}
+              {s.times > 1 && <span className="text-muted">, {s.times} times</span>}
+            </span>
             {s.detail && <span className="text-muted">{s.detail}</span>}
           </li>
         ))}
@@ -419,7 +450,7 @@ function mailto(result: ConsultResult, savedId: string | null): string {
   const lines = [
     result.message_to_customer,
     "",
-    ...result.recommendations.map((r) => `${r.title} (${r.store}, $${r.price.toFixed(0)}): add to cart ${r.cart_url}`),
+    ...result.recommendations.map((r) => `${r.title} (${r.store}, ${usd(r.price)}): add to cart ${addToCartUrl(r.cart_url)}`),
     savedId ? `\nSee yourself wearing each one: ${origin}/consult/${savedId}` : "",
   ];
   return `mailto:?subject=${encodeURIComponent("Your shade match")}&body=${encodeURIComponent(lines.join("\n"))}`;
@@ -437,7 +468,7 @@ function ReplyText({ text }: { text: string }) {
         </p>
       ))}
       {paras.length > 2 && (
-        <button type="button" className="text-link self-start" onClick={() => setOpen(!open)}>
+        <button type="button" className="text-link self-start" aria-expanded={open} onClick={() => setOpen(!open)}>
           {open ? "Show less" : "Read the whole reply"}
         </button>
       )}
@@ -467,6 +498,9 @@ function Reply({ result, savedId }: { result: ConsultResult; savedId: string | n
         >
           {copied ? "Copied" : "Copy the reply"}
         </button>
+        <span role="status" className="sr-only">
+          {copied ? "Reply copied" : ""}
+        </span>
         {savedId && (
           <a className="text-link" href={`/consult/${savedId}`}>
             Open the saved consult

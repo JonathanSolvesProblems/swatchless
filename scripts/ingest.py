@@ -4,7 +4,7 @@ Keeps only products for thinning hair (fill-ins, toppers, hairpieces, headcovers
 every product photo once, so the agent is only ever offered references the try-on can use:
 YouCam's hair transfer rejects a reference with no face (error_no_face).
 
-Run: python -I scripts/ingest.py   (needs ANTHROPIC_API_KEY; re-runs reuse cached classifications)
+Run: python -I scripts/ingest.py   (needs SWATCHLESS_ANTHROPIC_API_KEY in .env.local; re-runs reuse cached classifications)
 """
 import base64, io, json, os, re, sys, time, urllib.request, concurrent.futures as cf
 from PIL import Image, ImageDraw

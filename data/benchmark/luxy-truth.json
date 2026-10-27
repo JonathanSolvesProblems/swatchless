@@ -1,5 +1,5 @@
 {
- "description": "Real customers photographed by Luxy Hair before wearing a Luxy product, each in exactly one shade. The shade Luxy's stylists put on that customer is the answer. Built from luxyhair.com's public products.json on 2026-10-25; a before photo used under more than one shade was excluded as ambiguous.",
+ "description": "Real people photographed by Luxy Hair before wearing a Luxy product, each in exactly one shade. The shade Luxy's stylists put on that person is the answer. Built from luxyhair.com's public products.json on 2026-10-25; a before photo used under more than one shade was excluded as ambiguous.",
  "dropped": [
   {
    "index": 0,
@@ -299,7 +299,7 @@
    "id": "luxy-05",
    "shade": "Platinum Blonde",
    "before_photo": "https://cdn.shopify.com/s/files/1/0066/0052/files/Luxy-Hair-Extensions_Platinum-Blonde_Before_Front_3deb4aa0-ed41-4e42-b5aa-59b57d71d0f1.jpg",
-   "source_product": "16\" Platinum Blonde Halo\u00ae Hair Extensions (140g)",
+   "source_product": "16\" Platinum Blonde Halo® Hair Extensions (140g)",
    "source_url": "https://luxyhair.com/products/halo-16-inch-platinum-blonde",
    "exclude_references": [
     "https://cdn.shopify.com/s/files/1/0066/0052/files/Luxy-Hair-Extensions_Platinum-Blonde_After_Front_1_2.jpg",
@@ -805,7 +805,7 @@
    "why_not_offerable": "Every trusted on-model photo of this shade in Luxy's catalogue is a photo of this customer, so once those are excluded the desk cannot be offered the shade at all."
   }
  ],
- "exclusion_rule": "Every photo of every Luxy product that shares a photo of a person (perceptual hash within 6 of 256 bits, among photos classified as a person facing or side-on) with the product the customer's before photo came from, so the agent never sees this customer as a reference. Where Luxy's filenames name the model (for example Uma or Prashansa), every Luxy photo whose filename carries that name is excluded too.",
+ "exclusion_rule": "Every photo of every Luxy product that shares a photo of a person (perceptual hash within 6 of 256 bits, among photos classified as a person facing or side-on) with the product the before photo came from, so the agent never sees that person as a reference. Where Luxy's filenames name the person photographed, every Luxy photo whose filename carries that name is excluded too.",
  "shades_offered": 30,
  "offerable_rule": "A customer counts toward the score only when their shade can still be offered after their own photos are excluded. Where it cannot, the row is reported as not offerable and left out of both numerator and denominator."
 }

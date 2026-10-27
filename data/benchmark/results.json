@@ -32,7 +32,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T01:54:27.849Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 4
  },
  {
   "id": "luxy-01",
@@ -70,7 +71,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T01:55:04.851Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 0
  },
  {
   "id": "luxy-12",
@@ -103,7 +105,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T01:56:18.099Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 1
  },
  {
   "id": "luxy-12",
@@ -141,7 +144,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T01:56:52.470Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 0
  },
  {
   "id": "luxy-13",
@@ -176,7 +180,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T01:58:50.320Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 3
  },
  {
   "id": "luxy-13",
@@ -212,7 +217,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T01:59:21.209Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 0
  },
  {
   "id": "luxy-02",
@@ -248,7 +254,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:00:33.645Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 0
  },
  {
   "id": "luxy-02",
@@ -286,7 +293,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:01:13.175Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 0
  },
  {
   "id": "luxy-03",
@@ -323,7 +331,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:02:52.732Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 2
  },
  {
   "id": "luxy-03",
@@ -361,7 +370,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:03:27.136Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 0
  },
  {
   "id": "luxy-04",
@@ -398,7 +408,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:06:11.166Z",
-  "shade_offerable": false
+  "shade_offerable": false,
+  "renders_returned": 6
  },
  {
   "id": "luxy-04",
@@ -436,7 +447,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:06:55.310Z",
-  "shade_offerable": false
+  "shade_offerable": false,
+  "renders_returned": 0
  },
  {
   "id": "luxy-05",
@@ -471,7 +483,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:08:32.922Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 3
  },
  {
   "id": "luxy-05",
@@ -507,7 +520,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:09:19.772Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 0
  },
  {
   "id": "luxy-06",
@@ -545,7 +559,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:10:55.220Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 3
  },
  {
   "id": "luxy-06",
@@ -583,7 +598,8 @@
   ],
   "leaked_reference": false,
   "ran_at": "2026-10-26T02:11:39.841Z",
-  "shade_offerable": true
+  "shade_offerable": true,
+  "renders_returned": 0
  },
  {
   "id": "luxy-07",
@@ -623,7 +639,8 @@
    "Solid warm medium brown matching the customer's root colour. Suits a piece that sits mainly at the root or part rather than through the lighter ends. 16\" Scalp Hair Fill-Ins (40g), in stock."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:43:02.019Z"
+  "ran_at": "2026-10-26T08:43:02.019Z",
+  "renders_returned": 6
  },
  {
   "id": "luxy-07",
@@ -662,7 +679,8 @@
    "Third choice: Luxy Hair Chestnut Brown, 16\" Thinning Hair Fill-Ins (80g), $140, in stock. It's a single warm medium brown with no highlights. It matches the customer's natural roots and fringe closely but won't pick up their lighter golden ends, so it suits pieces placed near the roots or crown, or the customer letting their natural colour grow out. No render was made because no try-on tools were available in this consult."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:43:46.920Z"
+  "ran_at": "2026-10-26T08:43:46.920Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-08",
@@ -700,7 +718,8 @@
    "This is the second choice. It has the same ash-brown base with finer, slightly lighter cool ribbons throughout. It suits the customer if they want a bit more brightness than their own lengths, but it matches less evenly than Ash Brown Balayage."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:44:59.018Z"
+  "ran_at": "2026-10-26T08:44:59.018Z",
+  "renders_returned": 2
  },
  {
   "id": "luxy-08",
@@ -739,7 +758,8 @@
    "Third choice, only if the customer's lengths turn out warmer or more golden in daylight than they look here. Bronde Balayage is lighter and warmer (honey-bronde) than the customer's roots, so it may look too light and too golden near the part. 20\" Thinning Hair Fill-Ins, in stock, $210."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:45:44.626Z"
+  "ran_at": "2026-10-26T08:45:44.626Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-09",
@@ -777,7 +797,8 @@
    "The brighter option. Same golden warmth with a soft root, but lighter through the lengths than the customer's natural colour. Face unchanged and the shade is clearly visible in the render."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:47:03.942Z"
+  "ran_at": "2026-10-26T08:47:03.942Z",
+  "renders_returned": 3
  },
  {
   "id": "luxy-09",
@@ -816,7 +837,8 @@
    "Third option. Blonde Balayage is the right warm golden-honey tone for the customer's lengths, but it has no built-in deeper root, so it may look a touch light right at the parting. It's the pick if the product they want doesn't come in a Root Melt shade, since Blonde Balayage comes in many more formats. In stock, $210 (20\" Thinning Hair Fill-Ins, 95g)."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:47:49.329Z"
+  "ran_at": "2026-10-26T08:47:49.329Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-10",
@@ -852,7 +874,8 @@
    "Second choice. Chocolate Brown is a little lighter and warmer than the customer's hair. It is closest to the warmer brown in their lengths where the light hits, and would suit them if they want a touch more warmth than Dark Brown."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:51:06.780Z"
+  "ran_at": "2026-10-26T08:51:06.780Z",
+  "renders_returned": 6
  },
  {
   "id": "luxy-10",
@@ -891,7 +914,8 @@
    "Third choice: Luxy Mocha Brown. It's deeper and cooler than Dark Brown and closest to the darkest hair at the customer's roots. Choose this only if the roots look nearly black-brown in daylight. It would read darker than their lengths. The variant (20\" Scalp Hair Fill-Ins, 50g, $185, in stock) stands in for the shade only."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:51:54.371Z"
+  "ran_at": "2026-10-26T08:51:54.371Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-11",
@@ -927,7 +951,8 @@
    "Second choice. It closely matches the customer's pale, cool lengths but has no root shading, so it suits pieces that sit below the darker root. The render keeps their face intact and shows the pale platinum tone clearly."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:53:51.428Z"
+  "ran_at": "2026-10-26T08:53:51.428Z",
+  "renders_returned": 5
  },
  {
   "id": "luxy-11",
@@ -966,7 +991,8 @@
    "Third choice. It has the same rooted-to-light pattern, but the root and blonde are both warmer and more golden than the customer's cool, ashy colouring, so the ends would look buttery next to their icy blonde. Only consider it if Rooted Platinum Pearl is unavailable. 20\" Thinning Hair Fill-Ins, $210, in stock."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:54:29.488Z"
+  "ran_at": "2026-10-26T08:54:29.488Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-14",
@@ -1002,7 +1028,8 @@
    "Second choice. Jet Black is a little deeper and cooler than the customer's hair, and the render shows it as a glossier, blue-leaning black. It only suits them if their hair looks darker in person than in this photo. The render is clean and the face is unchanged. Dark Brown was also rendered but left out: on the customer it came out clearly lighter and browner than their natural colour."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:55:58.025Z"
+  "ran_at": "2026-10-26T08:55:58.025Z",
+  "renders_returned": 3
  },
  {
   "id": "luxy-14",
@@ -1042,7 +1069,8 @@
    "Backup only. Luxy Dark Brown is the next shade lighter, a deep cool-neutral brown. It's a little lighter and browner than the customer's roots, so it would blend with the brown that shows in the light but may look lighter at the parting. Use it only if they say their hair looks browner in daylight than in this photo. Same product for comparison: 16\" Thinning Hair Fill-Ins, in stock, $140."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:56:38.890Z"
+  "ran_at": "2026-10-26T08:56:38.890Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-15",
@@ -1080,7 +1108,8 @@
    "Third choice, a warmer and lighter alternative. The render shows clear brown warmth through the lengths, lighter than the customer's roots. It suits the customer only if they want added brightness rather than an exact match. The face is unchanged in the render."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:57:47.739Z"
+  "ran_at": "2026-10-26T08:57:47.739Z",
+  "renders_returned": 3
  },
  {
   "id": "luxy-15",
@@ -1117,7 +1146,8 @@
    "Second choice: Luxy Dark Brown. It's one step lighter and warmer than Off Black. Worth it if the stylist sees the customer's hair as more brown than black in daylight, especially at the ends. Shown as the 12\" Dark Brown Thinning Hair Fill-Ins (in stock, $110)."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T08:58:28.445Z"
+  "ran_at": "2026-10-26T08:58:28.445Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-16",
@@ -1156,7 +1186,8 @@
    "Deeper alternative. It is a cooler, flatter true black. The render shows it reading darker and cooler than their natural colour, so it is only for someone who wants a deeper finish."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T09:00:08.937Z"
+  "ran_at": "2026-10-26T09:00:08.937Z",
+  "renders_returned": 4
  },
  {
   "id": "luxy-16",
@@ -1193,7 +1224,8 @@
    "Dark Brown: second choice. Slightly lighter and browner than the customer's roots. Choose it only if the customer's hair looks browner in daylight than in this indoor photo, where the lengths show some warm-brown sheen. Next to the part it may read a little light. 20\" Scalp Hair Fill-Ins (50g), $185, in stock. Same shade also comes in 12\"/16\"/20\" Thinning Fill-Ins, 16\" Scalp Fill-Ins and bundles."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T09:00:48.783Z"
+  "ran_at": "2026-10-26T09:00:48.783Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-17",
@@ -1230,7 +1262,8 @@
    "Same Off Black shade in the 12\" Scalp Hair Fill-Ins, $120, in stock, in case that is the product the customer wants. The colour reasoning is the same: it matches their soft, warm-leaning black from root to tip."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T09:02:03.016Z"
+  "ran_at": "2026-10-26T09:02:03.016Z",
+  "renders_returned": 2
  },
  {
   "id": "luxy-17",
@@ -1267,7 +1300,8 @@
    "Close alternative if the customer sees their hair as a deeper, cooler black, or if their chosen product has no Off Black version. For example, the 14\" Topper bundle appears only in Jet Black. The Jet Black swatch is a slightly cooler, inkier black than the customer's hair shows in this selfie, but it's still within black and won't look lighter at the roots. Shown here as the 12\" Scalp Hair Fill-In."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T09:02:39.515Z"
+  "ran_at": "2026-10-26T09:02:39.515Z",
+  "renders_returned": 0
  },
  {
   "id": "luxy-18",
@@ -1305,7 +1339,8 @@
    "A lighter, warmer option with a root melt to paler ends. It is brighter and more golden than the customer's natural colour, as the render shows. It is only listed as the 20-inch Thinning Hair Fill-Ins."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T09:04:26.936Z"
+  "ran_at": "2026-10-26T09:04:26.936Z",
+  "renders_returned": 3
  },
  {
   "id": "luxy-18",
@@ -1344,6 +1379,7 @@
    "Third choice, in case the customer's hair looks cooler or ashier in daylight than in this warm indoor photo. Rooted Platinum Pearl Blonde has an ash-beige root and pale pearl ends. In this photo it looks slightly cooler and higher-contrast than the customer's hair. 20\" Thinning Hair Fill-Ins (95g), in stock at $210."
   ],
   "leaked_reference": false,
-  "ran_at": "2026-10-26T09:05:11.537Z"
+  "ran_at": "2026-10-26T09:05:11.537Z",
+  "renders_returned": 0
  }
 ]

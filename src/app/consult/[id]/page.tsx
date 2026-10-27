@@ -22,7 +22,8 @@ async function Consult({ params }: { params: Promise<{ id: string }> }) {
         Consult of <span className="whitespace-nowrap">{day}</span>
       </h1>
       <p className="pb-6 pt-2 text-[14px] text-muted">
-        At {time}. {consult.note ? `The customer wrote: "${consult.note}"` : "Saved on the desk, with every render and the agent's log."}
+        At {time}.{" "}
+        {consult.note ? <>The customer wrote: &ldquo;{consult.note}&rdquo;</> : "Saved on the desk, with every render and every step."}
       </p>
       <SavedConsult events={events} />
     </>

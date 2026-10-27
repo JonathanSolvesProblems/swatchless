@@ -32,14 +32,14 @@ SHOTS = [
 ]
 
 CAPTIONS = {
-    "1-hero": "A hair retailer's stylist answers \"which shade matches me?\" with the customer wearing it. The 30 Luxy shades the desk picks from.",
-    "2-measured": "YouCam reads density at 2.3 of 4 and length at chest or longer. Claude chooses fill-ins and shows two shades on the customer.",
-    "3-reply": "The reply goes out from the stylist's own mail, with the customer wearing each rendered pick and a cart link into the store under it.",
-    "4-refused": "What it cannot show, it says: this topper's store photos are a lighter shade, so the desk refuses the render and says why under the swatch.",
+    "1-hero": "A hair retailer's stylist answers \"which shade matches me?\" with the customer wearing it. The wall: 30 Luxy shades the desk can render.",
+    "2-measured": "YouCam reads density at 2.3 of 4 and length as above chest or longer. Claude chooses fill-ins; YouCam renders the shades on the customer.",
+    "3-reply": "The reply goes out from the stylist's own mail, with a cart link under each rendered pick. The customer is an AI-generated composite.",
+    "4-refused": "What it cannot show, it says: this topper's store photos show a different shade, so the desk shows no render and says why under the swatch.",
     "5-decided": "Every decision is on the record: what YouCam measured, what it could not measure and why, and each step the desk took to the shortlist.",
-    "6-benchmark": "Checked against Luxy's own stylists: their shade made the desk's shortlist for 13 of 16 real customers, each shown wearing the pick.",
-    "7-table": "Customer by customer, beside the same desk with YouCam off. A customer whose shade could not be offered is counted on neither side.",
-    "8-watch": "After the reply the desk keeps working: an out-of-stock match is refused, watched daily, and re-rendered when the store has it.",
+    "6-benchmark": "Checked against Luxy's own stylists: their shade made the desk's shortlist for 13 of 16 people they styled, and YouCam rendered 15 of them.",
+    "7-table": "Person by person, on Luxy Hair's own before photos, beside the same desk with YouCam off. An unofferable shade counts on neither side.",
+    "8-watch": "After the reply the desk keeps working: an out-of-stock pick is refused, its stock re-read daily, and re-rendered when the store has it.",
 }
 # ------------------------------------------------------------------ END CONFIG
 

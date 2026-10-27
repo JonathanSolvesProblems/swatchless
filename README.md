@@ -24,31 +24,34 @@ reply in her voice. Dana reads it, sends it from her own mail, and moves on to t
 
 ## What the desk did for the demo customer
 
-The customer on the home page is a composite: both photos are AI-generated, which the page says. Everything after
-them is a live run. YouCam measured density at 2.28 (level 2, the part showing) and length at chest or longer.
-Claude chose scalp fill-ins because of the density read, had YouCam render three Luxy Hair shades on the customer,
-kept Off Black and Jet Black, and dropped Dark Brown. It added Ellen Wille's Espresso Mix topper without a preview,
-and the page says why: every product photo the store lists for it shows a lighter shade, so a render would have shown
-the wrong colour. Then it drafted the reply.
+The demo customer is a composite: both photos are AI-generated, and every page that shows them says so. The consult
+at [/consult/2026-10-26-d3856eaf](https://swatchless.jonathansolvesproblems.com/consult/2026-10-26-d3856eaf) is a
+live run from 26 October. YouCam measured density at 2.28 (level 2, the part showing) and length as above chest or
+longer. Claude chose scalp fill-ins because of the density read, had YouCam render three Luxy Hair shades on the
+customer, and shortlisted Off Black and Jet Black. It added Ellen Wille's Espresso Mix topper without a render, and
+the page says why: every photo the store lists for it shows a different shade (Mocca Rooted), so a render would have
+shown the wrong colour. Then it drafted the reply. The home page opens on the latest demo run, which may pick
+differently; the tag on the swatch wall always names that run's first pick.
 
 ## Against Luxy's own stylists
 
-Luxy Hair photographs real customers before they wear its hair and publishes the shade its stylists put on them. That
-shade is the answer. The desk gets only Luxy's "before" photo, never sees that customer as a reference, and picks from
+Luxy Hair photographs real people before they wear its hair and publishes the shade its stylists put on them. That
+shade is the answer. The desk gets only Luxy's "before" photo, never sees that person as a reference, and picks from
 the 30 Luxy shades that have a trusted on-model photo.
 
-All 18 customers ran. For 2 of them every trusted photo of their shade was a photo of them, so once those were
-excluded the desk could not be offered it at all; those rows are reported as not offerable and counted on neither
-side. Of the other 16, the right shade was on the desk's shortlist for 13 of 16, every one of the 16 customers was
-shown wearing the desk's pick, and the first pick was the exact shade Luxy's stylists chose for 8 of 16. Picking at
-random would land the first pick about one time in thirty. Most first-pick misses were the neighbouring shade:
-Chestnut Brown for Neutral Brown, Dark Brown for Chocolate Brown.
+All 18 people ran. For 2 of them every trusted photo of their shade was a photo of them, so once those were excluded
+the desk could not be offered it at all; those rows are reported as not offerable and counted on neither side. Of
+the other 16, the shade Luxy's stylists chose was on the desk's shortlist for 13 of 16, and the first pick was that
+exact shade for 8 of 16. Picking at random would land the first pick about one time in thirty. In 5 of the 8 first-pick
+misses, Luxy's shade was the desk's second pick: Off Black before Jet Black, Light Gray before Dark Gray, Dark Brown
+before Chocolate Brown. YouCam rendered 15 of the 16 wearing the shades the desk chose; the one photo it could not
+render was taken from behind, with no face in it.
 
-The ablation ran the same 18 customers with YouCam switched off: the same model, photo and swatches, no YouCam tools.
-Without YouCam, the right shade was on the shortlist for 12 of 16 and the desk showed 0 of 16 customers wearing
-anything. The first pick matched 8 of 16 in both arms. Naming the shade is the model's job; YouCam is what puts that
-shade on the customer before they buy hair they cannot return, measures the density that decides fill-ins versus
-length, and gives the desk a render to reject when it changes the face.
+The same 18 people ran again with YouCam off: the same model, photo and swatches, no YouCam tools. With YouCam off,
+Luxy's shade was on the shortlist for 12 of 16 and the desk could show 0 of 16 wearing anything. The first pick matched
+8 of 16 with YouCam and with it off. Naming the shade is the model's job; YouCam is what puts that shade on the person
+before they buy hair they cannot return, measures the density that decides fill-ins versus length, and gives the desk
+a render to reject when it changes the face.
 
 The truth set, the exclusion rule and every run are committed in `data/benchmark/`. `scripts/check_claims.py` fails
 the build if any number in this README or on the site disagrees with that data.
@@ -58,17 +61,18 @@ the build if any number in this README or on the site disagrees with that data.
 Claude drives Perfect Corp's hosted YouCam MCP server directly, through the Anthropic MCP connector, with these tools
 allowed:
 
-| YouCam tool | What the desk uses it for |
-|---|---|
-| AI Hair Density Detection | four-level scalp-visibility read from the head-down photo; decides coverage pieces versus length |
-| AI Hair Length Detection | length class from the selfie; decides 12" versus 20" |
-| AI Hair Type Detection | texture, when the customer sends front, left and right photos |
-| AI Hair Style Virtual Try-On (transfer) | renders a store product on the customer from the store's own on-model photo, in the product's colour or the customer's |
-| AI Hair Color Virtual Try-On | re-colours a render to a store shade when the reference photo shows another colour |
-| AI Hair Volume Virtual Try-On | volume pieces for customers at density 3 to 4 |
+| YouCam tool | What the desk uses it for | Used so far |
+|---|---|---|
+| AI Hair Density Detection | four-level scalp-visibility read from the head-down photo; decides coverage pieces versus length | every live consult |
+| AI Hair Length Detection | length class from the selfie; decides 12" versus 20" | every consult and benchmark row |
+| AI Hair Style Virtual Try-On (transfer) | renders a store product on the customer from the store's own on-model photo | every consult and benchmark row |
+| AI Hair Type Detection | texture, when the customer sends front, left and right photos | allowlisted; no run has had three photos |
+| AI Hair Color Virtual Try-On | colour on the customer's own hair | allowlisted; not chosen by the model yet |
+| AI Hair Volume Virtual Try-On | volume pieces for customers at density 3 to 4 | allowlisted; no run has measured density 3 or 4 |
 
-The demo run used density, length and three style try-ons. File upload and the unit balance go through the REST API
-(`src/lib/youcam.ts`); every analysis and try-on is a tool call the model makes (`src/lib/agent.ts`).
+All six are allowed, and each render of any kind counts against the consult's budget of eight. File upload and the
+unit balance go through the REST API (`src/lib/youcam.ts`); every analysis and render is a tool call the model makes
+(`src/lib/agent.ts`).
 
 ## What the model decides, and where
 
@@ -78,12 +82,14 @@ The demo run used density, length and three style try-ons. File upload and the u
   render through `view_images` before it may cite it.
 - When to stop and ask for a better photo: `ask_for_photo`.
 
-What the code decides, and the model cannot talk past (`src/lib/gate.ts`, nine tests):
+What the code decides, and the model cannot talk past (`src/lib/gate.ts`, twelve tests):
 
-- a cited render must be one YouCam returned in this consult
+- a cited render must be one YouCam returned in this consult, made from a store photo of the same shade, so a render
+  of one product is never shown under another
 - a pick with no render must say why it is not shown
-- the variant must exist in the store's feed and be in stock on the store's site right now
-- at most three items
+- no product twice, at most three items
+- the variant must exist in the store's feed and be in stock on the store's site right now (or in the last catalogue
+  when the store does not answer)
 
 An out-of-stock pick is refused and goes on the watch list. A daily job (`/api/watch`) re-reads the store's live
 stock and, when the piece is back, renders it on the customer again and drafts the follow-up (`src/lib/watch.ts`).
@@ -102,19 +108,21 @@ counts for a shade only when it appears under exactly one. Swatchless is not aff
 - Density needs a head-down photo and hair type needs three photos; without them the desk says what it could not
   measure rather than guessing.
 - YouCam's render URLs expire after two hours, so each consult keeps its own copies.
-- Eighteen customers is a small benchmark, and the answer is one stylist team's choice, not the only right shade. A
-  one-customer difference between the two arms is within what a sample this size can move by chance.
+- Eighteen people is a small benchmark, and the answer is one stylist team's choice, not the only right shade. A
+  one-person difference between running with YouCam and with it off is within what a sample this size can move by
+  chance.
 
 ## Running it
 
 ```
 pnpm install
 cp .env.example .env.local   # YouCam key, an Anthropic API key for the app, CONSULT_DIR
-python -I scripts/ingest.py  # rebuilds data/catalog.json from the stores' feeds (needs the Anthropic key for photo classification)
+python -I scripts/ingest.py  # rebuilds data/catalog.json from the stores' feeds (needs SWATCHLESS_ANTHROPIC_API_KEY for photo classification)
 pnpm dev
 pnpm test && pnpm check      # gate and catalogue tests; every stated number against the data
 ```
 
-`scripts/consult.ts` runs one consult from the command line; `scripts/benchmark.ts` runs the Luxy benchmark, both arms.
+`scripts/consult.ts` runs one consult from the command line; `scripts/benchmark.ts` runs the Luxy benchmark, with
+YouCam and with it off.
 
 Built by Jonathan Andrei. More at [jonathansolvesproblems.com](https://jonathansolvesproblems.com).

@@ -4,10 +4,13 @@ import { Swatch } from "./ring";
 const usable = catalog.products.filter((p) => p.references.length);
 const shades = new Set(usable.map((p) => `${p.store}:${p.shade}`)).size;
 const wall = luxyShadeSwatches().filter((s) => s.swatch);
-const pinned = "Off Black";
 
-/** The material the product is named for: the shades a stylist would otherwise mail out, read by the desk instead. */
-export function Hero() {
+/**
+ * The material the product is named for: the shades on the swatch ring a customer would otherwise buy, read by the desk instead.
+ * The tag pins the first pick of the consult shown below, so it can never claim a match the desk did not make.
+ */
+export function Hero({ match }: { match?: string }) {
+  const pinned = wall.find((s) => match && s.shade.toLowerCase() === match.toLowerCase())?.shade;
   return (
     <div className="hero-grid">
       {/* The headline sits on the wall's top edge and the catalogue line on its caption's baseline. */}
@@ -22,11 +25,16 @@ export function Hero() {
           </p>
         </div>
         <p className="max-w-[46ch] text-[14px] text-muted">
-          Built on {usable.length.toLocaleString()} pieces in {shades} shades from {catalog.stores.map((s) => s.name).join(", ")}.
+          Built on {usable.length.toLocaleString()} pieces in {shades} shades from{" "}
+          {catalog.stores
+            .map((s) => s.name)
+            .join(", ")
+            .replace(/, ([^,]+)$/, " and $1")}
+          .
         </p>
       </div>
 
-      <figure className="wall m-0" aria-label={`The ${wall.length} Luxy Hair shades the desk picks from`}>
+      <figure className="wall m-0" aria-label={`The ${wall.length} Luxy Hair shades the desk can render`}>
         <div className="wall-grid">
           {wall.map((s) => (
             <span key={s.shade} className={`wall-cell ${s.shade === pinned ? "wall-cell-pinned" : ""}`} title={s.shade}>
@@ -41,7 +49,8 @@ export function Hero() {
           ))}
         </div>
         <figcaption className="wall-caption">
-          The {wall.length} Luxy Hair shades a stylist would otherwise mail out as a $127.50 swatch ring. The desk reads them instead.
+          {wall.length} of the shades on Luxy Hair&rsquo;s $127.50 swatch ring, the ring a customer would otherwise buy to match at home. The
+          desk reads them from a selfie instead.
         </figcaption>
       </figure>
     </div>

@@ -8,7 +8,7 @@ COPY . .
 ARG NEXT_PUBLIC_CONSULT_CODE_REQUIRED=1
 ENV NEXT_PUBLIC_CONSULT_CODE_REQUIRED=$NEXT_PUBLIC_CONSULT_CODE_REQUIRED
 # The public address, for absolute Open Graph URLs.
-ARG SITE_URL=https://swatchless.jonathanandrei.com
+ARG SITE_URL=https://swatchless.jonathansolvesproblems.com
 ENV SITE_URL=$SITE_URL
 RUN pnpm build
 

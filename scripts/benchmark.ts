@@ -92,6 +92,7 @@ async function main() {
         top1: picks.length > 0 && norm(picks[0]) === norm(item.shade),
         in_shortlist: picks.some((p) => norm(p) === norm(item.shade)),
         tryons: result.tryons_used,
+        renders_returned: result.renders_returned ?? 0,
         refusals: result.refusals,
         youcam_units: units0 - (await unitBalance()),
         usd_claude: +consultUsd(u).toFixed(3),

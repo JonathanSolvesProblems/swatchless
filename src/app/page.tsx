@@ -9,7 +9,12 @@ async function DeskWithLatest() {
   // Only the labelled demo customer opens on the public desk. A visitor's own consult stays in their session and
   // at its own unguessable link, so their face never becomes the page everyone else sees.
   const latest = (await listConsults()).find((c) => c.result.status === "recommended" && c.disclosure);
-  return <Desk hero={<Hero />} latest={latest ? { id: latest.id, label: consultLabel(latest), events: consultEvents(latest) } : undefined} />;
+  return (
+    <Desk
+      hero={<Hero match={latest?.result.recommendations[0]?.shade} />}
+      latest={latest ? { id: latest.id, label: consultLabel(latest), events: consultEvents(latest) } : undefined}
+    />
+  );
 }
 
 export default function Home() {

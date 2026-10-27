@@ -7,7 +7,7 @@ const NAV = [
   { id: "watch", href: "/watch", label: "Watch list" },
 ] as const;
 
-export function Masthead({ current }: { current: (typeof NAV)[number]["id"] }) {
+export function Masthead({ current }: { current?: (typeof NAV)[number]["id"] }) {
   return (
     <header className="mx-auto flex w-full max-w-[1240px] flex-wrap items-center justify-between gap-4 px-4 py-5 sm:px-8">
       <Link href="/" className="flex items-center gap-2.5 text-ink" aria-label="Swatchless, home">
@@ -35,8 +35,9 @@ export function Masthead({ current }: { current: (typeof NAV)[number]["id"] }) {
 
 export function Footer() {
   return (
-    <footer className="mx-auto w-full max-w-[1240px] border-t border-rule px-4 py-8 text-sm text-muted sm:px-8">
-      <p className="text-[15px]">
+    <footer className="mx-auto w-full max-w-[1240px] px-4 pb-8 text-sm text-muted sm:px-8">
+      {/* The rule spans the content measure, not the padding. */}
+      <p className="border-t border-rule pt-8 text-[15px]">
         Built by Jonathan Andrei for stylists who answer the same colour question all day. More of what I build at{" "}
         <a className="text-link" href="https://jonathansolvesproblems.com">
           jonathansolvesproblems.com
@@ -45,7 +46,7 @@ export function Footer() {
       </p>
       <p className="mt-3 max-w-[80ch] text-[12.5px] leading-relaxed">
         Product data comes from each store&rsquo;s public catalogue. Product photos belong to Luxy Hair, Halo Couture and Ellen Wille and are shown
-        small, with their source. Try-ons by YouCam (Perfect Corp). Not affiliated with any of these stores.
+        small, with their source. Measurements and renders by YouCam (Perfect Corp). Not affiliated with any of these stores.
       </p>
     </footer>
   );

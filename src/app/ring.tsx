@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { Children, useId, useState, type ReactNode } from "react";
 import type { Recommendation } from "@/lib/agent";
+import { addToCartUrl, usd } from "@/lib/cart";
 import { shadeName } from "@/lib/shade-name";
 
 /** The mark: a closed steel ring with one shade tag hanging from it. */
@@ -16,13 +17,14 @@ export function RingMark({ size = 28, className = "" }: { size?: number; classNa
 }
 
 export function Ring({ children, empty }: { children: ReactNode; empty?: string }) {
-  const items = (Array.isArray(children) ? children : [children]).filter(Boolean);
+  // Flattened, so an empty list of renders counts as nothing and the waiting message shows.
+  const items = Children.toArray(children);
   return (
     <div className="ring-stage">
       {items.length ? (
         <ul className="ring-wefts">{children}</ul>
       ) : (
-        <p className="ring-empty">{empty ?? "Nothing here yet. Each try-on appears as it comes back from YouCam."}</p>
+        <p className="ring-empty">{empty ?? "Nothing here yet. Each render appears as it comes back from YouCam."}</p>
       )}
     </div>
   );
@@ -32,8 +34,8 @@ export function Ring({ children, empty }: { children: ReactNode; empty?: string 
 export function Swatch({ src, size = "sm" }: { src: string | null | undefined; size?: "sm" | "md" | "lg" }) {
   if (!src) return null;
   const url = `${src}${src.includes("?") ? "&" : "?"}width=${size === "lg" ? 200 : 120}`;
-  // eslint-disable-next-line @next/next/no-img-element
   // Eager: a swatch is tiny, and a tag with an empty square where the colour should be is the worst state it has.
+  // eslint-disable-next-line @next/next/no-img-element
   return <img src={url} alt="" aria-hidden className={`swatch swatch-${size}`} />;
 }
 
@@ -59,13 +61,17 @@ export function Shade({ name, swatch, miss = false }: { name: string; swatch?: s
 
 function Why({ text }: { text: string }) {
   const [open, setOpen] = useState(false);
-  // The control sits outside the clamped paragraph, or the clamp would hide it with the text it unfolds.
+  const id = useId();
+  // The control sits outside the clamped paragraph, or the clamp would hide it with the text it unfolds; it stays
+  // mounted as a toggle, so keyboard focus is never dropped.
   return (
     <div className="weft-why">
-      <p className={open ? "" : "weft-why-clamped"}>{text}</p>
-      {!open && text.length > 160 && (
-        <button type="button" className="text-link" onClick={() => setOpen(true)}>
-          Read the rest
+      <p id={id} className={open ? "" : "weft-why-clamped"}>
+        {text}
+      </p>
+      {text.length > 160 && (
+        <button type="button" className="text-link" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
+          {open ? "Show less" : "Read the rest"}
         </button>
       )}
     </div>
@@ -80,11 +86,12 @@ function productLine(rec: Recommendation): string {
 }
 
 export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?: { image: string; index: number }; before?: { image: string } }) {
-  const image = rec ? rec.render_url ?? rec.swatch_url : before ? before.image : pending!.image;
+  // A pick with no render shows no store photo at tile size (charter 12): its swatch is already on the tag.
+  const image = rec ? rec.render_url : before ? before.image : pending!.image;
   const rendered = !rec || Boolean(rec.render_url);
-  const alt = before ? "The customer's selfie, as sent" : rendered ? (rec ? `The customer wearing ${rec.title}` : "A try-on render") : `${rec?.store} swatch for ${rec?.shade}`;
+  const alt = before ? "The customer's selfie, as sent" : rec ? `The customer wearing ${rec.title}` : "A render";
   return (
-    <li className="weft">
+    <li className={`weft ${before ? "weft-before" : ""}`}>
       <div className="weft-tag">
         {rec ? (
           <>
@@ -93,29 +100,29 @@ export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?:
               <span className="weft-title">{shadeName(rec.shade)}</span>
             </span>
             <span className="weft-meta">
-              {productLine(rec)} ·{" "}
+              <span className="block">{productLine(rec)}</span>
               <span className="whitespace-nowrap">
-                {rec.store} · ${rec.price.toFixed(0)}
+                {rec.store} · {usd(rec.price)}
               </span>
             </span>
           </>
         ) : before ? (
           <>
-            <span className="weft-shade">
-              <Swatch src={before.image} size="md" />
-              <span className="weft-title">As sent</span>
-            </span>
+            <span className="weft-title">As sent</span>
             <span className="weft-meta">The customer&rsquo;s own photo, nothing added yet</span>
           </>
         ) : (
-          <span className="weft-title">Try-on {pending!.index}</span>
+          <span className="weft-title">Render {pending!.index}</span>
         )}
       </div>
+      {/* The tag hangs from its render on a short steel line (charter 4). */}
+      <span className="weft-line" aria-hidden />
       <figure className={`weft-tail ${rendered ? "" : "weft-tail-swatch"}`}>
         {image && (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={image} alt={alt} />
         )}
+        {rec && !rendered && <Swatch src={rec.swatch_url} size="lg" />}
         {rec && !rendered && (
           <figcaption className="weft-note">
             Not shown on the customer. {rec.render_note?.replace(/^not (rendered|shown)[^:.]*[:.]\s*/i, "").replace(/^\p{Ll}/u, (c) => c.toUpperCase())}
@@ -131,7 +138,7 @@ export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?:
       </figure>
       {rec && (
         <div className="weft-actions">
-          <a className="tag-button" href={rec.cart_url} target="_blank" rel="noreferrer">
+          <a className="tag-button" href={addToCartUrl(rec.cart_url)} target="_blank" rel="noreferrer">
             Add to {rec.store} cart
           </a>
           <a className="text-link" href={rec.product_url} target="_blank" rel="noreferrer">

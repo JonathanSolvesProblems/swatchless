@@ -85,6 +85,8 @@ export interface ConsultResult {
   message_to_customer: string;
   photo_request?: { which: string; reason: string };
   tryons_used: number;
+  /** Render calls that came back with an image; a failed call (no face, bad angle) is attempted but not rendered. */
+  renders_returned?: number;
   refusals: string[];
   /** Variants the desk wanted but refused because the store's feed showed them out of stock: the watch list. */
   watch: { variant_id: number; title: string; store: string; render_url: string | null }[];
@@ -125,9 +127,13 @@ How to work:
   has no usable render, still recommend it first, with render_url null and render_note saying why it is not shown.
 - Hair type detection needs front, left and right photos; with only a front selfie, skip it and say so.
 - Refer to the customer as "the customer" or "they". Never infer gender, age or ethnicity from the photo.
+- Everything you write is read by a stylist or a customer: your short notes between steps, the measurements, each why,
+  each render_note and the message. Write step notes as short statements ("Measuring density from the head-down photo.").
+  Never name a tool, a parameter or a value like "ref" or "src"; never use a dash as a connector; never use marketing
+  superlatives or promise a result. Start each why with the reason, not the product name or price, which the tag already shows.
 - Finish by calling finalize with up to three items, each tied to its render. Write the message to the customer in the
   stylist's voice: warm, plain, specific about why each shade suits them, under 120 words, no exclamation marks, no lists.
-  Never claim a fit, coverage or result the render
+  In the message, call a render a preview. Never claim a fit, coverage or result the render
   does not show; a render shows the finished look, not how a piece clips in.`;
 
 const SYSTEM_NO_YOUCAM = `You are the colour-match desk for three online hair retailers (Luxy Hair, Halo Couture, Ellen Wille).
@@ -189,7 +195,11 @@ const tools: BetaToolUnion[] = [
     input_schema: {
       type: "object",
       properties: {
-        measurements: { type: "object", description: "What YouCam measured: density level, hair type, length, and any measurement that failed." },
+        measurements: {
+          type: "object",
+          description:
+            "The decision record, shown to the stylist. Use exactly these keys: density, length, hair_type, colour_read, dropped (a list: each render dropped and why). Plain sentences; say what failed and why.",
+        },
         items: {
           type: "array",
           maxItems: 3,
@@ -204,7 +214,7 @@ const tools: BetaToolUnion[] = [
                 description:
                   "Required when render_url is null: why no render is shown, in one or two plain sentences a stylist reads under the swatch. No tool or parameter names.",
               },
-              why: { type: "string" },
+              why: { type: "string", description: "Why this shade suits the customer, starting with the reason. Two sentences at most." },
             },
             required: ["variant_id", "render_url", "reference_url", "why"],
           },
@@ -297,7 +307,13 @@ export async function runConsult(input: ConsultInput, emit: (e: ConsultEvent) =>
   const ablation = input.mode === "no_youcam";
   const exclude = new Set(input.excludeReferences ?? []);
   const usage = { input_tokens: 0, output_tokens: 0, cache_read_tokens: 0, cache_write_tokens: 0 };
-  const withUsage = (r: Omit<ConsultResult, "watch"> & { watch?: ConsultResult["watch"] }): ConsultResult => ({ ...r, watch, usage });
+  let rendersReturned = 0;
+  const withUsage = (r: Omit<ConsultResult, "watch"> & { watch?: ConsultResult["watch"] }): ConsultResult => ({
+    ...r,
+    watch,
+    usage,
+    renders_returned: rendersReturned,
+  });
 
   const intro: BetaContentBlockParam[] = [
     { type: "image", source: { type: "base64", media_type: "image/jpeg", data: input.selfieDataUrl.split(",")[1] } },
@@ -367,6 +383,7 @@ export async function runConsult(input: ConsultInput, emit: (e: ConsultEvent) =>
         const pending = pendingTryons.get(block.tool_use_id);
         // Only images in YouCam's result storage count as renders; an echoed store photo never does.
         const images = ok ? urlsIn(text).filter((u) => !pending || (isYouCamResult(u) && u !== pending.ref)) : [];
+        if (pending && images.length) rendersReturned++;
         if (pending) for (const u of images) renders.set(u, { reference: pending.ref });
         emit({ type: "youcam_result", id: block.tool_use_id, tool: pending?.tool ?? "youcam", ok, summary: text.slice(0, 600), images });
       }

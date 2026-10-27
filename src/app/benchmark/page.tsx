@@ -27,6 +27,7 @@ interface Row {
   top1: boolean;
   in_shortlist: boolean;
   tryons: number;
+  renders_returned?: number;
   youcam_units: number;
   usd_claude: number;
   seconds: number;
@@ -43,7 +44,8 @@ function tally(arm: Row["arm"]) {
     top1: rows.filter((r) => r.top1).length,
     shortlist: rows.filter((r) => r.in_shortlist).length,
     abstained: rows.filter((r) => r.status !== "recommended").length,
-    rendered: rows.filter((r) => r.tryons > 0).length,
+    // A render that came back, not one that was attempted: a photo with no face is attempted and fails.
+    rendered: rows.filter((r) => (r.renders_returned ?? 0) > 0).length,
   };
 }
 
@@ -60,16 +62,16 @@ export default function BenchmarkPage() {
             <h1 className="max-w-[22ch] text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.04]">
               {full.n > 0 ? (
                 <>
-                  The shade Luxy&rsquo;s own stylists chose was on the desk&rsquo;s shortlist for {full.shortlist} of {full.n} real customers
+                  The shade Luxy&rsquo;s own stylists chose was on the desk&rsquo;s shortlist for {full.shortlist} of {full.n} people they styled
                 </>
               ) : (
                 <>Against Luxy&rsquo;s own stylists</>
               )}
             </h1>
             <p className="max-w-[64ch] text-[17px] leading-relaxed text-muted">
-              Luxy Hair photographs real customers before they wear its hair, then publishes the shade it put on them. That shade is the
-              answer here. The desk gets only Luxy&rsquo;s &ldquo;before&rdquo; photo, never sees that customer as a reference, and picks
-              from {LUXY_SHADES} shades.
+              Luxy Hair photographs real people before they wear its hair, then publishes the shade its stylists put on them. That shade is
+              the answer here. The desk gets only Luxy&rsquo;s &ldquo;before&rdquo; photo, never sees that person as a reference, and picks
+              from the {LUXY_SHADES} Luxy shades it can render.
             </p>
             {full.n > 0 && (
               <dl className="measures">
@@ -86,9 +88,9 @@ export default function BenchmarkPage() {
                   </dd>
                 </div>
                 <div className="measure">
-                  <dt>Shown wearing the desk&rsquo;s pick</dt>
+                  <dt>Rendered by YouCam wearing the desk&rsquo;s shades</dt>
                   <dd>
-                    {full.rendered} of {full.n}
+                    {full.rendered} of {full.n}; the one photo without a face could not be rendered
                   </dd>
                 </div>
               </dl>
@@ -97,11 +99,11 @@ export default function BenchmarkPage() {
               <p className="max-w-[64ch] text-[15px] leading-relaxed text-muted">
                 {full.impossible > 0 && (
                   <>
-                    For {full.impossible} more {full.impossible === 1 ? "customer" : "customers"}, every trusted photo of the shade was a photo of them,
+                    For {full.impossible} more {full.impossible === 1 ? "person" : "people"}, every trusted photo of the shade was a photo of them,
                     so once those were excluded the desk could not be offered it; those rows are counted on neither side.
                   </>
                 )}
-                {pending > 0 && <> {pending} of the {truth.items.length} customers have not been run yet.</>}
+                {pending > 0 && <> {pending} of the {truth.items.length} people have not been run yet.</>}
               </p>
             )}
           </div>
@@ -113,15 +115,16 @@ export default function BenchmarkPage() {
                 </span>
               ))}
             </div>
-            <figcaption className="text-[13px] text-muted">The {LUXY_SHADES} Luxy shades the desk picks from, as the store&rsquo;s own swatches.</figcaption>
+            <figcaption className="text-[13px] text-muted">The {LUXY_SHADES} Luxy shades the desk can render, as the store&rsquo;s own swatches.</figcaption>
           </figure>
         </section>
 
         <section aria-labelledby="rows-h" className="flex flex-col gap-4">
-          <h2 id="rows-h" className="text-3xl">Customer by customer</h2>
+          <h2 id="rows-h" className="text-3xl">Person by person</h2>
           <p className="legend text-[14px] text-muted" aria-label="How to read the table">
-            <Shade name="Filled" swatch={swatchFor("Jet Black")} /> the first pick is the shade Luxy chose &nbsp;
-            <Shade name="Outlined" swatch={swatchFor("Off Black")} miss /> it differs
+            <span className="legend-key">Filled</span> the first pick is the shade Luxy chose &nbsp;
+            <span className="legend-key legend-key-miss">Outlined</span> it differs. The before photos are Luxy Hair&rsquo;s, each linked to its
+            product page.
           </p>
           <div className="overflow-x-auto">
             <table className="bench">
@@ -129,8 +132,8 @@ export default function BenchmarkPage() {
                 <tr>
                   <th scope="col">Luxy&rsquo;s before photo</th>
                   <th scope="col">Shade Luxy chose</th>
-                  <th scope="col">Desk with YouCam</th>
-                  <th scope="col">Same desk, YouCam off</th>
+                  <th scope="col">With YouCam</th>
+                  <th scope="col">YouCam off</th>
                 </tr>
               </thead>
               <tbody>
@@ -143,8 +146,8 @@ export default function BenchmarkPage() {
                       <td>
                         <a href={t.source_url} target="_blank" rel="noreferrer" className="bench-photo">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={`${t.before_photo}?width=160`} alt={`Luxy's before photo of customer ${i + 1}`} width={72} height={90} />
-                          <span>Customer {i + 1}</span>
+                          <img src={`${t.before_photo}?width=160`} alt={`Luxy Hair's before photo of person ${i + 1}`} width={72} height={90} />
+                          <span>Person {i + 1}</span>
                         </a>
                       </td>
                       <td data-label="Shade Luxy chose">
@@ -153,10 +156,10 @@ export default function BenchmarkPage() {
                           {!t.shade_offerable && <span className="text-[12.5px] leading-snug text-muted sm:max-w-[26ch]">Not offerable: {t.why_not_offerable}</span>}
                         </span>
                       </td>
-                      <td data-label="Desk with YouCam">
+                      <td data-label="With YouCam">
                         <Pick row={f} offerable={t.shade_offerable} />
                       </td>
-                      <td data-label="Same desk, YouCam off">
+                      <td data-label="YouCam off">
                         <Pick row={p} offerable={t.shade_offerable} />
                       </td>
                     </tr>
@@ -170,19 +173,20 @@ export default function BenchmarkPage() {
               Not run yet ({pending}):{" "}
               {truth.items
                 .filter((t) => !results.some((r) => r.id === t.id))
-                .map((t) => `customer ${truth.items.indexOf(t) + 1}, ${t.shade}`)
+                .map((t) => `person ${truth.items.indexOf(t) + 1}, ${t.shade}`)
                 .join("; ")}
               . They run as soon as the desk has API access again; every row appears here the same way.
             </p>
           )}
           {plain.n > 0 && (
             <p className="max-w-[70ch] text-[15px] leading-relaxed text-muted">
-              The same customers ran with YouCam switched off: the same model, photo and swatches, no YouCam tools. Without YouCam, the
-              right shade was on the shortlist for {plain.shortlist} of {plain.n} and the desk showed {plain.rendered} of {plain.n} customers
-              wearing anything. With YouCam it was {full.shortlist} of {full.n}, and the desk showed {full.rendered} of {full.n} wearing its
-              pick, which is what a customer gets to see before buying hair they cannot return. The first pick matched {full.top1} of {full.n} in both arms: naming the shade is the
-              model&rsquo;s job, and YouCam is what puts it on the customer, measures the density that decides fill-ins versus length, and
-              gives the desk a render to reject when it changes the face.
+              The same people ran again with YouCam off: the same model, photo and swatches, no YouCam tools. With YouCam off, the right
+              shade was on the shortlist for {plain.shortlist} of {plain.n} and the desk could show {plain.rendered} of {plain.n} people wearing
+              anything. With YouCam it was {full.shortlist} of {full.n}, a one-person difference that a sample this size can move by chance,
+              and YouCam rendered {full.rendered} of {full.n} wearing the shades the desk chose, which is what a customer gets to see before
+              buying hair they cannot return. The first pick matched {full.top1} of {full.n} with YouCam and with it off: naming the shade is
+              the model&rsquo;s job, and YouCam is what puts it on the person, measures the density that decides fill-ins versus length,
+              and gives the desk a render to reject when it changes the face.
             </p>
           )}
         </section>
@@ -192,9 +196,9 @@ export default function BenchmarkPage() {
           <p className="text-[15px] leading-relaxed text-muted">{truth.description}</p>
           <p className="text-[15px] leading-relaxed text-muted">{truth.exclusion_rule}</p>
           <p className="text-[15px] leading-relaxed text-muted lg:col-span-2">
-            A match means the desk&rsquo;s first pick has the same shade name as the product Luxy put on that customer. Eighteen customers is a
-            small sample, and the answer is one stylist team&rsquo;s choice rather than the only right shade. The truth set and every run are
-            committed in <code>data/benchmark/</code>.
+            A match means the desk&rsquo;s first pick has the same shade name as the product Luxy put on that person.{" "}
+            {truth.items.length} people, {full.n} of them counted, is a small sample, and the answer is one stylist team&rsquo;s choice rather
+            than the only right shade. The truth set and every run are committed in <code>data/benchmark/</code>.
           </p>
         </section>
       </main>
