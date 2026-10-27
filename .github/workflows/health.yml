@@ -1,0 +1,37 @@
+name: health
+# Every six hours until judging closes: every public page answers, the certificate is valid, the preview image serves.
+# A failure emails the repo owner, which is the point.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    if: ${{ vars.SWATCHLESS_URL != '' }}
+    steps:
+      - name: Every page answers
+        run: |
+          for path in / /benchmark /watch /opengraph-image.png /icon.svg; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "${{ vars.SWATCHLESS_URL }}$path")
+            echo "$path -> $code"
+            [ "$code" = "200" ] || exit 1
+          done
+      - name: The latest consult opens
+        run: |
+          id=$(curl -s --max-time 30 "${{ vars.SWATCHLESS_URL }}/" | grep -o 'href="/consult/[^"]*"' | head -1 | sed 's/href="//; s/"$//')
+          echo "latest: $id"
+          [ -n "$id" ] || exit 1
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "${{ vars.SWATCHLESS_URL }}$id")
+          echo "$id -> $code"
+          [ "$code" = "200" ] || exit 1
+      - name: Live consults are gated
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 -X POST -F selfie=@/etc/hostname "${{ vars.SWATCHLESS_URL }}/api/consult")
+          echo "no code -> $code"
+          [ "$code" = "403" ] || exit 1
+      - name: Certificate has more than 14 days left
+        run: |
+          host=$(echo "${{ vars.SWATCHLESS_URL }}" | sed 's#https://##')
+          echo | openssl s_client -connect "$host:443" -servername "$host" 2>/dev/null | openssl x509 -noout -checkend 1209600
