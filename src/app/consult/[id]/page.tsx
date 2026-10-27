@@ -11,16 +11,18 @@ async function Consult({ params }: { params: Promise<{ id: string }> }) {
   if (!consult) notFound();
 
   const events = consultEvents(consult);
-  // The desk's own clock, 24-hour, so the heading carries no "a.m." full stop (charter 7) and no server time zone.
-  const when = new Date(consult.created).toLocaleString("en-CA", { dateStyle: "medium", timeStyle: "short", hourCycle: "h23", timeZone: "America/Toronto" });
+  // The desk's own clock, 24-hour, so nothing here carries an "a.m." full stop (charter 7) or the server's time zone.
+  const created = new Date(consult.created);
+  const day = created.toLocaleDateString("en-CA", { dateStyle: "medium", timeZone: "America/Toronto" });
+  const time = created.toLocaleTimeString("en-CA", { timeStyle: "short", hourCycle: "h23", timeZone: "America/Toronto" });
 
   return (
     <>
-      <h1 className="pt-2 text-[34px]">
-        Consult of <span className="whitespace-nowrap">{when}</span>
+      <h1 className="pt-2 text-[28px] sm:text-[34px]">
+        Consult of <span className="whitespace-nowrap">{day}</span>
       </h1>
       <p className="pb-6 pt-2 text-[14px] text-muted">
-        {consult.note ? `The customer wrote: "${consult.note}"` : "Saved on the desk, with every render and the agent's log."}
+        At {time}. {consult.note ? `The customer wrote: "${consult.note}"` : "Saved on the desk, with every render and the agent's log."}
       </p>
       <SavedConsult events={events} />
     </>

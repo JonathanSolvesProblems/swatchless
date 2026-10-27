@@ -186,8 +186,8 @@ p { text-wrap: pretty; }
 }
 
 /* the shade tag is the only clipped surface on the site (charter 6) */
-.weft-tag { display: flex; flex-direction: column; gap: 4px; margin-right: 6px; padding: 10px 16px 12px 10px; background: var(--card); color: var(--card-ink); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); box-shadow: 0 8px 18px -12px rgba(0,0,0,.6); transform: rotate(-1.2deg); transform-origin: 20px 0; }
-.weft:nth-child(even) .weft-tag { transform: rotate(1deg); }
+/* square to its render: the one tilted tag on the site is the hero's, so the gesture stays a gesture */
+.weft-tag { display: flex; flex-direction: column; gap: 4px; padding: 10px 16px 12px 10px; background: var(--card); color: var(--card-ink); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); box-shadow: 0 8px 18px -12px rgba(0,0,0,.6); }
 .weft-shade { display: flex; align-items: center; gap: 10px; }
 .weft-title { font-family: var(--font-display), Georgia, serif; font-size: 22px; line-height: 1; }
 .weft-meta { font-size: 13px; line-height: 1.35; color: color-mix(in oklab, var(--card-ink) 70%, transparent); }
@@ -233,6 +233,7 @@ p { text-wrap: pretty; }
 .bench { width: 100%; border-collapse: collapse; font-size: 15px; }
 .bench th { text-align: left; font-weight: 500; color: var(--muted); font-size: 14px; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule); }
 .bench td { padding: 12px 14px 12px 0; border-bottom: 1px solid color-mix(in oklab, var(--rule) 55%, transparent); vertical-align: middle; }
+.bench .shade { width: fit-content; } /* a tag is as wide as its shade name, not its column */
 .bench-photo { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); white-space: nowrap; }
 .bench-photo img { width: 96px; height: 120px; object-fit: cover; border-radius: 2px; }
 /* the photo column keeps its width, so "Customer 4" is never squeezed under the shade tag beside it */

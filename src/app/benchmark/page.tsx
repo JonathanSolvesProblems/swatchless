@@ -55,7 +55,7 @@ export default function BenchmarkPage() {
     <>
       <Masthead current="benchmark" />
       <main className="mx-auto w-full max-w-[1240px] flex-1 px-4 pb-16 sm:px-8">
-        <section className="grid gap-10 pb-12 pt-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-center">
+        <section className="grid gap-10 pb-12 pt-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-start">
           <div className="flex flex-col gap-5">
             <h1 className="max-w-[22ch] text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.04]">
               {full.n > 0 ? (
