@@ -24,7 +24,7 @@ SHOTS = [
     ("1-hero", "/", None, None, 1500),
     ("2-measured", DEMO, "#customer-h", None, 1140),
     ("3-reply", DEMO, ".reply", None, 1140),
-    ("4-refused", DEMO, ".weft:nth-child(3)", None, 1140),
+    ("4-refused", DEMO, ".weft:has(.weft-tail-swatch)", None, 1140),
     ("5-decided", DEMO, ".steps", ".steps > summary", 1200),
     ("6-benchmark", "/benchmark", None, None, 1500),
     ("7-table", "/benchmark", "#rows-h", None, 1300),
