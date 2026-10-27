@@ -16,15 +16,15 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "gallery"
 URL = "https://swatchless.jonathansolvesproblems.com"
 W, H = 1500, 1000
-DEMO = "/consult/2026-10-26-9be25561"
+DEMO = "/consult/2026-10-26-d3856eaf"  # the seeded live run on the deployed site: two renders and one refused preview
 
 # story order = the demo video's order: name, path, selector scrolled to the top (None = top), selector to click first,
 # viewport width (3:2 kept; a narrower viewport frames a short page tighter, and the image is scaled to W x H after)
 SHOTS = [
     ("1-hero", "/", None, None, 1500),
-    ("2-consult", "/", "form.intake", None, 1200),
-    ("3-measured", DEMO, "#customer-h", None, 1140),
-    ("4-reply", DEMO, ".reply", None, 1140),
+    ("2-measured", DEMO, "#customer-h", None, 1140),
+    ("3-reply", DEMO, ".reply", None, 1140),
+    ("4-refused", DEMO, ".weft:nth-child(3)", None, 1140),
     ("5-decided", DEMO, ".steps", ".steps > summary", 1200),
     ("6-benchmark", "/benchmark", None, None, 1500),
     ("7-table", "/benchmark", "#rows-h", None, 1300),
@@ -33,12 +33,12 @@ SHOTS = [
 
 CAPTIONS = {
     "1-hero": "A hair retailer's stylist answers \"which shade matches me?\" with the customer wearing it. The 30 Luxy shades the desk picks from.",
-    "2-consult": "A selfie, an optional head-down photo and the customer's own words. Nothing is chosen before YouCam has measured the hair.",
-    "3-measured": "YouCam reads density at 2.3 of 4 and length at chest or longer. Claude chooses fill-ins and shows two shades on the customer.",
-    "4-reply": "The reply goes out from the stylist's own mail, with the customer wearing each pick and a cart link into Luxy Hair under it.",
-    "5-decided": "Every decision is on the record: what YouCam measured, what it could not, and what was dropped and why.",
+    "2-measured": "YouCam reads density at 2.3 of 4 and length at chest or longer. Claude chooses fill-ins and shows two shades on the customer.",
+    "3-reply": "The reply goes out from the stylist's own mail, with the customer wearing each rendered pick and a cart link into the store under it.",
+    "4-refused": "What it cannot show, it says: this topper's store photos are a lighter shade, so the desk refuses the render and says why under the swatch.",
+    "5-decided": "Every decision is on the record: what YouCam measured, what it could not measure and why, and each step the desk took to the shortlist.",
     "6-benchmark": "Checked against Luxy's own stylists: their shade made the desk's shortlist for 13 of 16 real customers, each shown wearing the pick.",
-    "7-table": "Customer by customer, beside Claude alone with no YouCam. A customer whose shade could not be offered is counted on neither side.",
+    "7-table": "Customer by customer, beside the same desk with YouCam off. A customer whose shade could not be offered is counted on neither side.",
     "8-watch": "After the reply the desk keeps working: an out-of-stock match is refused, watched daily, and re-rendered when the store has it.",
 }
 # ------------------------------------------------------------------ END CONFIG
