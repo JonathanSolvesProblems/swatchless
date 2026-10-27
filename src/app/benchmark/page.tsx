@@ -121,7 +121,7 @@ export default function BenchmarkPage() {
 
         <section aria-labelledby="rows-h" className="flex flex-col gap-4">
           <h2 id="rows-h" className="text-3xl">Person by person</h2>
-          <p className="legend text-[14px] text-muted" aria-label="How to read the table">
+          <p className="legend text-[14px] text-muted">
             <span className="legend-key">Filled</span> the first pick is the shade Luxy chose &nbsp;
             <span className="legend-key legend-key-miss">Outlined</span> it differs. The before photos are Luxy Hair&rsquo;s, each linked to its
             product page.
@@ -214,6 +214,7 @@ function Pick({ row, offerable }: { row?: Row; offerable: boolean }) {
   return (
     <span className="flex flex-col gap-1.5">
       <Shade name={row.picks[0]} swatch={swatchFor(row.picks[0])} miss={!row.top1} />
+      <span className="sr-only">{row.top1 ? "matches Luxy's shade" : "differs from Luxy's shade"}</span>
       {!offerable && <span className="text-[12.5px] text-muted">not counted</span>}
       {row.picks.length > 1 && <span className="text-[13px] text-muted">then {row.picks.slice(1).join(", ")}</span>}
     </span>

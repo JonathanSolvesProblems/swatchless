@@ -25,13 +25,13 @@ reply in her voice. Dana reads it, sends it from her own mail, and moves on to t
 ## What the desk did for the demo customer
 
 The demo customer is a composite: both photos are AI-generated, and every page that shows them says so. The consult
-at [/consult/2026-10-26-d3856eaf](https://swatchless.jonathansolvesproblems.com/consult/2026-10-26-d3856eaf) is a
-live run from 26 October. YouCam measured density at 2.28 (level 2, the part showing) and length as above chest or
-longer. Claude chose scalp fill-ins because of the density read, had YouCam render three Luxy Hair shades on the
-customer, and shortlisted Off Black and Jet Black. It added Ellen Wille's Espresso Mix topper without a render, and
-the page says why: every photo the store lists for it shows a different shade (Mocca Rooted), so a render would have
-shown the wrong colour. Then it drafted the reply. The home page opens on the latest demo run, which may pick
-differently; the tag on the swatch wall always names that run's first pick.
+at [/consult/2026-10-27-def4946d](https://swatchless.jonathansolvesproblems.com/consult/2026-10-27-def4946d) is a
+live run from 27 October. YouCam measured density at level 2 (medium, the scalp showing at the part) and length as
+above chest or longer. Claude chose fill-ins and a topper for the part because of the density read, shortlisted Luxy
+Hair's Off Black and Dark Brown and had YouCam render both on the customer, and added Ellen Wille's Espresso Mix
+topper without a render. The page says why: the only photos the store lists for that topper show a different, lighter
+shade, so a render would have shown the wrong colour. Then it drafted the reply. The home page opens on the latest
+demo run, which may pick differently; the tag on the swatch wall always names that run's first pick.
 
 ## Against Luxy's own stylists
 

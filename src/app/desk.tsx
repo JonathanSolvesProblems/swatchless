@@ -399,7 +399,7 @@ function Steps({ steps, thoughts, decided, live = false }: { steps: Step[]; thou
     <details className="steps" open={live} key={live ? "live" : "done"}>
       <summary>How the desk got there: {steps.length} steps</summary>
       {entries.length > 0 && (
-        <dl className="decided" aria-label="What the desk decided">
+        <dl className="decided">
           {entries.map(([k, v]) => (
             <div key={k} className={k === "dropped" ? "decided-dropped" : undefined}>
               <dt>{k === "dropped" ? "Dropped, and why" : label(k)}</dt>

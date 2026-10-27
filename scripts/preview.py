@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "gallery"
 URL = "https://swatchless.jonathansolvesproblems.com"
 W, H = 1500, 1000
-DEMO = "/consult/2026-10-26-d3856eaf"  # the seeded live run on the deployed site: two renders and one refused preview
+DEMO = "/consult/2026-10-27-def4946d"  # a live run on the deployed site: two renders and one pick shown without a render, with the reason
 
 # story order = the demo video's order: name, path, selector scrolled to the top (None = top), selector to click first,
 # viewport width (3:2 kept; a narrower viewport frames a short page tighter, and the image is scaled to W x H after)

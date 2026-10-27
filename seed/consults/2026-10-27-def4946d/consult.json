@@ -1,0 +1,410 @@
+{
+ "id": "2026-10-27-def4946d",
+ "created": "2026-10-27T20:39:14.351Z",
+ "note": "Since the baby my part keeps getting wider and you can see my scalp. Which pieces would match my colour and cover it?",
+ "result": {
+  "status": "recommended",
+  "measurements": {
+   "density": "Measured from the head-down photo: medium density, level 2 on the four-level scale, with the scalp showing at the part. This matches what the customer describes, so the choice is pieces that add hair at the part and crown.",
+   "length": "Measured from the selfie: chest length or longer. The 20 inch fill-ins were chosen to reach the customer's own lengths.",
+   "hair_type": "Not measured. Only a front selfie was sent, and hair type needs front, left and right photos. From the selfie the hair looks straight and fine.",
+   "colour_read": "Near black at the roots and part, softening to a very dark neutral brown through the lengths, with no visible highlights. Off Black is the closest swatch at the roots. Espresso Mix is the next closest and carries a slight brown tone that matches the lengths. Dark Brown is a touch lighter and warmer and suits the ends more than the part.",
+   "dropped": [
+    "No render was dropped. Both previews kept the customer's face and showed the product shade.",
+    "Ellen Wille Espresso Mix topper was not rendered because its only product photos show a light auburn shade. A preview made from them would show the wrong colour.",
+    "The Dark Brown preview comes from a 16 inch product photo, so it shows a shorter length than the 20 inch piece. Use it to judge colour only."
+   ]
+  },
+  "recommendations": [
+   {
+    "variant_id": 42212706156580,
+    "store": "Luxy Hair",
+    "title": "20\" Off Black Scalp Hair Fill-Ins (50g)",
+    "shade": "Off Black",
+    "price": 185,
+    "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911204/v2/aeMNNB0KmUIP8rnQ996tC5Q/708427dd-471b-4902-9486-dc42dce63cb5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203839Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0b0c4be386e414ee96cc8c1a7b37b2277a01543d2c7632cf72a98e69940d7ce0",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+    "swatch_url": "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Off-Black_Color-Swatch_6a7d2621-3b5f-46fd-a533-7a89c571809e.jpg",
+    "cart_url": "https://luxyhair.com/cart/42212706156580:1",
+    "product_url": "https://luxyhair.com/products/20-off-black-scalp-hair-fill-ins-50g",
+    "why": "This is the closest match to the near black roots at the customer's part, which is where the piece sits. The 20 inch length reaches their chest length hair."
+   },
+   {
+    "variant_id": 53782159196524,
+    "store": "Ellen Wille",
+    "title": "Ultima | Top Power | Heat Friendly Synthetic Topper",
+    "shade": "ESPRESSO MIX",
+    "price": 574.49,
+    "render_url": null,
+    "render_note": "No preview is shown because the only product photos for this topper show a different, lighter shade. Please judge this colour from the swatch.",
+    "reference_url": null,
+    "swatch_url": "https://cdn.shopify.com/s/files/1/1171/4786/files/ultima-espresso-mix.jpg",
+    "cart_url": "https://www.ellenwille.com/cart/53782159196524:1",
+    "product_url": "https://www.ellenwille.com/products/ultima",
+    "why": "The swatch is very dark brown with soft dark tones, which matches both the customer's roots and their slightly browner lengths. A topper covers more of the part and crown than a fill-in."
+   },
+   {
+    "variant_id": 42212706353188,
+    "store": "Luxy Hair",
+    "title": "20\" Dark Brown Scalp Hair Fill-Ins (50g)",
+    "shade": "Dark Brown",
+    "price": 185,
+    "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911359/v2/aeMNNB0KmUIP8rnQ996tC5Q/fa24ed81-df95-4ff4-8dee-f27383e4932f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203837Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=879c85f8fb25c1923d4618531362101a03b39b5f65daa1c34641ce76887379ea",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Dark-Brown_16_After_Front1_396539cc-f0be-4a06-9248-7f14c35ccd3f.jpg",
+    "swatch_url": "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Dark-Brown_Color-Swatch.JPG_dd841a26-cf8a-454c-a12c-286a8fc5a8cc.jpg",
+    "cart_url": "https://luxyhair.com/cart/42212706353188:1",
+    "product_url": "https://luxyhair.com/products/20-dark-brown-scalp-hair-fill-ins-50g",
+    "why": "This is a slightly lighter, softer brown that picks up the brown tone in the customer's lengths. It suits them if they prefer a warmer finish than Off Black. The preview shows a shorter length than this 20 inch piece."
+   }
+  ],
+  "message_to_customer": "Thank you for the photos. Your head-down photo shows the part has thinned, so I've picked pieces that add hair at the part and crown. Luxy Off Black is the closest match to the near black roots along your part, and the 20 inch length reaches your own lengths. The preview shows how that shade looks on you. Ellen Wille's Espresso Mix topper covers more of the crown, and its swatch matches your roots and the softer brown through your lengths. Its product photos show another shade, so there is no preview, but I can send you the swatch. Luxy Dark Brown is a slightly warmer option. Its preview shows a shorter style than the piece itself.",
+  "tryons_used": 2,
+  "refusals": [],
+  "watch": [],
+  "usage": {
+   "input_tokens": 18,
+   "output_tokens": 7093,
+   "cache_read_tokens": 347372,
+   "cache_write_tokens": 79826
+  },
+  "renders_returned": 2
+ },
+ "events": [
+  {
+   "type": "say",
+   "text": "Measuring density from the head-down photo and length from the selfie."
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_014LxhF2CwcmwUeB3NhRenZy",
+   "tool": "AI-Hair-Density-Detection",
+   "input": {
+    "request": {
+     "src_file_id": "Vo4OExCPeQwRwuHhmlR+6FwwoNsViYqYchZozBviyoQLbKfeLEmuXUa9yH4wuc2K"
+    }
+   }
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_01J6LiMw62QEmAkb6EyJbq9n",
+   "tool": "AI-Hair-Length-Detection",
+   "input": {
+    "request": {
+     "src_file_id": "AiOBGVwtHlIdnalKgs7tpmkTs/Ga16Y0vaG4oC1KNOYLbKfeLEmuXUa9yH4wuc2K"
+    }
+   }
+  },
+  {
+   "type": "tool",
+   "name": "show_palette",
+   "input": {
+    "categories": [
+     "fill-in",
+     "topper",
+     "hairpiece"
+    ]
+   }
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_014LxhF2CwcmwUeB3NhRenZy",
+   "tool": "youcam",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"timed\":4509,\"hair_density\":{\"mapping\":\"2.28\",\"term\":\"Medium Density\"}},\"task_status\":\"success\",\"request_id\":\"hJnFsab-2i30O-28598\",\"task_id\":\"Vo4OExCPeQwRwuHhmlR-6FwwoNsViYqYchZozBviyoSfkRBHPy6_dZMgXhiJTT7zc8aViIJBDiFRYIwMoW59pQ\"}}",
+   "images": []
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_01J6LiMw62QEmAkb6EyJbq9n",
+   "tool": "youcam",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"hair_length\":{\"term\":\"above chest or longer\"},\"timed\":6833},\"task_status\":\"success\",\"request_id\":\"hJnFsab-2i30O-28599\",\"task_id\":\"AiOBGVwtHlIdnalKgs7tpmkTs_Ga16Y0vaG4oC1KNOae0VjFNmmAkiWYPJFLO1a2i0R0zGmELW8ryRHCmXEjaQ\"}}",
+   "images": []
+  },
+  {
+   "type": "say",
+   "text": "Density reads level 2 (medium, with scalp showing), so I'm looking at toppers and fill-ins for the part. Comparing dark swatches with the customer's colour."
+  },
+  {
+   "type": "tool",
+   "name": "view_images",
+   "input": {
+    "urls": [
+     "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Off-Black_Color-Swatch_5dca9bd3-a69f-48bd-a969-882bd28cc784.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Dark-Brown_Color-Swatch_JPG_3751ef6f-6d40-4dcd-8169-739c383cd61e.jpg",
+     "https://cdn.shopify.com/s/files/1/0095/6094/8802/files/1B_d4ea0170-35b0-4ad0-8ae7-3d9734295885.jpg",
+     "https://cdn.shopify.com/s/files/1/0095/6094/8802/files/2_e1ed5bfe-d1c5-43a5-a252-ec55242d4d4e.jpg",
+     "https://cdn.shopify.com/s/files/1/1171/4786/files/impact-espresso-mix4.2.png",
+     "https://cdn.shopify.com/s/files/1/1171/4786/files/impact-black1.2.png"
+    ],
+    "purpose": "Compare dark shades with the customer's natural very dark brown hair, roots included."
+   }
+  },
+  {
+   "type": "say",
+   "text": "The customer's roots are near black and the lengths a soft very dark brown. Closest swatches: Halo Couture 1B, Ellen Wille Espresso Mix, Luxy Off Black. Pulling those products."
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "1B",
+    "limit": 10
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "espresso",
+    "limit": 10
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "off black",
+    "limit": 10
+   }
+  },
+  {
+   "type": "say",
+   "text": "Halo Couture 1B is not stocked as a topper or fill-in. Checking other dark shades in these categories."
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "black",
+    "limit": 15
+   }
+  },
+  {
+   "type": "tool",
+   "name": "search_catalog",
+   "input": {
+    "categories": [
+     "topper",
+     "fill-in",
+     "hairpiece"
+    ],
+    "shade_contains": "dark",
+    "limit": 15
+   }
+  },
+  {
+   "type": "tool",
+   "name": "view_images",
+   "input": {
+    "urls": [
+     "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front_12998c04-7261-44ca-b84a-dcef2ed51d55.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Dark-Brown_20_After_Front2.jpg",
+     "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Dark-Brown_16_After_Front1_396539cc-f0be-4a06-9248-7f14c35ccd3f.jpg",
+     "https://cdn.shopify.com/s/files/1/1171/4786/files/ultima-mocca-rooted-01.jpg"
+    ],
+    "purpose": "Choose front-facing references that show each shade."
+   }
+  },
+  {
+   "type": "say",
+   "text": "The Ellen Wille topper photo shows a light auburn shade, not Espresso Mix, so a render from it would show the wrong colour. Rendering the two Luxy shades with their own colour."
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_01C5rkVCTv2T77R4tcW6PJuD",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "input": {
+    "request": {
+     "src_file_id": "AiOBGVwtHlIdnalKgs7tpmkTs/Ga16Y0vaG4oC1KNOYLbKfeLEmuXUa9yH4wuc2K",
+     "ref_file_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+     "hair_color": "ref"
+    }
+   }
+  },
+  {
+   "type": "youcam_call",
+   "id": "mcptoolu_01SCuNTWJpCspiSi51JmPwif",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "input": {
+    "request": {
+     "src_file_id": "AiOBGVwtHlIdnalKgs7tpmkTs/Ga16Y0vaG4oC1KNOYLbKfeLEmuXUa9yH4wuc2K",
+     "ref_file_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Dark-Brown_16_After_Front1_396539cc-f0be-4a06-9248-7f14c35ccd3f.jpg",
+     "hair_color": "ref"
+    }
+   }
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_01C5rkVCTv2T77R4tcW6PJuD",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"url\":\"https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911204/v2/aeMNNB0KmUIP8rnQ996tC5Q/708427dd-471b-4902-9486-dc42dce63cb5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203839Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0b0c4be386e414ee96cc8c1a7b37b2277a01543d2c7632cf72a98e69940d7ce0\"},\"task_status\":\"success\",\"request_id\":\"hJnFsab-2i30O-29207\",\"task_id\":\"AiOBGVwtHlIdnalKgs7tpmkTs_Ga16Y0vaG4oC1KNOaNECDS-AZVmmaNNzk",
+   "images": [
+    "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911204/v2/aeMNNB0KmUIP8rnQ996tC5Q/708427dd-471b-4902-9486-dc42dce63cb5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203839Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0b0c4be386e414ee96cc8c1a7b37b2277a01543d2c7632cf72a98e69940d7ce0"
+   ]
+  },
+  {
+   "type": "youcam_result",
+   "id": "mcptoolu_01SCuNTWJpCspiSi51JmPwif",
+   "tool": "AI-Hair-Style-Virtual-Try-On",
+   "ok": true,
+   "summary": "{\"status\":200,\"data\":{\"error\":null,\"results\":{\"url\":\"https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911359/v2/aeMNNB0KmUIP8rnQ996tC5Q/fa24ed81-df95-4ff4-8dee-f27383e4932f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203837Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=879c85f8fb25c1923d4618531362101a03b39b5f65daa1c34641ce76887379ea\"},\"task_status\":\"success\",\"request_id\":\"hJnFsab-2i30O-29208\",\"task_id\":\"AiOBGVwtHlIdnalKgs7tpmkTs_Ga16Y0vaG4oC1KNOaz7KgsJ4tGM64xqCv",
+   "images": [
+    "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911359/v2/aeMNNB0KmUIP8rnQ996tC5Q/fa24ed81-df95-4ff4-8dee-f27383e4932f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203837Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=879c85f8fb25c1923d4618531362101a03b39b5f65daa1c34641ce76887379ea"
+   ]
+  },
+  {
+   "type": "say",
+   "text": "Checking both renders."
+  },
+  {
+   "type": "tool",
+   "name": "view_images",
+   "input": {
+    "urls": [
+     "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911204/v2/aeMNNB0KmUIP8rnQ996tC5Q/708427dd-471b-4902-9486-dc42dce63cb5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203839Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0b0c4be386e414ee96cc8c1a7b37b2277a01543d2c7632cf72a98e69940d7ce0",
+     "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911359/v2/aeMNNB0KmUIP8rnQ996tC5Q/fa24ed81-df95-4ff4-8dee-f27383e4932f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203837Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=879c85f8fb25c1923d4618531362101a03b39b5f65daa1c34641ce76887379ea"
+    ],
+    "purpose": "Check each render keeps the face unchanged and shows the product shade."
+   }
+  },
+  {
+   "type": "tool",
+   "name": "finalize",
+   "input": {
+    "measurements": {
+     "density": "Measured from the head-down photo: medium density, level 2 on the four-level scale, with the scalp showing at the part. This matches what the customer describes, so the choice is pieces that add hair at the part and crown.",
+     "length": "Measured from the selfie: chest length or longer. The 20 inch fill-ins were chosen to reach the customer's own lengths.",
+     "hair_type": "Not measured. Only a front selfie was sent, and hair type needs front, left and right photos. From the selfie the hair looks straight and fine.",
+     "colour_read": "Near black at the roots and part, softening to a very dark neutral brown through the lengths, with no visible highlights. Off Black is the closest swatch at the roots. Espresso Mix is the next closest and carries a slight brown tone that matches the lengths. Dark Brown is a touch lighter and warmer and suits the ends more than the part.",
+     "dropped": [
+      "No render was dropped. Both previews kept the customer's face and showed the product shade.",
+      "Ellen Wille Espresso Mix topper was not rendered because its only product photos show a light auburn shade. A preview made from them would show the wrong colour.",
+      "The Dark Brown preview comes from a 16 inch product photo, so it shows a shorter length than the 20 inch piece. Use it to judge colour only."
+     ]
+    },
+    "items": [
+     {
+      "variant_id": 42212706156580,
+      "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911204/v2/aeMNNB0KmUIP8rnQ996tC5Q/708427dd-471b-4902-9486-dc42dce63cb5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203839Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0b0c4be386e414ee96cc8c1a7b37b2277a01543d2c7632cf72a98e69940d7ce0",
+      "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+      "why": "This is the closest match to the near black roots at the customer's part, which is where the piece sits. The 20 inch length reaches their chest length hair."
+     },
+     {
+      "variant_id": 53782159196524,
+      "render_url": null,
+      "reference_url": null,
+      "render_note": "No preview is shown because the only product photos for this topper show a different, lighter shade. Please judge this colour from the swatch.",
+      "why": "The swatch is very dark brown with soft dark tones, which matches both the customer's roots and their slightly browner lengths. A topper covers more of the part and crown than a fill-in."
+     },
+     {
+      "variant_id": 42212706353188,
+      "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911359/v2/aeMNNB0KmUIP8rnQ996tC5Q/fa24ed81-df95-4ff4-8dee-f27383e4932f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203837Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=879c85f8fb25c1923d4618531362101a03b39b5f65daa1c34641ce76887379ea",
+      "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Dark-Brown_16_After_Front1_396539cc-f0be-4a06-9248-7f14c35ccd3f.jpg",
+      "why": "This is a slightly lighter, softer brown that picks up the brown tone in the customer's lengths. It suits them if they prefer a warmer finish than Off Black. The preview shows a shorter length than this 20 inch piece."
+     }
+    ],
+    "message_to_customer": "Thank you for the photos. Your head-down photo shows the part has thinned, so I've picked pieces that add hair at the part and crown. Luxy Off Black is the closest match to the near black roots along your part, and the 20 inch length reaches your own lengths. The preview shows how that shade looks on you. Ellen Wille's Espresso Mix topper covers more of the crown, and its swatch matches your roots and the softer brown through your lengths. Its product photos show another shade, so there is no preview, but I can send you the swatch. Luxy Dark Brown is a slightly warmer option. Its preview shows a shorter style than the piece itself."
+   }
+  },
+  {
+   "type": "done",
+   "result": {
+    "status": "recommended",
+    "measurements": {
+     "density": "Measured from the head-down photo: medium density, level 2 on the four-level scale, with the scalp showing at the part. This matches what the customer describes, so the choice is pieces that add hair at the part and crown.",
+     "length": "Measured from the selfie: chest length or longer. The 20 inch fill-ins were chosen to reach the customer's own lengths.",
+     "hair_type": "Not measured. Only a front selfie was sent, and hair type needs front, left and right photos. From the selfie the hair looks straight and fine.",
+     "colour_read": "Near black at the roots and part, softening to a very dark neutral brown through the lengths, with no visible highlights. Off Black is the closest swatch at the roots. Espresso Mix is the next closest and carries a slight brown tone that matches the lengths. Dark Brown is a touch lighter and warmer and suits the ends more than the part.",
+     "dropped": [
+      "No render was dropped. Both previews kept the customer's face and showed the product shade.",
+      "Ellen Wille Espresso Mix topper was not rendered because its only product photos show a light auburn shade. A preview made from them would show the wrong colour.",
+      "The Dark Brown preview comes from a 16 inch product photo, so it shows a shorter length than the 20 inch piece. Use it to judge colour only."
+     ]
+    },
+    "recommendations": [
+     {
+      "variant_id": 42212706156580,
+      "store": "Luxy Hair",
+      "title": "20\" Off Black Scalp Hair Fill-Ins (50g)",
+      "shade": "Off Black",
+      "price": 185,
+      "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911204/v2/aeMNNB0KmUIP8rnQ996tC5Q/708427dd-471b-4902-9486-dc42dce63cb5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203839Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=0b0c4be386e414ee96cc8c1a7b37b2277a01543d2c7632cf72a98e69940d7ce0",
+      "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Off-Black_20_After_Front.jpg",
+      "swatch_url": "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Off-Black_Color-Swatch_6a7d2621-3b5f-46fd-a533-7a89c571809e.jpg",
+      "cart_url": "https://luxyhair.com/cart/42212706156580:1",
+      "product_url": "https://luxyhair.com/products/20-off-black-scalp-hair-fill-ins-50g",
+      "why": "This is the closest match to the near black roots at the customer's part, which is where the piece sits. The 20 inch length reaches their chest length hair."
+     },
+     {
+      "variant_id": 53782159196524,
+      "store": "Ellen Wille",
+      "title": "Ultima | Top Power | Heat Friendly Synthetic Topper",
+      "shade": "ESPRESSO MIX",
+      "price": 574.49,
+      "render_url": null,
+      "render_note": "No preview is shown because the only product photos for this topper show a different, lighter shade. Please judge this colour from the swatch.",
+      "reference_url": null,
+      "swatch_url": "https://cdn.shopify.com/s/files/1/1171/4786/files/ultima-espresso-mix.jpg",
+      "cart_url": "https://www.ellenwille.com/cart/53782159196524:1",
+      "product_url": "https://www.ellenwille.com/products/ultima",
+      "why": "The swatch is very dark brown with soft dark tones, which matches both the customer's roots and their slightly browner lengths. A topper covers more of the part and crown than a fill-in."
+     },
+     {
+      "variant_id": 42212706353188,
+      "store": "Luxy Hair",
+      "title": "20\" Dark Brown Scalp Hair Fill-Ins (50g)",
+      "shade": "Dark Brown",
+      "price": 185,
+      "render_url": "https://yce-us.s3-accelerate.amazonaws.com/ttl30/482023402069036730/123539911359/v2/aeMNNB0KmUIP8rnQ996tC5Q/fa24ed81-df95-4ff4-8dee-f27383e4932f.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261027T203837Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIARB77EV5Y5D7DAE3S%2F20261027%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=879c85f8fb25c1923d4618531362101a03b39b5f65daa1c34641ce76887379ea",
+      "reference_url": "https://cdn.shopify.com/s/files/1/0066/0052/products/Luxy-Hair-Extensions_Dark-Brown_16_After_Front1_396539cc-f0be-4a06-9248-7f14c35ccd3f.jpg",
+      "swatch_url": "https://cdn.shopify.com/s/files/1/0066/0052/files/3X4_Luxy-Hair-Extensions_Dark-Brown_Color-Swatch.JPG_dd841a26-cf8a-454c-a12c-286a8fc5a8cc.jpg",
+      "cart_url": "https://luxyhair.com/cart/42212706353188:1",
+      "product_url": "https://luxyhair.com/products/20-dark-brown-scalp-hair-fill-ins-50g",
+      "why": "This is a slightly lighter, softer brown that picks up the brown tone in the customer's lengths. It suits them if they prefer a warmer finish than Off Black. The preview shows a shorter length than this 20 inch piece."
+     }
+    ],
+    "message_to_customer": "Thank you for the photos. Your head-down photo shows the part has thinned, so I've picked pieces that add hair at the part and crown. Luxy Off Black is the closest match to the near black roots along your part, and the 20 inch length reaches your own lengths. The preview shows how that shade looks on you. Ellen Wille's Espresso Mix topper covers more of the crown, and its swatch matches your roots and the softer brown through your lengths. Its product photos show another shade, so there is no preview, but I can send you the swatch. Luxy Dark Brown is a slightly warmer option. Its preview shows a shorter style than the piece itself.",
+    "tryons_used": 2,
+    "refusals": [],
+    "watch": [],
+    "usage": {
+     "input_tokens": 18,
+     "output_tokens": 7093,
+     "cache_read_tokens": 347372,
+     "cache_write_tokens": 79826
+    },
+    "renders_returned": 2
+   }
+  }
+ ],
+ "render_files": [
+  "render-1.jpg",
+  null,
+  "render-3.jpg"
+ ],
+ "has_head_down": true,
+ "disclosure": "Composite customer for the demo: both photos are AI-generated, not a real person. Everything after them is a live run: YouCam's measurements and try-ons, the three stores' real catalogues."
+}
