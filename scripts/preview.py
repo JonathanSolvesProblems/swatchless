@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # ------------------------------------------------------------------ CONFIG
 OUT = ROOT / "docs" / "gallery"
-URL = "http://localhost:3210"
+URL = "https://swatchless.jonathansolvesproblems.com"
 W, H = 1500, 1000
 DEMO = "/consult/2026-10-26-9be25561"
 

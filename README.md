@@ -4,7 +4,9 @@ A colour-match desk for hair retailers. The customer sends a selfie; the stylist
 shade that matches, from the store's live catalogue, with a cart link.
 
 Built for the [YouCam API Skin AI & eCommerce VTO Hackathon](https://youcam-api-skin-ai-ecommerce.devpost.com/) on
-Perfect Corp's YouCam hair APIs.
+Perfect Corp's YouCam hair APIs. Live at [swatchless.jonathansolvesproblems.com](https://swatchless.jonathansolvesproblems.com):
+the latest consult, the benchmark and the watch list are open to everyone; a live consult spends real API credit, so it
+needs the access code from the submission's testing instructions.
 
 ## The desk at 9:40 on a Monday
 
