@@ -10,8 +10,8 @@ Run: python -I scripts/check_claims.py            (exit 1 on any mismatch)
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS = ["README.md", "docs/SUBMISSION.md", "docs/gallery/captions.md", "src/app/hero.tsx", "src/app/benchmark/page.tsx",
-        "scripts/preview.py", "DEMO_SCRIPT.md"]
+DOCS = ["README.md", "broll/SUBMISSION.md", "docs/gallery/captions.md", "src/app/hero.tsx", "src/app/benchmark/page.tsx",
+        "scripts/preview.py", "broll/DEMO_SCRIPT.md"]
 RETIRED = [
     r"perfect match",
     r"guarantee",

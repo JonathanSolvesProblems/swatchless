@@ -55,6 +55,4 @@ next-env.d.ts
 AGENTS.md
 CLAUDE.md
 PHASE0.md
-DEMO_SCRIPT.md
-docs/PRESUBMIT.md
-docs/SUBMISSION.md
+broll/
