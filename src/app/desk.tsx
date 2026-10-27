@@ -223,12 +223,9 @@ export function ConsultView({ state }: { state: ConsultState }) {
           <p className="ring-empty">Uploading the customer&rsquo;s photos</p>
         )}
         {photos?.disclosure && <p className="disclosure">{photos.disclosure}</p>}
-        {result?.message_to_customer && <Reply result={result} savedId={savedId} />}
-        {result?.status === "needs_photo" && result.photo_request && <Tag code="Needs a photo">{result.photo_request.reason}</Tag>}
-        {error && <p className="text-refuse-text">{error}</p>}
       </section>
 
-      <section aria-labelledby="ring-h" className="flex flex-col gap-6">
+      <section aria-labelledby="ring-h" className="consult-ring flex flex-col gap-6">
         <div className="flex items-baseline justify-between gap-4">
           <h2 id="ring-h" className="text-[28px]">
             {recs.length ? "Shortlisted" : renders.length ? "Try-ons so far" : "Try-ons"}
@@ -260,6 +257,12 @@ export function ConsultView({ state }: { state: ConsultState }) {
         )}
         <Steps steps={steps} thoughts={thoughts} decided={result?.measurements} />
       </section>
+
+      <div className="consult-reply">
+        {result?.message_to_customer && <Reply result={result} savedId={savedId} />}
+        {result?.status === "needs_photo" && result.photo_request && <Tag code="Needs a photo">{result.photo_request.reason}</Tag>}
+        {error && <p className="text-refuse-text">{error}</p>}
+      </div>
     </div>
   );
 }

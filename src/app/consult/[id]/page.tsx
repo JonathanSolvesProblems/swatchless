@@ -16,7 +16,9 @@ async function Consult({ params }: { params: Promise<{ id: string }> }) {
 
   return (
     <>
-      <h1 className="pt-2 text-[34px]">Consult of {when}</h1>
+      <h1 className="pt-2 text-[34px]">
+        Consult of <span className="whitespace-nowrap">{when}</span>
+      </h1>
       <p className="pb-6 pt-2 text-[14px] text-muted">
         {consult.note ? `The customer wrote: "${consult.note}"` : "Saved on the desk, with every render and the agent's log."}
       </p>

@@ -93,7 +93,10 @@ export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?:
               <span className="weft-title">{shadeName(rec.shade)}</span>
             </span>
             <span className="weft-meta">
-              {productLine(rec)} · {rec.store} · ${rec.price.toFixed(0)}
+              {productLine(rec)} ·{" "}
+              <span className="whitespace-nowrap">
+                {rec.store} · ${rec.price.toFixed(0)}
+              </span>
             </span>
           </>
         ) : before ? (

@@ -118,7 +118,7 @@ p { text-wrap: pretty; }
 .wall-shade { font-family: var(--font-display), Georgia, serif; font-size: 24px; line-height: 1; }
 .wall-meta { font-size: 12.5px; color: color-mix(in oklab, var(--card-ink) 70%, transparent); }
 .wall-caption { font-size: 13px; line-height: 1.45; color: var(--muted); max-width: 60ch; }
-@media (max-width: 639px) { .wall-grid { grid-template-columns: repeat(5, 1fr); } .wall-tag { min-width: 160px; } }
+@media (max-width: 639px) { .wall-grid { grid-template-columns: repeat(5, 1fr); } .wall-tag { min-width: 140px; top: 58%; padding: 7px 12px 8px 10px; transform: translateX(-20px) rotate(-3deg); } .wall-shade { font-size: 20px; } }
 
 
 /* ---------- swatches: the colour itself, wherever a shade is named ---------- */
@@ -147,9 +147,19 @@ p { text-wrap: pretty; }
 .primary[aria-disabled="true"] { box-shadow: 0 2px 0 var(--steel); }
 .primary:disabled { opacity: .7; cursor: progress; }
 
-/* ---------- a consult: measurements and the reply on the side, the shortlist across ---------- */
+/* ---------- a consult: measurements and the reply on the side, the shortlist across ----------
+   On a phone the reply comes after the shortlist, so nobody reads about a render before seeing it. */
 .consult { display: grid; gap: 36px; }
-@media (min-width: 1024px) { .consult { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); } }
+@media (min-width: 1024px) {
+  .consult { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); grid-template-rows: auto 1fr; align-items: start; }
+  .consult-side { grid-column: 1; grid-row: 1; }
+  .consult-ring { grid-column: 2; grid-row: 1 / span 2; }
+  .consult-reply { grid-column: 1; grid-row: 2; }
+}
+.consult-reply { display: flex; flex-direction: column; gap: 18px; }
+.consult-reply:empty { display: none; }
+/* a raised panel carries a rule in both themes, so it is a surface and not a smudge on the light canvas */
+.panel { box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--rule) 60%, transparent); }
 .consult-side { display: flex; flex-direction: column; gap: 18px; }
 .customer { display: flex; flex-direction: column; gap: 14px; }
 .customer-photos { display: flex; gap: 8px; }
@@ -176,7 +186,7 @@ p { text-wrap: pretty; }
 }
 
 /* the shade tag is the only clipped surface on the site (charter 6) */
-.weft-tag { display: flex; flex-direction: column; gap: 4px; padding: 10px 16px 12px 10px; background: var(--card); color: var(--card-ink); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); box-shadow: 0 8px 18px -12px rgba(0,0,0,.6); transform: rotate(-1.2deg); transform-origin: 20px 0; }
+.weft-tag { display: flex; flex-direction: column; gap: 4px; margin-right: 6px; padding: 10px 16px 12px 10px; background: var(--card); color: var(--card-ink); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); box-shadow: 0 8px 18px -12px rgba(0,0,0,.6); transform: rotate(-1.2deg); transform-origin: 20px 0; }
 .weft:nth-child(even) .weft-tag { transform: rotate(1deg); }
 .weft-shade { display: flex; align-items: center; gap: 10px; }
 .weft-title { font-family: var(--font-display), Georgia, serif; font-size: 22px; line-height: 1; }

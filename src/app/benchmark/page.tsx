@@ -187,7 +187,7 @@ export default function BenchmarkPage() {
           )}
         </section>
 
-        <section aria-labelledby="method-h" className="mt-12 grid gap-6 rounded-[4px] bg-surface p-6 lg:grid-cols-2">
+        <section aria-labelledby="method-h" className="panel mt-12 grid gap-6 rounded-[4px] bg-surface p-6 lg:grid-cols-2">
           <h2 id="method-h" className="text-2xl lg:col-span-2">How this was measured</h2>
           <p className="text-[15px] leading-relaxed text-muted">{truth.description}</p>
           <p className="text-[15px] leading-relaxed text-muted">{truth.exclusion_rule}</p>
