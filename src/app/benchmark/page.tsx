@@ -70,23 +70,40 @@ export default function BenchmarkPage() {
               Luxy Hair photographs real customers before they wear its hair, then publishes the shade it put on them. That shade is the
               answer here. The desk gets only Luxy&rsquo;s &ldquo;before&rdquo; photo, never sees that customer as a reference, and picks
               from {LUXY_SHADES} shades.
-              {full.n > 0 && (
-                <>
-                  {" "}
-                  A random shortlist of three would hold the right shade about {((full.n * 3) / LUXY_SHADES).toFixed(1)} times. The first pick was the exact
-                  shade for {full.top1} of {full.n}, where chance is about one in {LUXY_SHADES}, and every customer was shown wearing the
-                  desk&rsquo;s pick.
-                </>
-              )}
-              {full.impossible > 0 && (
-                <>
-                  {" "}
-                  For {full.impossible} more {full.impossible === 1 ? "customer" : "customers"}, every trusted photo of the shade was a photo of them,
-                  so once those were excluded the desk could not be offered it; those rows are counted on neither side.
-                </>
-              )}
-              {pending > 0 && <> {pending} of the {truth.items.length} customers have not been run yet.</>}
             </p>
+            {full.n > 0 && (
+              <dl className="measures">
+                <div className="measure">
+                  <dt>Luxy&rsquo;s shade on the shortlist</dt>
+                  <dd>
+                    {full.shortlist} of {full.n}; a random three would hold it about {((full.n * 3) / LUXY_SHADES).toFixed(1)} times
+                  </dd>
+                </div>
+                <div className="measure">
+                  <dt>The exact shade as the first pick</dt>
+                  <dd>
+                    {full.top1} of {full.n}; chance is about one in {LUXY_SHADES}
+                  </dd>
+                </div>
+                <div className="measure">
+                  <dt>Shown wearing the desk&rsquo;s pick</dt>
+                  <dd>
+                    {full.rendered} of {full.n}
+                  </dd>
+                </div>
+              </dl>
+            )}
+            {(full.impossible > 0 || pending > 0) && (
+              <p className="max-w-[64ch] text-[15px] leading-relaxed text-muted">
+                {full.impossible > 0 && (
+                  <>
+                    For {full.impossible} more {full.impossible === 1 ? "customer" : "customers"}, every trusted photo of the shade was a photo of them,
+                    so once those were excluded the desk could not be offered it; those rows are counted on neither side.
+                  </>
+                )}
+                {pending > 0 && <> {pending} of the {truth.items.length} customers have not been run yet.</>}
+              </p>
+            )}
           </div>
           <figure className="m-0 flex flex-col gap-3">
             <div className="palette" aria-hidden>
@@ -133,7 +150,7 @@ export default function BenchmarkPage() {
                       <td data-label="Shade Luxy chose">
                         <span className="flex flex-col gap-1.5">
                           <Shade name={t.shade} swatch={swatchFor(t.shade)} />
-                          {!t.shade_offerable && <span className="max-w-[26ch] text-[12.5px] leading-snug text-muted">Not offerable: {t.why_not_offerable}</span>}
+                          {!t.shade_offerable && <span className="text-[12.5px] leading-snug text-muted sm:max-w-[26ch]">Not offerable: {t.why_not_offerable}</span>}
                         </span>
                       </td>
                       <td data-label="Desk with YouCam">

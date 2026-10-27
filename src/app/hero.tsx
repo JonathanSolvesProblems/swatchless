@@ -10,14 +10,17 @@ const pinned = "Off Black";
 export function Hero() {
   return (
     <div className="hero-grid">
-      <div className="flex flex-col gap-5">
-        <h1 className="max-w-[15ch] text-[clamp(2.4rem,4.4vw,3.6rem)] leading-[1.04]">
-          Answer <span className="whitespace-nowrap">&ldquo;which shade?&rdquo;</span> with the customer wearing it
-        </h1>
-        <p className="max-w-[46ch] text-[18px] leading-relaxed text-muted">
-          The customer sends a selfie. YouCam reads their hair, Claude finds the match in your store, and they see it on themselves before
-          they buy hair they can&rsquo;t return once worn.
-        </p>
+      {/* The headline sits on the wall's top edge and the catalogue line on its caption's baseline. */}
+      <div className="hero-copy flex flex-col gap-8">
+        <div className="flex flex-col gap-5">
+          <h1 className="max-w-[15ch] text-[clamp(2.4rem,4.4vw,3.6rem)] leading-[1.04]">
+            Answer <span className="whitespace-nowrap">&ldquo;which shade?&rdquo;</span> with the customer wearing it
+          </h1>
+          <p className="max-w-[46ch] text-[18px] leading-relaxed text-muted">
+            The customer sends a selfie. YouCam reads their hair, Claude finds the match in your store, and they see it on themselves before
+            they buy hair they can&rsquo;t return once worn.
+          </p>
+        </div>
         <p className="max-w-[46ch] text-[14px] text-muted">
           Built on {usable.length.toLocaleString()} pieces in {shades} shades from {catalog.stores.map((s) => s.name).join(", ")}.
         </p>

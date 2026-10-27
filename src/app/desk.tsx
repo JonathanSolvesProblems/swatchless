@@ -344,11 +344,12 @@ function Intake(props: {
             <input value={props.code} onChange={(e) => props.onCode(e.target.value)} autoComplete="off" spellCheck={false} placeholder="from the testing instructions" />
           </label>
         )}
-        <button type="button" className="text-link" onClick={props.onDemo} disabled={props.running}>
-          No photos to hand? Run it live on the demo customer
+        <button type="button" className="tag-button tag-button-ink" onClick={props.onDemo} disabled={props.running}>
+          Run it live on the demo customer
         </button>
         <span className="text-[13px] text-muted">
-          Photos go to YouCam for this consult only. The finished consult is saved at its own link; only the demo customer appears on this page.
+          No photos to hand? The demo customer is a labelled composite. Photos go to YouCam for this consult only; the finished consult is saved
+          at its own link, and only the demo customer appears on this page.
         </span>
       </div>
       {props.refused && (

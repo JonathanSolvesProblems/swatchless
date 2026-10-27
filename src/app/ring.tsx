@@ -32,7 +32,8 @@ export function Swatch({ src, size = "sm" }: { src: string | null | undefined; s
   if (!src) return null;
   const url = `${src}${src.includes("?") ? "&" : "?"}width=${size === "lg" ? 200 : 120}`;
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={url} alt="" aria-hidden className={`swatch swatch-${size}`} loading="lazy" />;
+  // Eager: a swatch is tiny, and a tag with an empty square where the colour should be is the worst state it has.
+  return <img src={url} alt="" aria-hidden className={`swatch swatch-${size}`} />;
 }
 
 /** A plain chip for a measurement or status. Shade tags with clipped corners are separate (charter 6). */
@@ -114,7 +115,7 @@ export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?:
       <figure className={`weft-tail ${rendered ? "" : "weft-tail-swatch"}`}>
         {image && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={image} alt={alt} loading="lazy" />
+          <img src={image} alt={alt} />
         )}
         {rec && !rendered && (
           <figcaption className="weft-note">

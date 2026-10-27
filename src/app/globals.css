@@ -29,13 +29,14 @@
   color-scheme: dark;
 }
 
+/* light keeps the same hue (charter 1), a step deeper than before so the white card tags still register against it */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --canvas: #bdcdd7;
-    --surface: #d4e0e7;
-    --sunk: #a6bbc6;
+    --canvas: #b4c6d1;
+    --surface: #ccd9e1;
+    --sunk: #9db2be;
     --ink: #10222b;
-    --muted: #374b55;
+    --muted: #2f414a;
     --rule: #8196a2;
     --card: #fcfaf6;
     --card-ink: #182429;
@@ -47,11 +48,11 @@
 }
 
 :root[data-theme="light"] {
-  --canvas: #bdcdd7;
-  --surface: #d4e0e7;
-  --sunk: #a6bbc6;
+  --canvas: #b4c6d1;
+  --surface: #ccd9e1;
+  --sunk: #9db2be;
   --ink: #10222b;
-  --muted: #374b55;
+  --muted: #2f414a;
   --rule: #8196a2;
   --card: #fcfaf6;
   --card-ink: #182429;
@@ -107,7 +108,7 @@ p { text-wrap: pretty; }
 /* ---------- hero: the try-on is the one object; the selfie they sent is an inset ---------- */
 .hero-grid { display: grid; gap: 40px; align-items: center; padding-top: 12px; }
 /* the headline column takes the larger share so "Answer “which shade?”" holds one line and the wall ends above the fold */
-@media (min-width: 1024px) { .hero-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); } }
+@media (min-width: 1024px) { .hero-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: stretch; } .hero-copy { justify-content: space-between; } }
 .wall { display: flex; flex-direction: column; gap: 12px; }
 .wall-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 7px; }
 .wall-cell { position: relative; display: block; }
@@ -210,7 +211,7 @@ p { text-wrap: pretty; }
 .reply h3 { color: var(--card-ink); }
 .reply .text-link { color: var(--card-ink); text-decoration-color: color-mix(in oklab, var(--card-ink) 35%, transparent); }
 
-.steps { border-radius: 4px; background: var(--sunk); padding: 14px 18px; }
+.steps { border-radius: 4px; background: var(--sunk); padding: 14px 18px; box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--rule) 60%, transparent); }
 .steps > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
 .steps > summary::-webkit-details-marker { display: none; }
 .steps > summary::before { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--steel); border-bottom: 2px solid var(--steel); transform: rotate(-45deg); transition: transform 160ms ease; }
@@ -258,6 +259,16 @@ p { text-wrap: pretty; }
 .legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
 
 .intake-extra { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+@media (max-width: 639px) {
+  .intake-extra > * { width: 100%; }
+  .intake-code input { flex: 1; width: auto; }
+  .intake-extra .tag-button { justify-content: center; }
+}
+/* the empty watch list: the text on the left, the ring with nothing on it on the right */
+.watch-empty { display: grid; gap: 32px; align-items: center; }
+@media (min-width: 1024px) { .watch-empty { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
+.watch-ring { justify-self: center; color: var(--steel); opacity: .9; }
+@media (max-width: 1023px) { .watch-ring { width: 160px; height: 160px; } }
 .intake-code { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
 .intake-code input { width: 230px; min-height: 40px; padding: 0 12px; background: var(--sunk); color: var(--ink); border-radius: 2px; box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--rule) 60%, transparent); font-family: var(--font-tag), ui-monospace, monospace; font-size: 14px; letter-spacing: .02em; }
 .intake-code input::placeholder { color: var(--muted); opacity: .75; font-family: var(--font-body), system-ui, sans-serif; letter-spacing: 0; }
