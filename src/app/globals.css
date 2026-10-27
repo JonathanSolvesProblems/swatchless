@@ -277,9 +277,9 @@ p { text-wrap: pretty; }
 /* the empty watch list: the text on the left, the ring with nothing on it on the right */
 .watch-empty { display: grid; gap: 32px; align-items: center; }
 @media (min-width: 1024px) { .watch-empty { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
-.watch-ring-figure { display: flex; flex-direction: column; align-items: center; gap: 10px; justify-self: center; }
-.watch-ring { color: var(--steel); opacity: .9; }
-@media (max-width: 1023px) { .watch-ring { width: 120px; height: 120px; } }
+.watch-swatches { display: flex; flex-direction: column; gap: 10px; justify-self: center; width: min(100%, 300px); }
+.watch-swatch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.watch-swatch-grid .swatch { width: 100%; height: auto; aspect-ratio: 4 / 5; border-radius: 3px; }
 .intake-code { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
 .intake-code input { width: 230px; min-height: 40px; padding: 0 12px; background: var(--sunk); color: var(--ink); border-radius: 2px; box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--rule) 60%, transparent); font-family: var(--font-tag), ui-monospace, monospace; font-size: 14px; letter-spacing: .02em; }
 .intake-code input::placeholder { color: var(--muted); opacity: .75; font-family: var(--font-body), system-ui, sans-serif; letter-spacing: 0; }

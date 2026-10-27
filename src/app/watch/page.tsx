@@ -5,7 +5,7 @@ import { listConsults } from "@/lib/store";
 import { watchList } from "@/lib/watch";
 import { Footer, Masthead } from "../chrome";
 import { shadeName } from "@/lib/shade-name";
-import { Ring, RingMark, Shade, Tag } from "../ring";
+import { Ring, Shade, Swatch, Tag } from "../ring";
 
 export const metadata = { title: "Watch list" };
 
@@ -34,9 +34,13 @@ async function Rows() {
             ))}
           </ul>
         </div>
-        <figure className="watch-ring-figure m-0">
-          <RingMark size={180} className="watch-ring" />
-          <figcaption className="text-[13px] text-muted">Nothing hanging on the ring</figcaption>
+        <figure className="watch-swatches m-0" aria-label="The recommended shades as the stores' own swatches">
+          <div className="watch-swatch-grid">
+            {[...recommended.values()].map((r) => (
+              <Swatch key={`${r.store}:${r.shade}`} src={r.swatch} size="lg" />
+            ))}
+          </div>
+          <figcaption className="text-[13px] text-muted">Every one, as the store&rsquo;s own swatch, in stock when the desk last looked</figcaption>
         </figure>
       </div>
     );
