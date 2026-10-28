@@ -31,7 +31,7 @@ above chest or longer. Claude chose fill-ins and a topper for the part because o
 Hair's Off Black and Dark Brown and had YouCam render both on the customer, and added Ellen Wille's Espresso Mix
 topper without a render. The page says why: the only photos the store lists for that topper show a different, lighter
 shade, so a render would have shown the wrong colour. Then it drafted the reply. The home page opens on the latest
-demo run, which may pick differently; the tag on the swatch wall always names that run's first pick.
+demo run, which may pick differently; the tag hanging from the row of Luxy shades always names that run's first pick.
 
 ## Against Luxy's own stylists
 
