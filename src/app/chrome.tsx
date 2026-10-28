@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fringe } from "./fringe";
 import { RingMark } from "./ring";
 
 const NAV = [
@@ -7,47 +8,51 @@ const NAV = [
   { id: "watch", href: "/watch", label: "Watch list" },
 ] as const;
 
-export function Masthead({ current }: { current?: (typeof NAV)[number]["id"] }) {
+/**
+ * The masthead sits on the rail the shades hang from: the current page hangs from it on a steel line, and every
+ * page but the desk (which opens on the full ring) carries a short fringe of the shades under it.
+ */
+export function Masthead({ current, fringe = true }: { current?: (typeof NAV)[number]["id"]; fringe?: boolean }) {
   return (
-    <header className="mx-auto flex w-full max-w-[1240px] flex-wrap items-center justify-between gap-4 px-4 py-5 sm:px-8">
-      <Link href="/" className="flex items-center gap-2.5 text-ink" aria-label="Swatchless, home">
-        <RingMark size={30} className="text-steel" />
-        <span className="font-display text-[28px] leading-none">Swatchless</span>
-      </Link>
-      <nav aria-label="Main">
-        <ul className="flex flex-wrap gap-5 text-[15px]">
-          {NAV.map((n) => (
-            <li key={n.id}>
-              <Link
-                href={n.href}
-                aria-current={current === n.id ? "page" : undefined}
-                className={current === n.id ? "text-ink underline decoration-steel decoration-2 underline-offset-8" : "text-muted hover:text-ink"}
-              >
-                {n.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <header className="masthead">
+      <div className="page-measure masthead-row">
+        <Link href="/" className="flex items-center gap-2.5 text-ink" aria-label="Swatchless, home">
+          <RingMark size={30} className="text-steel" />
+          <span className="font-display text-[28px] leading-none">Swatchless</span>
+        </Link>
+        <nav aria-label="Main">
+          <ul className="masthead-nav">
+            {NAV.map((n) => (
+              <li key={n.id}>
+                <Link href={n.href} aria-current={current === n.id ? "page" : undefined} className={current === n.id ? "nav-current" : "nav-link"}>
+                  {n.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      {fringe && <Fringe />}
     </header>
   );
 }
 
 export function Footer() {
   return (
-    <footer className="mx-auto w-full max-w-[1240px] px-4 pb-8 text-sm text-muted sm:px-8">
-      {/* The rule spans the content measure, not the padding. */}
-      <p className="border-t border-rule pt-8 text-[15px]">
-        Built by Jonathan Andrei for stylists who answer the same colour question all day. More of what I build at{" "}
-        <a className="text-link" href="https://jonathansolvesproblems.com">
-          jonathansolvesproblems.com
-        </a>
-        .
-      </p>
-      <p className="mt-3 max-w-[80ch] text-[12.5px] leading-relaxed">
-        Product data comes from each store&rsquo;s public catalogue. Product photos belong to Luxy Hair, Halo Couture and Ellen Wille and are shown
-        small, with their source. Measurements and renders by YouCam (Perfect Corp). Not affiliated with any of these stores.
-      </p>
+    <footer className="site-footer">
+      <div className="page-measure flex flex-col gap-3 pb-8 pt-8 text-muted">
+        <p className="text-[15px]">
+          Built by Jonathan Andrei for stylists who answer the same colour question all day. More of what I build at{" "}
+          <a className="text-link" href="https://jonathansolvesproblems.com">
+            jonathansolvesproblems.com
+          </a>
+          .
+        </p>
+        <p className="max-w-[80ch] text-[13.5px] leading-relaxed">
+          Product data comes from each store&rsquo;s public catalogue. Product photos belong to Luxy Hair, Halo Couture and Ellen Wille and are shown
+          small, with their source. Measurements and renders by YouCam (Perfect Corp). Not affiliated with any of these stores.
+        </p>
+      </div>
     </footer>
   );
 }

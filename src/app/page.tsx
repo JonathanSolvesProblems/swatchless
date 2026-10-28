@@ -20,8 +20,9 @@ async function DeskWithLatest() {
 export default function Home() {
   return (
     <>
-      <Masthead current="desk" />
-      <main className="mx-auto w-full max-w-[1240px] flex-1 px-4 pb-16 pt-4 sm:px-8">
+      <Masthead current="desk" fringe={false} />
+      {/* Full width: the ring runs edge to edge, and everything under it keeps the page measure itself. */}
+      <main className="w-full flex-1 pb-16">
         <Suspense fallback={<Desk hero={<Hero />} />}>
           <DeskWithLatest />
         </Suspense>

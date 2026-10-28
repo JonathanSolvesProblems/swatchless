@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { luxyShadeSwatches, swatchFor } from "@/lib/catalog";
 import { Footer, Masthead } from "../chrome";
-import { Shade, Swatch } from "../ring";
+import { Shade } from "../ring";
 
 export const metadata = { title: "Against Luxy's stylists" };
 
@@ -57,9 +57,10 @@ export default function BenchmarkPage() {
     <>
       <Masthead current="benchmark" />
       <main className="mx-auto w-full max-w-[1240px] flex-1 px-4 pb-16 sm:px-8">
-        <section className="grid gap-10 pb-12 pt-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-start">
-          <div className="flex flex-col gap-5">
-            <h1 className="max-w-[22ch] text-[clamp(2.2rem,4.5vw,3.6rem)] leading-[1.04]">
+        {/* One column: the shades themselves already hang under the masthead, so the page leads with the result. */}
+        <section className="pb-12 pt-10">
+          <div className="flex flex-col gap-6">
+            <h1 className="max-w-[24ch] text-[clamp(2.4rem,4.8vw,4rem)] leading-[1.03]">
               {full.n > 0 ? (
                 <>
                   The shade Luxy&rsquo;s own stylists chose was on the desk&rsquo;s shortlist for {full.shortlist} of {full.n} people they styled
@@ -74,23 +75,32 @@ export default function BenchmarkPage() {
               from the {LUXY_SHADES} Luxy shades it can render.
             </p>
             {full.n > 0 && (
-              <dl className="measures">
+              <dl className="measures measures-row">
                 <div className="measure">
                   <dt>Luxy&rsquo;s shade on the shortlist</dt>
                   <dd>
-                    {full.shortlist} of {full.n}; a random three would hold it about {((full.n * 3) / LUXY_SHADES).toFixed(1)} times
+                    <span className="measure-figure">
+                      {full.shortlist} of {full.n}
+                    </span>{" "}
+                    <span className="measure-note">a random three would hold it about {((full.n * 3) / LUXY_SHADES).toFixed(1)} times</span>
                   </dd>
                 </div>
                 <div className="measure">
                   <dt>The exact shade as the first pick</dt>
                   <dd>
-                    {full.top1} of {full.n}; chance is about one in {LUXY_SHADES}
+                    <span className="measure-figure">
+                      {full.top1} of {full.n}
+                    </span>{" "}
+                    <span className="measure-note">chance is about one in {LUXY_SHADES}</span>
                   </dd>
                 </div>
                 <div className="measure">
                   <dt>Rendered by YouCam wearing the desk&rsquo;s shades</dt>
                   <dd>
-                    {full.rendered} of {full.n}; the one photo without a face could not be rendered
+                    <span className="measure-figure">
+                      {full.rendered} of {full.n}
+                    </span>{" "}
+                    <span className="measure-note">the one photo without a face could not be rendered</span>
                   </dd>
                 </div>
               </dl>
@@ -107,16 +117,6 @@ export default function BenchmarkPage() {
               </p>
             )}
           </div>
-          <figure className="m-0 flex flex-col gap-3">
-            <div className="palette" aria-hidden>
-              {luxyShades.map(({ shade, swatch }) => (
-                <span key={shade} title={shade}>
-                  <Swatch src={swatch} size="md" />
-                </span>
-              ))}
-            </div>
-            <figcaption className="text-[13px] text-muted">The {LUXY_SHADES} Luxy shades the desk can render, as the store&rsquo;s own swatches.</figcaption>
-          </figure>
         </section>
 
         <section aria-labelledby="rows-h" className="flex flex-col gap-4">

@@ -5,7 +5,7 @@ import { listConsults } from "@/lib/store";
 import { watchList } from "@/lib/watch";
 import { Footer, Masthead } from "../chrome";
 import { shadeName } from "@/lib/shade-name";
-import { Ring, Swatch, Tag } from "../ring";
+import { Ring, Shade, Swatch, Tag } from "../ring";
 
 export const metadata = { title: "Watch list" };
 
@@ -18,26 +18,22 @@ async function Rows() {
       for (const r of c.result.recommendations)
         recommended.set(`${r.store}:${r.shade}`, { shade: r.shade, swatch: r.swatch_url ?? swatchFor(r.shade), store: r.store });
     }
-    // An empty ring on the right is the state itself: nothing hangs on it until a store runs out.
+    // The empty rail is the state itself: nothing hangs on it until a store runs out.
     return (
       <div className="watch-empty">
-        <p className="max-w-[56ch] text-[17px] leading-relaxed text-muted">
+        <div className="watch-rail" aria-hidden />
+        <p className="max-w-[60ch] text-[17px] leading-relaxed text-muted">
           Nobody is waiting on a shade right now. For the record, these are the shades the desk has recommended so far, every one in
           stock when the desk last checked.
         </p>
-        <figure className="watch-swatches m-0">
-          <ul className="watch-swatch-grid" aria-label="Shades recommended so far">
-            {[...recommended.values()].map((r) => (
-              <li key={`${r.store}:${r.shade}`}>
-                <Swatch src={r.swatch} size="lg" />
-                <span>
-                  {shadeName(r.shade)}, {r.store}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <figcaption className="text-[13px] text-muted">As the stores&rsquo; own swatches</figcaption>
-        </figure>
+        <ul className="watch-recommended" aria-label="Shades recommended so far">
+          {[...recommended.values()].map((r) => (
+            <li key={`${r.store}:${r.shade}`}>
+              <Shade name={r.shade} swatch={r.swatch} />
+              <span>{r.store}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

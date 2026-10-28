@@ -107,22 +107,64 @@ p { text-wrap: pretty; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0s !important; transition-duration: 0.01ms !important; }
 }
 
-/* ---------- hero: the try-on is the one object; the selfie they sent is an inset ---------- */
-.hero-grid { display: grid; gap: 40px; align-items: center; padding-top: 12px; }
-/* the headline column takes the larger share so "Answer “which shade?”" holds one line and the wall ends above the fold */
-@media (min-width: 1024px) { .hero-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: stretch; } .hero-copy { justify-content: space-between; } }
-.wall { display: flex; flex-direction: column; gap: 12px; }
-.wall-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 7px; }
-.wall-cell { position: relative; display: block; }
-/* square cells: these are texture crops, and a shorter wall brings the intake up to the fold at 1280x720 */
-.wall-cell .swatch { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.18); }
-.wall-cell-pinned .swatch { outline: 2px solid var(--card); outline-offset: 2px; }
-.wall-tag { position: absolute; left: 50%; top: 68%; z-index: 2; display: flex; flex-direction: column; gap: 2px; min-width: 190px; padding: 9px 16px 10px 12px; background: var(--card); color: var(--card-ink); transform: translateX(-32px) rotate(-3deg); transform-origin: 0 0; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%); box-shadow: 0 16px 30px -14px rgba(0,0,0,.75); }
+/* ---------- the page measure: everything but the ring keeps it ---------- */
+.page-measure { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 16px; }
+@media (min-width: 640px) { .page-measure { padding-inline: 32px; } }
+
+/* ---------- the rail: the ring opened out across the page, every shade hanging from it ----------
+   The rail runs edge to edge; the strands keep the gutters. Each strand is the store's own swatch, cut to a strand
+   under 96 px wide (charter 12), bound at the top like a weft on a ring, its ends feathered like hair. */
+.fringe { margin: 0; border-top: 2px solid var(--steel); }
+.fringe-strands { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 2px; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 640px) { .fringe-strands { gap: 4px; } }
+.strand { position: relative; display: flex; flex-direction: column; }
+.strand::before { content: ""; display: block; height: 6px; background: var(--card); box-shadow: 0 1px 0 rgba(0,0,0,.25); }
+.strand img { display: block; width: 100%; height: var(--strand-h); object-fit: cover; -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
+/* real wefts are never cut to one length: three lengths, repeating */
+.strand:nth-child(3n + 1) img { height: calc(var(--strand-h) * .93); }
+.strand:nth-child(3n + 2) img { height: calc(var(--strand-h) * .97); }
+/* short enough that the headline, the paragraph and the consult form all start on the first screen at 1440x900 */
+.fringe-long { --strand-h: clamp(140px, 22vh, 210px); }
+.fringe-short { --strand-h: 54px; }
+.fringe-short .strand img { -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent); mask-image: linear-gradient(to bottom, #000 78%, transparent); }
+.fringe-short .strand::before { height: 3px; }
+.fringe-long .strand img { transform-origin: 50% 0; animation: strand-drop 760ms cubic-bezier(.2,.8,.25,1.1) both; animation-delay: calc(var(--i, 0) * 16ms); }
+@keyframes strand-drop { 0% { transform: scaleY(.15); opacity: 0; } 100% { transform: none; opacity: 1; } }
+/* the strand the latest consult picked hangs full length, unfeathered, so the tag below it reads as its own */
+.strand-pinned img { height: var(--strand-h) !important; -webkit-mask-image: none; mask-image: none; }
+.strand-tag { position: absolute; top: 100%; z-index: 3; display: flex; flex-direction: column; }
+.strand-tag-right { left: 50%; align-items: flex-start; }
+.strand-tag-left { right: 50%; align-items: flex-end; }
+.strand-tag-line { width: 1.5px; height: 18px; background: var(--steel); }
+.strand-tag-right .strand-tag-line { margin-left: -.75px; }
+.strand-tag-left .strand-tag-line { margin-right: -.75px; }
+.wall-tag { display: flex; flex-direction: column; gap: 2px; min-width: 190px; padding: 9px 16px 10px 12px; background: var(--card); color: var(--card-ink); transform: rotate(-3deg); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%); box-shadow: 0 16px 30px -14px rgba(0,0,0,.75); white-space: nowrap; }
+.strand-tag-right .wall-tag { transform-origin: 0 0; }
+.strand-tag-left .wall-tag { transform-origin: 100% 0; transform: rotate(3deg); }
 .wall-shade { font-family: var(--font-display), Georgia, serif; font-size: 24px; line-height: 1; }
 .wall-meta { font-size: 12.5px; color: color-mix(in oklab, var(--card-ink) 70%, transparent); }
-.wall-caption { font-size: 13px; line-height: 1.45; color: var(--muted); max-width: 60ch; }
-/* on a phone the pinned tile leads the wall, so the tag is on the first screen */
-@media (max-width: 639px) { .wall-grid { grid-template-columns: repeat(5, 1fr); } .wall-cell-pinned { order: -1; } .wall-tag { left: 20%; min-width: 140px; top: 58%; padding: 7px 12px 8px 10px; transform: rotate(-3deg); } .wall-shade { font-size: 20px; } }
+@media (max-width: 639px) { .wall-tag { min-width: 0; padding: 7px 12px 8px 10px; } .wall-shade { font-size: 20px; } .strand-tag-left .wall-tag { margin-right: 14px; } .strand-tag-right .wall-tag { margin-left: 14px; } }
+
+/* ---------- masthead: set on the rail; the current page hangs from it ---------- */
+.masthead-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; padding-top: 20px; padding-bottom: 12px; }
+.masthead-nav { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 15px; }
+.nav-link { color: var(--muted); }
+.nav-link:hover { color: var(--ink); }
+.nav-current { position: relative; color: var(--ink); }
+.nav-current::after { content: ""; position: absolute; left: 50%; top: calc(100% + 3px); width: 1.5px; height: 9px; background: var(--steel); }
+.site-footer { border-top: 2px solid var(--steel); }
+
+/* ---------- hero copy: starts under the hanging tag, the headline on the side away from it ---------- */
+.hero { display: flex; flex-direction: column; }
+.hero-copy { display: grid; gap: 22px; padding-top: 92px; }
+.hero-title { max-width: 14ch; font-size: clamp(2.4rem, 4.4vw, 3.6rem); line-height: 1.03; }
+.hero-lede { max-width: 46ch; font-size: 17.5px; line-height: 1.6; color: var(--muted); }
+@media (min-width: 1024px) {
+  .hero-copy { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 64px; align-items: start; padding-top: 96px; }
+  .hero-lede { padding-top: 6px; } /* the first line meets the headline's cap height */
+  .hero-copy-flip { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .hero-copy-flip .hero-title { order: 2; }
+}
 
 
 /* ---------- swatches: the colour itself, wherever a shade is named ---------- */
@@ -136,7 +178,7 @@ p { text-wrap: pretty; }
 
 /* ---------- intake ---------- */
 .intake { display: flex; flex-direction: column; gap: 14px; padding: 26px 0 0; border-top: 1px solid var(--rule); }
-.intake-row { display: grid; gap: 12px; align-items: stretch; }
+.intake-row { display: grid; gap: 12px; align-items: end; }
 @media (min-width: 1024px) { .intake-row { grid-template-columns: 1fr 1fr 1.4fr auto; } }
 /* every field carries a rule at rest, because on the light canvas the sunk fill alone does not read as a field */
 .drop { display: flex; align-items: center; gap: 12px; min-height: 72px; padding: 10px 14px; background: var(--sunk); border-radius: 4px; box-shadow: inset 0 0 0 1.5px var(--steel); cursor: pointer; transition: background-color 140ms ease, box-shadow 140ms ease; }
@@ -148,38 +190,52 @@ p { text-wrap: pretty; }
 .intake-note-label { font-size: 13px; color: var(--muted); }
 .intake-note textarea { width: 100%; flex: 1; min-height: 52px; padding: 10px 14px; background: var(--sunk); color: var(--ink); border-radius: 4px; box-shadow: inset 0 0 0 1.5px var(--steel); font-size: 14.5px; line-height: 1.45; resize: vertical; }
 .intake-note textarea::placeholder { color: var(--muted); opacity: 1; }
-.primary { min-height: 56px; padding: 0 30px; background: #ffffff; color: #0f1b21; font-weight: 700; font-size: 16.5px; border-radius: 2px; box-shadow: 0 14px 30px -12px rgba(0,0,0,.8), 0 2px 0 var(--steel); transition: transform 140ms ease, box-shadow 140ms ease; }
-.primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 18px 34px -12px rgba(0,0,0,.8), 0 3px 0 var(--steel); }
+/* as tall as the photo fields beside it; the steel edge keeps the white button a button on the pale light canvas */
+.primary { min-height: 72px; padding: 0 30px; background: #ffffff; color: #0f1b21; font-weight: 700; font-size: 16.5px; border-radius: 2px; box-shadow: inset 0 0 0 1.5px var(--steel), 0 2px 0 var(--steel); transition: transform 140ms ease, box-shadow 140ms ease; }
+.primary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: inset 0 0 0 1.5px var(--steel), 0 3px 0 var(--steel); }
 .primary:disabled, .tag-button:disabled { opacity: .6; cursor: progress; transform: none; }
 
-/* ---------- a consult: measurements and the reply on the side, the shortlist across ----------
-   On a phone the reply comes after the shortlist, so nobody reads about a render before seeing it. */
-.consult { display: grid; gap: 36px; }
-@media (min-width: 1024px) {
-  .consult { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); grid-template-rows: auto 1fr; align-items: start; }
-  .consult-side { grid-column: 1; grid-row: 1; }
-  .consult-ring { grid-column: 2; grid-row: 1 / span 2; }
-  .consult-reply { grid-column: 1; grid-row: 2; }
-}
-.consult-reply { display: flex; flex-direction: column; gap: 18px; }
-.consult-reply:empty { display: none; }
+/* ---------- a consult, top to bottom: what YouCam measured as one strip, the shortlist hanging from its rail,
+   then the reply beside the record of how the desk got there ---------- */
+.consult { display: flex; flex-direction: column; gap: 40px; }
+.consult-after { display: grid; gap: 28px; align-items: start; }
+@media (min-width: 1024px) { .consult-after:has(.reply) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
 /* a raised panel carries a rule in both themes, so it is a surface and not a smudge on the light canvas */
 .panel { box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--rule) 60%, transparent); }
-.consult-side { display: flex; flex-direction: column; gap: 18px; }
+.consult-side { display: flex; flex-direction: column; gap: 16px; }
 .customer { display: flex; flex-direction: column; gap: 14px; }
+@media (min-width: 1024px) {
+  .customer { flex-direction: row; align-items: flex-start; gap: 36px; }
+  .customer .measures { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+  .customer .measure { max-width: 34ch; }
+  .consult-side .disclosure { max-width: 72ch; }
+}
 .customer-photos { display: flex; gap: 8px; }
 .customer-photos img { width: 96px; height: 120px; object-fit: cover; border-radius: 3px; }
+/* a measurement is printed on a plain square label, the way a reading is written on a card clipped to the ring;
+   square, because the clipped corner is the shade tag's alone (charter 6) */
 .measures { display: flex; flex-direction: column; gap: 10px; margin: 0; }
-.measure { display: flex; flex-direction: column; gap: 2px; padding-left: 12px; border-left: 2px solid var(--steel); }
-.measure dt { font-size: 13px; color: var(--muted); }
-.measure dd { margin: 0; font-size: 15px; }
-.measure-failed { border-left-color: var(--refuse); }
-.measure-failed dd { color: var(--muted); }
+.measure { display: flex; flex-direction: column; gap: 3px; padding: 10px 14px 11px; background: var(--card); color: var(--card-ink); border-radius: 2px; }
+.measure dt { font-size: 13px; color: color-mix(in oklab, var(--card-ink) 72%, transparent); }
+.measure dd { margin: 0; font-size: 15px; font-weight: 600; }
+/* the benchmark's three results: the figure in the display face, its comparison under it */
+.measure-figure { display: block; font-family: var(--font-display), Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; }
+.measure-note { display: block; margin-top: 4px; font-size: 13.5px; font-weight: 400; line-height: 1.4; color: color-mix(in oklab, var(--card-ink) 72%, transparent); }
+.measures-row .measure { padding: 14px 18px 16px; }
+@media (min-width: 1024px) { .measures-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
+.measure-failed { background: transparent; color: var(--ink); box-shadow: inset 3px 0 0 var(--refuse), inset 0 0 0 1.5px color-mix(in oklab, var(--refuse) 60%, transparent); }
+.measure-failed dt, .measure-failed dd { color: var(--muted); font-weight: 400; }
 
 /* ---------- the shortlist: each render under its shade tag ---------- */
 .ring-stage { position: relative; }
 .ring-empty { padding: 28px; border: 1px dashed var(--rule); border-radius: 4px; color: var(--muted); font-size: 15px; }
-.ring-wefts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 28px; padding: 0; list-style: none; perspective: 1100px; }
+/* the shortlist's rail, closed at its left end by the ring itself; on a phone it runs down the left edge */
+.ring-wefts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 0 28px; margin: 0; padding: 0; list-style: none; perspective: 1100px; border-top: 2px solid var(--steel); }
+.ring-stage:has(.ring-wefts)::before { content: ""; position: absolute; left: -7px; top: -6px; z-index: 1; width: 14px; height: 14px; border: 2px solid var(--steel); border-radius: 50%; background: var(--canvas); }
+@media (max-width: 639px) {
+  .ring-wefts { gap: 32px; border-top: 0; border-left: 2px solid var(--steel); padding-left: 18px; }
+  .ring-wefts .weft-line { position: absolute; left: -18px; top: 26px; width: 18px; height: 1.5px; margin: 0; }
+}
 .weft { position: relative; display: flex; flex-direction: column; gap: 10px; transform-origin: 50% 0; animation: weft-drop 700ms cubic-bezier(.2,.8,.25,1.15) both; }
 /* the customer's own photo is a desktop comparison; a phone already shows it under the measurements */
 @media (max-width: 1023px) { .weft-before { display: none; } }
@@ -196,8 +252,8 @@ p { text-wrap: pretty; }
 /* square to its render: the one tilted tag on the site is the hero's, so the gesture stays a gesture */
 .weft-tag { display: flex; flex-direction: column; gap: 4px; padding: 10px 16px 12px 10px; background: var(--card); color: var(--card-ink); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); box-shadow: 0 8px 18px -12px rgba(0,0,0,.6); }
 .weft-before .weft-tag { clip-path: none; } /* "As sent" names no shade, so it is a plain card (charter 6) */
-/* the tag hangs from its render on a short steel line (charter 4) */
-.weft-line { display: block; width: 1.5px; height: 12px; margin: -10px 0 -10px 22px; background: var(--steel); }
+/* the tag hangs from the shortlist's rail on a short steel line (charter 4) */
+.weft-line { display: block; width: 1.5px; height: 22px; margin: 0 0 -10px 22px; background: var(--steel); }
 .weft-shade { display: flex; align-items: center; gap: 10px; }
 .weft-title { font-family: var(--font-display), Georgia, serif; font-size: 22px; line-height: 1; }
 .weft-meta { font-size: 13px; line-height: 1.35; color: color-mix(in oklab, var(--card-ink) 70%, transparent); }
@@ -212,7 +268,7 @@ p { text-wrap: pretty; }
 .weft-why-clamped { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .weft-why .text-link { color: var(--ink); }
 /* no render: the store's swatch small at the top of the tile and the reason under it, not a store photo at tile size */
-.weft-tail-swatch { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px; }
+.weft-tail-swatch { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px; aspect-ratio: auto; } /* no render: as tall as its reason, not a hole the size of one */
 .weft-note { position: absolute; inset: auto 8px 8px 8px; padding: 8px 10px; background: var(--card); color: var(--card-ink); font-size: 12.5px; line-height: 1.4; border-radius: 2px; }
 .weft-tail-swatch .weft-note { position: static; }
 
@@ -264,10 +320,6 @@ p { text-wrap: pretty; }
   .bench td[data-label]::before { content: attr(data-label); display: block; font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }
 }
 
-/* the 30 Luxy shades the desk can render, as the store's own swatches: six across, like the home wall */
-.palette { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
-@media (min-width: 640px) and (max-width: 1023px) { .palette { grid-template-columns: repeat(10, 1fr); } }
-.palette .swatch { width: 100%; height: auto; aspect-ratio: 1 / 1; }
 /* the legend's keys are plain squares: they name a state, not a shade (charter 6) */
 .legend-key { display: inline-block; padding: 3px 10px; font-size: 13px; font-weight: 600; background: var(--card); color: var(--card-ink); border-radius: 2px; }
 .legend-key-miss { font-weight: 400; background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--ink) 55%, transparent); }
@@ -289,16 +341,17 @@ p { text-wrap: pretty; }
   .intake-code input { flex: 1; width: auto; }
   .intake-extra .tag-button { justify-content: center; }
 }
-/* the empty watch list: the sentence on the left, the recommended shades as named swatches on the right */
-.watch-empty { display: grid; gap: 28px; align-items: start; }
-@media (min-width: 1024px) { .watch-empty { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } .watch-swatches { justify-self: end; } }
-.watch-swatches { display: flex; flex-direction: column; gap: 10px; }
-.watch-swatch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 200px)); gap: 14px 18px; padding: 0; margin: 0; list-style: none; }
-.watch-swatch-grid li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink); }
-/* retailer swatches stay small (charter 12) */
-.watch-swatch-grid .swatch { width: 64px; height: 80px; border-radius: 3px; }
+/* the empty watch list: an empty rail, closed by its ring, then the shades recommended so far as shade tags */
+.watch-empty { display: flex; flex-direction: column; gap: 22px; }
+.watch-rail { position: relative; height: 0; margin: 10px 0 6px 7px; border-top: 2px solid var(--steel); }
+.watch-rail::before { content: ""; position: absolute; left: -7px; top: -8px; width: 14px; height: 14px; border: 2px solid var(--steel); border-radius: 50%; background: var(--canvas); }
+.watch-recommended { display: flex; flex-wrap: wrap; gap: 12px 22px; margin: 0; padding: 0; list-style: none; }
+.watch-recommended li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
+
+/* inner pages: room between the short fringe and the page's own heading */
+.fringe-short { margin-bottom: 28px; }
 .intake-code { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
-.intake-code input { width: 230px; min-height: 46px; padding: 0 12px; background: var(--sunk); color: var(--ink); border-radius: 2px; box-shadow: inset 0 0 0 1.5px var(--steel); font-family: var(--font-tag), ui-monospace, monospace; font-size: 14px; letter-spacing: .02em; }
+.intake-code input { width: 260px; min-height: 46px; padding: 0 12px; background: var(--sunk); color: var(--ink); border-radius: 2px; box-shadow: inset 0 0 0 1.5px var(--steel); font-family: var(--font-tag), ui-monospace, monospace; font-size: 14px; letter-spacing: .02em; }
 .intake-code input::placeholder { color: var(--muted); opacity: 1; font-family: var(--font-body), system-ui, sans-serif; letter-spacing: 0; }
 .intake-code input:focus-visible { outline: 2px solid var(--steel); outline-offset: 2px; box-shadow: none; }
 

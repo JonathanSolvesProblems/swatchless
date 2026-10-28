@@ -176,6 +176,7 @@ export function Desk({ hero, latest }: { hero: React.ReactNode; latest?: { id: s
   return (
     <div className="flex flex-col gap-12">
       {hero}
+      <div className="page-measure flex flex-col gap-12">
       <Intake selfie={selfie} headDown={headDown} onSelfie={setSelfie} onHeadDown={setHeadDown} note={note} onNote={setNote} code={code} onCode={setCode} onRun={() => run(false)} onDemo={() => run(true)} running={running} refused={refused} />
       {shown && (
         <section ref={liveRef} aria-label={started ? "This consult" : "The latest consult"} className="flex scroll-mt-6 flex-col gap-6">
@@ -190,6 +191,7 @@ export function Desk({ hero, latest }: { hero: React.ReactNode; latest?: { id: s
           <ConsultView state={shown} />
         </section>
       )}
+      </div>
     </div>
   );
 }
@@ -245,8 +247,8 @@ export function ConsultView({ state }: { state: ConsultState }) {
           )}
         </div>
         <Ring>
-          {/* The selfie hangs first as "As sent" when it completes the row, so the eye reads each render against it. */}
-          {recs.length > 0 && recs.length < 3 && photos?.selfie && <Weft key="as-sent" before={{ image: photos.selfie }} />}
+          {/* The selfie hangs first on the rail as "As sent", so the eye reads each render against it. */}
+          {recs.length > 0 && photos?.selfie && <Weft key="as-sent" before={{ image: photos.selfie }} />}
           {recs.length
             ? recs.map((r) => <Weft key={r.variant_id} rec={r} />)
             : renders.map((s, i) => <Weft key={s.id} pending={{ image: s.images![0], index: i + 1 }} />)}
@@ -275,12 +277,13 @@ export function ConsultView({ state }: { state: ConsultState }) {
             The run stopped: {error}. Whatever finished is above; run it again to finish the shortlist.
           </p>
         )}
-        <Steps steps={steps} thoughts={thoughts} decided={result?.measurements} live={!result && !error} />
       </section>
 
-      <div className="consult-reply">
+      {/* The reply beside the record of how the desk reached it; while the run is live the record has the width. */}
+      <div className="consult-after">
         {result?.message_to_customer && <Reply result={result} savedId={savedId} />}
         {result?.status === "needs_photo" && result.photo_request && <Tag code="Needs a photo">{result.photo_request.reason}</Tag>}
+        <Steps steps={steps} thoughts={thoughts} decided={result?.measurements} live={!result && !error} />
       </div>
     </div>
   );
@@ -364,7 +367,7 @@ function Intake(props: {
         {process.env.NEXT_PUBLIC_CONSULT_CODE_REQUIRED === "1" && (
           <label className="intake-code">
             <span>Access code</span>
-            <input value={props.code} onChange={(e) => props.onCode(e.target.value)} autoComplete="off" spellCheck={false} placeholder="already in the testing-instructions link" />
+            <input value={props.code} onChange={(e) => props.onCode(e.target.value)} autoComplete="off" spellCheck={false} placeholder="already in the testing link" />
           </label>
         )}
         <button type="button" className="tag-button tag-button-ink" onClick={props.onDemo} disabled={props.running}>

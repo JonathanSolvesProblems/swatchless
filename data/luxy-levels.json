@@ -1,0 +1,125 @@
+{
+ "description": "Luxy shades by measured median swatch lightness (CIE L*, centre crop of the store's swatch photo), darkest first. Written by scripts/levels.ts.",
+ "shades": [
+  {
+   "shade": "Off Black",
+   "lightness": 4
+  },
+  {
+   "shade": "Dimensional Rooted Honey Espresso",
+   "lightness": 6
+  },
+  {
+   "shade": "Mocha Brown",
+   "lightness": 6.6
+  },
+  {
+   "shade": "Chocolate Brown",
+   "lightness": 11.5
+  },
+  {
+   "shade": "Dark Brown",
+   "lightness": 11.5
+  },
+  {
+   "shade": "Jet Black",
+   "lightness": 12.7
+  },
+  {
+   "shade": "Mocha Brown Balayage",
+   "lightness": 15.5
+  },
+  {
+   "shade": "Mocha Bronde Balayage",
+   "lightness": 15.5
+  },
+  {
+   "shade": "Dark Gray",
+   "lightness": 17.2
+  },
+  {
+   "shade": "Neutral Brown",
+   "lightness": 17.6
+  },
+  {
+   "shade": "Dark Brown Balayage",
+   "lightness": 18.3
+  },
+  {
+   "shade": "Medium Natural Brown",
+   "lightness": 21.3
+  },
+  {
+   "shade": "Ash Brown Balayage",
+   "lightness": 25.5
+  },
+  {
+   "shade": "Chocolate Brown Balayage",
+   "lightness": 26.3
+  },
+  {
+   "shade": "Ash Brown Highlights",
+   "lightness": 30.3
+  },
+  {
+   "shade": "Chestnut Brown",
+   "lightness": 34.8
+  },
+  {
+   "shade": "Light Gray",
+   "lightness": 36.7
+  },
+  {
+   "shade": "Chestnut Brown Balayage",
+   "lightness": 41
+  },
+  {
+   "shade": "Bronde Balayage",
+   "lightness": 42.7
+  },
+  {
+   "shade": "Natural Red",
+   "lightness": 46.1
+  },
+  {
+   "shade": "Natural Blonde Balayage",
+   "lightness": 50.7
+  },
+  {
+   "shade": "Dimensional Beige Blonde",
+   "lightness": 68.3
+  },
+  {
+   "shade": "Blonde Balayage",
+   "lightness": 68.8
+  },
+  {
+   "shade": "Dimensional Cream Blonde",
+   "lightness": 71
+  },
+  {
+   "shade": "Beige Blonde Balayage",
+   "lightness": 71.9
+  },
+  {
+   "shade": "Dimensional Caramel Honey Blonde Root Melt",
+   "lightness": 76.6
+  },
+  {
+   "shade": "Dimensional Rooted Platinum Pearl Blonde",
+   "lightness": 82.3
+  },
+  {
+   "shade": "Dimensional Buttery Champagne Blonde Root Melt",
+   "lightness": 82.6
+  },
+  {
+   "shade": "Platinum Blonde",
+   "lightness": 84.3
+  },
+  {
+   "shade": "Dimensional Light Golden Blonde Root Melt",
+   "lightness": 87.1
+  }
+ ]
+}

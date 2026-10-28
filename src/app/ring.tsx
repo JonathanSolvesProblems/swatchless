@@ -69,7 +69,8 @@ function Why({ text }: { text: string }) {
       <p id={id} className={open ? "" : "weft-why-clamped"}>
         {text}
       </p>
-      {text.length > 160 && (
+      {/* about three lines at the narrowest tile, so a clamped reason always carries its toggle */}
+      {text.length > 100 && (
         <button type="button" className="text-link" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
           {open ? "Show less" : "Read the rest"}
         </button>
@@ -92,6 +93,8 @@ export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?:
   const alt = before ? "The customer's selfie, as sent" : rec ? `The customer wearing ${rec.title}` : "A render";
   return (
     <li className={`weft ${before ? "weft-before" : ""}`}>
+      {/* Each weft hangs from the shortlist's rail on a short steel line (charter 4). */}
+      <span className="weft-line" aria-hidden />
       <div className="weft-tag">
         {rec ? (
           <>
@@ -115,8 +118,6 @@ export function Weft({ rec, pending, before }: { rec?: Recommendation; pending?:
           <span className="weft-title">Render {pending!.index}</span>
         )}
       </div>
-      {/* The tag hangs from its render on a short steel line (charter 4). */}
-      <span className="weft-line" aria-hidden />
       <figure className={`weft-tail ${rendered ? "" : "weft-tail-swatch"}`}>
         {image && (
           // eslint-disable-next-line @next/next/no-img-element
