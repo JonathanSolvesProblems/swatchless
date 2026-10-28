@@ -23,7 +23,7 @@ DEMO = "/consult/2026-10-27-def4946d"  # a live run on the deployed site: two re
 SHOTS = [
     ("1-hero", "/", None, None, 1500),
     ("2-measured", DEMO, "#customer-h", None, 1140),
-    ("3-reply", DEMO, ".reply", None, 1140),
+    ("3-reply", DEMO, ".weft-ref", None, 1140),  # the render's source, its cart link, then the reply: the reply sits too low on the page to scroll to the top
     ("4-refused", DEMO, ".weft:has(.weft-tail-swatch)", None, 1140),
     ("5-decided", DEMO, ".steps", ".steps > summary", 1200),
     ("6-benchmark", "/benchmark", None, None, 1500),
@@ -32,7 +32,7 @@ SHOTS = [
 ]
 
 CAPTIONS = {
-    "1-hero": "A hair retailer's stylist answers \"which shade matches me?\" with the customer wearing it. The wall: 30 Luxy shades the desk can render.",
+    "1-hero": "A hair retailer's stylist answers \"which shade matches me?\" with the customer wearing it. Above: the 30 Luxy shades it can render.",
     "2-measured": "YouCam reads density at 2.3 of 4 and length as above chest or longer. Claude chooses fill-ins; YouCam renders the shades on the customer.",
     "3-reply": "The reply goes out from the stylist's own mail, with a cart link under each rendered pick. The customer is an AI-generated composite.",
     "4-refused": "What it cannot show, it says: this topper's store photos show a different shade, so the desk shows no render and says why under the swatch.",

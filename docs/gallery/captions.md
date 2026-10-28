@@ -5,7 +5,7 @@ One caption per image. Copy the block contents only.
 ## 1-hero.png
 
 ```
-A hair retailer's stylist answers "which shade matches me?" with the customer wearing it. The wall: 30 Luxy shades the desk can render.
+A hair retailer's stylist answers "which shade matches me?" with the customer wearing it. Above: the 30 Luxy shades it can render.
 ```
 
 ## 2-measured.png
