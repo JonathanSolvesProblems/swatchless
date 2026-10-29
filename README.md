@@ -125,4 +125,15 @@ pnpm test && pnpm check      # gate and catalogue tests; every stated number aga
 `scripts/consult.ts` runs one consult from the command line; `scripts/benchmark.ts` runs the Luxy benchmark, with
 YouCam and with it off.
 
+## Sources
+
+- The $127.50 swatch ring: Luxy Hair, [Color Swatch Ring](https://www.luxyhair.com/products/color-swatch-ring), read 2026-10-29.
+- A week of waiting: Luxy Hair Support, [How long does shipping take?](https://help.luxyhair.com/shipping-policy/how-long-does-shipping-take):
+  up to 1 business day to process, then FedEx Ground 4 to 6 business days in the US.
+- Hair cannot be returned once worn: Luxy Hair Support, [Why are Luxy Hair extensions non-returnable if opened?](https://help.luxyhair.com/exchange-return-policy/why-are-luxy-hair-extensions-non-returnable-if-opened)
+- 973 pieces across three stores: `data/catalog.json`, built by `scripts/ingest.py` from the stores' public product feeds.
+- 13 of 16 on the shortlist, 8 of 16 first pick, 15 of 16 rendered: `data/benchmark/results.json` against
+  `data/benchmark/luxy-truth.json`, checked by `scripts/check_claims.py`. The same file holds the run with YouCam off,
+  where 0 of 16 were rendered.
+
 Built by Jonathan Andrei. More at [jonathansolvesproblems.com](https://jonathansolvesproblems.com).
