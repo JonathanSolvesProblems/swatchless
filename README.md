@@ -8,6 +8,11 @@ Perfect Corp's YouCam hair APIs. Live at [swatchless.jonathansolvesproblems.com]
 the latest consult, the benchmark and the watch list are open to everyone; a live consult spends real API credit, so it
 needs the access code from the submission's testing instructions.
 
+- Demo video (2:16): [youtube.com/watch?v=fz53dS8hB-w](https://www.youtube.com/watch?v=fz53dS8hB-w)
+- Write-up: [How I built Swatchless](https://jonathanandrei.com/blog/swatchless-hair-shade-match-youcam-try-on-claude/)
+
+![The desk: the 30 Luxy shades the desk can render hang from a steel rail, light to dark, with the latest consult's pick tagged](docs/gallery/1-hero.png)
+
 ## The desk at 9:40 on a Monday
 
 Dana (a composite, not a real stylist) answers the "Text a Stylist" line at an online hair retailer. The message that
@@ -33,6 +38,12 @@ topper without a render. The page says why: the only photos the store lists for 
 shade, so a render would have shown the wrong colour. Then it drafted the reply. The home page opens on the latest
 demo run, which may pick differently; the tag hanging from the row of Luxy shades always names that run's first pick.
 
+![What YouCam measured: hair density 2.3 of 4 from the head-down photo, length above chest or longer from the selfie](docs/gallery/2-measured.png)
+
+![The shortlist: the customer as sent, then wearing Off Black and Dark Brown; Espresso Mix shows only its swatch, with the reason there is no render](docs/gallery/4-refused.png)
+
+![The reply in the stylist's voice, with a cart link under each rendered pick](docs/gallery/3-reply.png)
+
 ## Against Luxy's own stylists
 
 Luxy Hair photographs real people before they wear its hair and publishes the shade its stylists put on them. That
@@ -52,6 +63,10 @@ Luxy's shade was on the shortlist for 12 of 16 and the desk could show 0 of 16 w
 8 of 16 with YouCam and with it off. Naming the shade is the model's job; YouCam is what puts that shade on the person
 before they buy hair they cannot return, measures the density that decides fill-ins versus length, and gives the desk
 a render to reject when it changes the face.
+
+![The benchmark page: the shade Luxy's stylists chose was on the desk's shortlist for 13 of 16 people they styled](docs/gallery/6-benchmark.png)
+
+![Person by person: Luxy's before photo, the shade its stylists chose, the desk's pick with YouCam and with YouCam off](docs/gallery/7-table.png)
 
 The truth set, the exclusion rule and every run are committed in `data/benchmark/`. `scripts/check_claims.py` fails
 the build if any number in this README or on the site disagrees with that data.
@@ -93,6 +108,10 @@ What the code decides, and the model cannot talk past (`src/lib/gate.ts`, twelve
 
 An out-of-stock pick is refused and goes on the watch list. A daily job (`/api/watch`) re-reads the store's live
 stock and, when the piece is back, renders it on the customer again and drafts the follow-up (`src/lib/watch.ts`).
+
+![The watch list: the shades a customer is waiting on, re-read against the store's stock every day](docs/gallery/8-watch.png)
+
+![How the desk got there: what YouCam measured, what it could not measure and why, and each step to the shortlist](docs/gallery/5-decided.png)
 
 ## The stores
 
