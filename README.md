@@ -155,4 +155,7 @@ YouCam and with it off.
   `data/benchmark/luxy-truth.json`, checked by `scripts/check_claims.py`. The same file holds the run with YouCam off,
   where 0 of 16 were rendered.
 
+MIT licensed (see `LICENSE`). The code is MIT; product photos and catalogue data belong to the stores, and the demo
+customer's photos are AI-generated.
+
 Built by Jonathan Andrei. More at [jonathansolvesproblems.com](https://jonathansolvesproblems.com).
